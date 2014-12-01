@@ -1,0 +1,95 @@
+.list{
+  position: absolute;
+  background-color: #f5f5f5;
+  top: 200px;
+  overflow: auto;
+  width: 100%;
+  height: calc(100% - 200px);
+  height: 80% \9;
+  float: left;
+  font-size: 14px;
+  transition:         top 0.2s;
+  -webkit-transition: top 0.2s;
+  -moz-transition:    top 0.2s;
+  -o-transition:      top 0.2s;
+  &.no-filter{
+    top: 137px;
+    height: calc(100% - 137px);
+    height: 80% \9;
+    transition:         top 0.2s;
+    -webkit-transition: top 0.2s;
+    -moz-transition:    top 0.2s;
+    -o-transition:      top 0.2s;
+
+  }
+
+  .listheader{
+    line-height: 50px;
+    padding: $base-padding;
+    height: 50px;
+    background-color: #FFF;
+    border-bottom: 1px solid #c8c8c8;
+    font-size: 18px;
+
+    .active{
+      &:after {
+        border-top-color: #e04f2f;
+      }
+    }
+    .reverse {
+
+      &:after {
+        margin-right: 14px;
+        margin-bottom: 10px;
+        @include transform(rotate(-180deg));
+      }
+    }
+
+    span{
+      cursor: pointer;
+
+      &:hover{
+        color: $font-color-orange;
+        @include transition-property(color);
+        @include transition-duration(0.2s);
+      }
+    }
+  }
+
+  .listitem{
+    padding: $base-padding;
+    cursor: pointer;
+    line-height: 50px;
+    height: 50px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #e2e2e2;;
+    width: 100%;
+    float: left;
+
+    .title:hover{
+      text-decoration: underline;
+    }
+    .date{
+      font-weight: bold;
+    }
+    .circ{
+      margin: 15px 5px;
+      width: 25px;
+      line-height: 20px;
+      height: 25px;
+      vertical-align: top;
+
+
+      span{
+        line-height: 20px;
+        font-size: 12px;
+      }
+
+      [class^="icon-"]:before,
+      [class*=" icon-"]:before {
+        line-height: 22px;
+        font-size: 26px;
+      }
+    }
+  }
+}

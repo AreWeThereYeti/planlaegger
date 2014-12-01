@@ -1,0 +1,80 @@
+@import "compass";
+
+@import "reset/reset";
+@import "grid";
+@import "loader";
+@import "components/variables";
+@import "components/fonts";
+@import "components/helpers";
+@import "components/arrow";
+
+//pages
+@import "pages/logs";
+@import "pages/report";
+
+//components
+@import "components/topheader";
+@import "components/animation";
+@import "components/filterbar";
+@import "components/menubar";
+@import "components/list";
+@import "components/circle-icons";
+@import "components/custom-checkbox";
+@import "components/buttons";
+
+@import "directives/dialog";
+@import "directives/datepicker";
+
+
+@import "components/dropdown";
+
+body{
+  background-color: #E9E9E9;
+  font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
+  overflow: hidden;
+}
+
+.collapsable {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  height: 7px;
+  margin-bottom: -3px;
+  transition:         height 0.2s;
+  -webkit-transition: height 0.2s;
+  -moz-transition:    height 0.2s;
+  -o-transition:      height 0.2s;
+/*  .arrow_box{
+    opacity: 0;
+    transition:        opacity 0.2s;
+    -webkit-transition:opacity 0.2s;
+    -moz-transition:   opacity 0.2s;
+    -o-transition:     opacity 0.2s;
+  }*/
+
+}
+.collapsable.showme {
+  height: 75px;
+  line-height: 70px;
+  clear: both;
+  .arrow_box{
+    cursor: pointer;
+    opacity: 1;
+  }
+}
+
+h2{
+  font-size: 30px;
+}
+
+a {
+  color: $font-color-dark;
+  text-decoration: none;
+}
+
+.active{
+  &[class*=" icon-"]:before, a{
+    color: $font-color-orange;
+  }
+  color: $font-color-orange;
+}

@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "ilog";
+  src:url("../fonts/ilog.eot");
+  src:url("../fonts/ilog.eot?#iefix") format("embedded-opentype"),
+      url("../fonts/ilog.woff") format("woff"),
+      url("../fonts/ilog.ttf") format("truetype"),
+      url("../fonts/ilog.svg#ilog") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before {
+  font-family: "ilog" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  vertical-align: top;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "ilog" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  vertical-align: top;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+.icon-bar:before {
+  content: "b";
+}
+.icon-dots:before {
+  content: "d";
+}
+.icon-grid:before {
+  content: "g";
+}
+.icon-line:before {
+  content: "h";
+}
+.icon-logs:before {
+  content: "i";
+}
+.icon-piechart:before {
+  content: "j";
+}
+.icon-reports:before {
+  content: "o";
+}
+.icon-edit:before {
+  content: "e";
+}
+.icon-trash-bin:before {
+  content: "m";
+}
+.icon-speech:before {
+  content: "f";
+}
+.icon-arrow:before {
+  content: "a";
+}
+.icon-disc:before {
+  content: "x";
+}
+.icon-mail:before {
+  content: "c";
+}
+.icon-share-nocirkel:before {
+  content: "q";
+}
+.icon-download:before {
+  content: "r";
+}
+.icon-question:before {
+  content: "n";
+}
+.icon-plus:before {
+  content: "s";
+}
+.icon-filter:before {
+  content: "t";
+}
+.icon-quicklook:before {
+  content: "u";
+}
+.icon-share:before {
+  content: "v";
+}
+.icon-triangle:before {
+  content: "k";
+}
+.icon-triangle-up:before {
+  content: "l";
+}
