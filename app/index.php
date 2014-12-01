@@ -75,6 +75,8 @@ include('php/mads/core.php');
       <script src="scripts/controllers/OverviewCtrl.js"></script>
       <script src="scripts/controllers/MainCtrl.js"></script>
       <script src="scripts/controllers/PlanlaeggerCtrl.js"></script>
+      <script src="scripts/controllers/PlanMenubarCtrl.js"></script>
+
 
     <script src="scripts/controllers/DatePickerCtrl.js"></script>
       <script src="scripts/controllers/DialogCtrl.js"></script>
