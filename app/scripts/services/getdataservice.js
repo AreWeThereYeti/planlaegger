@@ -16,7 +16,7 @@ angular.module('gyldendal.services', [])
           })
             .success(function (data, status, headers, config) {
               if (data) {
-                console.log("error on component data request. component data has not been loaded");
+                console.log(data);
 
 
               }else{

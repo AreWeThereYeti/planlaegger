@@ -22,6 +22,16 @@ var app = angular.module('app', [
         }
       }
     })
+    .when('/planner/:id', {
+      templateUrl: 'views/planlaegger.html',
+      controller: 'PlanlaeggerCtrl',
+      controllerAs: 'Plan',
+      resolve: {
+        entries: function (getdataservice, $route) {
+          return getdataservice.getAllOrganizers($route.current.params);
+        }
+      }
+    })
 }])
 
   .run(['$rootScope','$location', function( $rootScope, $location) {
