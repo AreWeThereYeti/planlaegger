@@ -72,8 +72,7 @@ include('php/mads/core.php');
       <script src="scripts/config.js"></script>
 
       <!--controllers-->
-      <script src="scripts/controllers/LogsOverviewCtrl.js"></script>
-      <script src="scripts/controllers/RapportOverviewCtrl.js"></script>
+      <script src="scripts/controllers/OverviewCtrl.js"></script>
       <script src="scripts/controllers/MainCtrl.js"></script>
       <script src="scripts/controllers/DatePickerCtrl.js"></script>
       <script src="scripts/controllers/DialogCtrl.js"></script>
@@ -91,9 +90,9 @@ include('php/mads/core.php');
       <script src="scripts/filters/reportRangeFilter.js"></script>
 
 
-    <!--directives-->
-      <script src="scripts/directives/datepicker.js"></script>
+      <!--directives-->
       <script src="scripts/directives/dialog.js"></script>
+      <script src="scripts/directives/datepicker.js"></script>
       <script src="scripts/directives/hideFilterDirective.js"></script>
       <script src="scripts/directives/globalCss.js"></script>
       <script src="scripts/directives/angular-spinner.min.js"></script>

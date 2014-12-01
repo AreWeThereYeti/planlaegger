@@ -1,4 +1,4 @@
-angular.module('gyldendal.directives')
+angular.module('gyldendal.directives',[])
 	.directive('dialog',[function() {
 		return {
 			restrict: 'EA',
