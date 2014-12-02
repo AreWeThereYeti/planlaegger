@@ -47,9 +47,9 @@ include('php/mads/core.php');
     </head>
     <body ng-controller="MainCtrl as Main">
 
-    <div class="topheader">
+<!--    <div class="topheader">
       <h1><span class="gyldendal">Gyldendal |</span> <span class="ilog">I-log</span></h1>
-    </div>
+    </div>-->
 
       <!--Spinner-->
       <div ng-show="$root.loadingView == true" class="spinner-backdrop">

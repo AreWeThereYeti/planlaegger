@@ -1,15 +1,15 @@
 <div class="datepicker grid">
   <div class="header">
-    <h1>Opret ny rapport</h1>
+    <h1>Opret ny planlægger</h1>
   </div>
   <div class="content">
-    <h2 class="label">Title</h2>
+    <h2 class="label">Titel</h2>
     <div class="inputcontainer">
       <input type="text" ng-model="title" />
     </div>
     <div class="content-inner">
       <div class="grid">
-        <h2 class="label dato">Dato fra</h2>
+        <h2 class="label dato">Læremiddel</h2>
         <div class="select">
           <div class="select-inner left">
             <div ng-class="{active : $scope.dropDown == 'year'}" class="dropdown_header" ng-click="$scope.dropDown = 'year'">{{fromYear || "År"}}</div>
@@ -26,41 +26,9 @@
             <div ng-show="$scope.dropDown == 'year'" ng-click="$scope.dropDown =''" class="datepicker-overlay"></div>
           </div>
         </div>
-        <div class="select">
-          <div class="select-inner">
-            <div ng-class="{active : $scope.dropDown == 'month'}" class="dropdown_header" ng-click="$scope.dropDown = 'month'">{{fromMonth.month || "Måned"}}</div>
-            <div ng-if="$scope.dropDown == 'month'" ng-class="{dropdown_content : $scope.dropDown == 'month'}" class="animate col-1-8">
-              <ul>
-                <li>
-                  <div class="custom-radio" ng-repeat="month in month" >
-                    <input id="checkfrom{{month.month}}{{$index}}" type="radio" name="check" value="checkfrom{{month.month}}{{$index}}" ng-checked="fromMonth.month == month.month" >
-                    <label for="checkfrom{{month.month}}{{$index}}" ng-click="$parent.$parent.fromMonth = $parent.$parent.month[$index]; $scope.dropDown = ''">{{month.month}}</label>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div ng-show="$scope.dropDown == 'month'" ng-click="$scope.dropDown =''" class="datepicker-overlay"></div>
-          </div>
-        </div>
-        <div class="select">
-          <div class="select-inner right">
-            <div ng-class="{active : $scope.dropDown == 'day'}" class="dropdown_header" ng-click="$scope.dropDown = 'day'">{{fromDay || "Dag"}}</div>
-            <div ng-if="$scope.dropDown == 'day'" ng-class="{dropdown_content : $scope.dropDown == 'day'}" class="animate col-1-8">
-              <ul>
-                <li>
-                  <div class="custom-radio" ng-repeat="day in day" >
-                    <input id="checkfrom{{day}}{{$index}}" type="radio" name="check" value="checkfrom{{day}}{{$index}}" ng-checked="fromDay == day">
-                    <label for="checkfrom{{day}}{{$index}}" ng-click="$parent.$parent.fromDay= $parent.$parent.day[$index]; $scope.dropDown = ''">{{day}}</label>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div ng-show="$scope.dropDown == 'day'" ng-click="$scope.dropDown =''" class="datepicker-overlay"></div>
-          </div>
-        </div>
       </div>
       <div class="grid">
-        <h2 class="label dato">Dato til</h2>
+        <h2 class="label dato">Niveau</h2>
         <div class="select">
           <div class="select-inner left">
             <div ng-class="{active : $scope.dropDown == 'toYear'}" class="dropdown_header" ng-click="$scope.dropDown = 'toYear'">{{toYear || "År"}}</div>
@@ -77,41 +45,9 @@
             <div ng-show="$scope.dropDown == 'toYear'" ng-click="$scope.dropDown =''" class="datepicker-overlay"></div>
           </div>
         </div>
-        <div class="select">
-          <div class="select-inner">
-            <div ng-class="{active : $scope.dropDown == 'toMonth'}" class="dropdown_header" ng-click="$scope.dropDown = 'toMonth'">{{toMonth.month || "Måned"}}</div>
-            <div ng-if="$scope.dropDown == 'toMonth'" ng-class="{dropdown_content : $scope.dropDown == 'toMonth'}" class="animate col-1-8">
-              <ul>
-                <li>
-                  <div class="custom-radio" ng-repeat="month in month" >
-                    <input id="checkto{{month.month}}{{$index}}" type="radio" name="check" value="checkto{{month.month}}{{$index}}" ng-checked="toMonth.month == month.month">
-                    <label for="checkto{{month.month}}{{$index}}" ng-click="$parent.$parent.toMonth= $parent.$parent.month[$index]; $scope.dropDown = ''">{{month.month}}</label>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div ng-show="$scope.dropDown == 'toMonth'" ng-click="$scope.dropDown =''" class="datepicker-overlay"></div>
-          </div>
-        </div>
-        <div class="select">
-          <div class="select-inner right">
-            <div ng-class="{active : $scope.dropDown == 'toDay'}" class="dropdown_header" ng-click="$scope.dropDown = 'toDay'">{{ toDay || "Dag"}}</div>
-            <div ng-show="$scope.dropDown == 'toDay'" ng-class="{dropdown_content : $scope.dropDown == 'toDay'}" class="col-1-8">
-              <ul>
-                <li>
-                  <div class="custom-radio" ng-repeat="day in day" >
-                    <input id="checkto{{day}}{{$index}}" type="radio" name="check" value="checkto{{day}}{{$index}}" ng-checked="toDay == day">
-                    <label for="checkto{{day}}{{$index}}" ng-click="$parent.toDay = $parent.day[$index]; $scope.dropDown = ''">{{day}}</label>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div ng-show="$scope.dropDown == 'toDay'" ng-click="$scope.dropDown =''" class="datepicker-overlay"></div>
-          </div>
-        </div>
       </div>
       <div class="grid">
-        <button class="btn" ng-click="createReport();">Gå Videre</button>
+        <button class="btn" ng-click="createReport();">Opret planlægger</button>
       </div>
     </div>
   </div>
