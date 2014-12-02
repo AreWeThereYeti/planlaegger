@@ -1,0 +1,35 @@
+.plan-content {
+    position: absolute;
+    background-color: #f5f5f5;
+    top: 130px;
+    overflow: auto;
+    width: 100%;
+    height: calc(100% - 130px);
+    height: 80% \9;
+    float: left;
+
+
+
+  .goals {
+    width: 40%;
+    height: 100%;
+    float: left;
+    background-color: #ffffff;
+  }
+
+  .courses {
+    width: 30%;
+    height: 100%;
+
+    float: left;
+    background-color: #f5f5f5;
+  }
+  .selected {
+    width: 30%;
+    height: 100%;
+
+    float: left;
+    background-color: #e9e9e9;
+
+  }
+}

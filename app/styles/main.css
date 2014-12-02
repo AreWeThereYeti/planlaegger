@@ -757,190 +757,37 @@ h1 {
   -webkit-backface-visibility: hidden;
 }
 
-/* line 1, ../sass/pages/_report.scss */
-.report {
-  background-color: #FFF;
-}
-/* line 4, ../sass/pages/_report.scss */
-.report .reportmenu {
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.04);
-  position: relative;
-  z-index: 6;
-}
-/* line 9, ../sass/pages/_report.scss */
-.report .reportsubmenu {
-  padding: 0 25px;
-  line-height: 50px;
-  height: 50px;
-  background-color: #f8f8f8;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
-  position: relative;
-  z-index: 5;
-}
-/* line 18, ../sass/pages/_report.scss */
-.report .reportsubmenu .report-type {
-  float: left;
-  cursor: pointer;
-  padding-right: 20px;
-}
-/* line 23, ../sass/pages/_report.scss */
-.report .reportsubmenu .report-type .icon:before {
-  vertical-align: middle;
-  margin: 0 5px 0 0px;
-  font-size: 20px;
-}
-/* line 31, ../sass/pages/_report.scss */
-.report .report-content {
+/* line 1, ../sass/pages/_planner.scss */
+.plan-content {
+  position: absolute;
+  background-color: #f5f5f5;
+  top: 130px;
   overflow: auto;
   width: 100%;
-  height: calc(100% - 180px);
+  height: calc(100% - 130px);
   height: 80% \9;
-  position: absolute;
-  background-color: white;
-}
-/* line 39, ../sass/pages/_report.scss */
-.report .report-content .d3container {
-  width: 100%;
-  height: 530px;
-}
-/* line 44, ../sass/pages/_report.scss */
-.report .listview {
-  width: 100%;
-  padding: 30px 40px;
-  box-shadow: 0px 2px 6px white;
-}
-/* line 49, ../sass/pages/_report.scss */
-.report .listview span:first-of-type {
-  z-index: 1;
-  padding-right: 1px;
-  border-right: 2px solid #383838;
-}
-/* line 54, ../sass/pages/_report.scss */
-.report .listview span {
-  color: #383838;
-  font-size: 14px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-align: center;
-  text-transform: capitalize;
-  border-right: 1px solid #E5E5E5;
-  min-height: 40px;
-  line-height: 40px;
-  box-sizing: content-box;
-  text-overflow: ellipsis;
-}
-/* line 67, ../sass/pages/_report.scss */
-.report .listview span.calc {
-  color: #e04f2f;
-}
-/* line 74, ../sass/pages/_report.scss */
-.report .list-content {
-  z-index: 0;
-  border-bottom: 1px solid #E5E5E5;
-  margin-top: -1px;
-}
-/* line 78, ../sass/pages/_report.scss */
-.report .list-content:last-of-type {
-  border-bottom: none;
-}
-/* line 82, ../sass/pages/_report.scss */
-.report .list-content span.first {
-  width: 25%;
-  float: left;
-  font-size: 18px;
-  color: #bfbfbf;
-  text-align: right;
-  padding-right: 20px;
-  margin-left: -19px;
-}
-/* line 92, ../sass/pages/_report.scss */
-.report .list-content span.calc {
-  color: #e04f2f;
-  font-size: 14px;
-  text-align: right;
-}
-/* line 98, ../sass/pages/_report.scss */
-.report .list-content span {
-  margin-top: 1px;
-  margin-bottom: -1px;
-}
-/* line 106, ../sass/pages/_report.scss */
-.report .list-head {
-  border-bottom: 2px solid #383838;
-}
-/* line 109, ../sass/pages/_report.scss */
-.report .list-head span {
-  color: #383838;
-  font-weight: bold;
-}
-/* line 113, ../sass/pages/_report.scss */
-.report .list-head span.first {
-  width: 25%;
   float: left;
 }
-/* line 118, ../sass/pages/_report.scss */
-.report .chart-calc {
-  padding: 30px 40px 145px 40px;
+/* line 13, ../sass/pages/_planner.scss */
+.plan-content .goals {
+  width: 40%;
+  height: 100%;
+  float: left;
+  background-color: #ffffff;
 }
-/* line 121, ../sass/pages/_report.scss */
-.report .chart-calc .chart-calc-element {
-  padding-top: 35px;
+/* line 20, ../sass/pages/_planner.scss */
+.plan-content .courses {
+  width: 30%;
+  height: 100%;
+  float: left;
+  background-color: #f5f5f5;
 }
-/* line 123, ../sass/pages/_report.scss */
-.report .chart-calc .chart-calc-element:first-of-type {
-  padding-top: 30px;
-}
-/* line 126, ../sass/pages/_report.scss */
-.report .chart-calc .chart-calc-element :first-child {
-  font-size: 18px;
-  padding-bottom: 10px;
-}
-/* line 130, ../sass/pages/_report.scss */
-.report .chart-calc .chart-calc-element :last-child {
-  font-size: 36px;
-}
-/* line 135, ../sass/pages/_report.scss */
-.report .bar-value {
-  font-size: 18px;
-  color: #e04f2f;
-}
-/* line 139, ../sass/pages/_report.scss */
-.report .bar-label {
-  font-size: 14px;
-}
-/* line 142, ../sass/pages/_report.scss */
-.report .domain-text {
-  font-size: 24px;
-}
-/* line 145, ../sass/pages/_report.scss */
-.report .dot-label {
-  font-size: 14px;
-}
-/* line 150, ../sass/pages/_report.scss */
-.report .axis path,
-.report .axis line {
-  fill: none;
-  stroke: #e5e5e5;
-  stroke-width: 2;
-}
-/* line 158, ../sass/pages/_report.scss */
-.report .legend {
-  top: 61px;
-  overflow: visible;
-  position: relative;
-}
-/* line 163, ../sass/pages/_report.scss */
-.report .legend .legend-head {
-  font-size: 36px;
-}
-/* line 166, ../sass/pages/_report.scss */
-.report .legend .legend-text {
-  font-size: 24px;
-}
-/* line 170, ../sass/pages/_report.scss */
-.report .legend .legend-percent {
-  font-size: 24px;
-  font-weight: bold;
+/* line 27, ../sass/pages/_planner.scss */
+.plan-content .selected {
+  width: 30%;
+  height: 100%;
+  float: left;
+  background-color: #e9e9e9;
 }
 
 /* line 1, ../sass/components/_topheader.scss */
@@ -961,6 +808,30 @@ h1 {
 /* line 11, ../sass/components/_topheader.scss */
 .topheader h1 .ilog {
   color: #e04f2f;
+}
+
+/* line 1, ../sass/components/_toolbar.scss */
+.toolbar {
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  height: 50px;
+  background-color: #dc4320;
+  line-height: 50px;
+  padding: 0 25px;
+  float: left;
+  border-top: 2px solid #b33f26;
+  font-size: 18px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* line 19, ../sass/components/_toolbar.scss */
+.toolbar div {
+  color: white;
 }
 
 /* line 2, ../sass/components/_animation.scss */
@@ -1757,14 +1628,14 @@ h1 {
   padding-bottom: 15px;
 }
 
-/* line 31, ../sass/main.scss */
+/* line 32, ../sass/main.scss */
 body {
   background-color: #E9E9E9;
   font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
   overflow: hidden;
 }
 
-/* line 37, ../sass/main.scss */
+/* line 38, ../sass/main.scss */
 .collapsable {
   display: inline-block;
   overflow: hidden;
@@ -1784,34 +1655,34 @@ body {
     }*/
 }
 
-/* line 56, ../sass/main.scss */
+/* line 57, ../sass/main.scss */
 .collapsable.showme {
   height: 75px;
   line-height: 70px;
   clear: both;
 }
-/* line 60, ../sass/main.scss */
+/* line 61, ../sass/main.scss */
 .collapsable.showme .arrow_box {
   cursor: pointer;
   opacity: 1;
 }
 
-/* line 66, ../sass/main.scss */
+/* line 67, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 70, ../sass/main.scss */
+/* line 71, ../sass/main.scss */
 a {
   color: #383838;
   text-decoration: none;
 }
 
-/* line 75, ../sass/main.scss */
+/* line 76, ../sass/main.scss */
 .active {
   color: #e04f2f;
 }
-/* line 76, ../sass/main.scss */
+/* line 77, ../sass/main.scss */
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;
 }
