@@ -100,6 +100,8 @@ include('php/mads/core.php');
       <script src="scripts/directives/hideFilterDirective.js"></script>
       <script src="scripts/directives/globalCss.js"></script>
       <script src="scripts/directives/angular-spinner.min.js"></script>
+      <script src="scripts/directives/draganddrop.js"></script>
+
 
     </body>
 </html>

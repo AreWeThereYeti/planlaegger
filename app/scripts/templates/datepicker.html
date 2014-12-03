@@ -12,7 +12,7 @@
         <h2 class="label dato">Læremiddel</h2>
         <div class="select">
           <div class="select-inner left">
-            <div ng-class="{active : $scope.dropDown == 'year'}" class="dropdown_header" ng-click="$scope.dropDown = 'year'">{{fromYear || "År"}}</div>
+            <div ng-class="{active : $scope.dropDown == 'year'}" class="dropdown_header" ng-click="$scope.dropDown = 'year'">{{fromYear || "Vælg læremiddel"}}</div>
             <div ng-if="$scope.dropDown == 'year'" ng-class="{dropdown_content : $scope.dropDown == 'year'}" class="animate col-1-8">
               <ul>
                 <li>
@@ -47,7 +47,7 @@
         </div>
       </div>
       <div class="grid">
-        <button class="btn" ng-click="createReport();">Opret planlægger</button>
+        <button class="btn" ng-click="createPlan();">Opret planlægger</button>
       </div>
     </div>
   </div>

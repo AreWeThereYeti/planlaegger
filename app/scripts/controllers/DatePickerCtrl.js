@@ -2,9 +2,9 @@
 
 app.controller('DatePickerCtrl', ['$location', '$rootScope', '$route', 'getdataservice', '$scope','DateService' ,function ($location,$rootScope, $route, getdataservice, $scope, DateService) {
 //	Ctrl uses scope in order to use it in directive
-	$scope.year = DateService.year;
-	$scope.month = DateService.month;
-	$scope.day = DateService.day;
+  $scope.year = DateService.year;
+  $scope.month = DateService.month;
+  $scope.day = DateService.day;
 
 	$scope.update = function(index){
 		$scope.fromYear = $scope.year[index];
@@ -31,7 +31,7 @@ app.controller('DatePickerCtrl', ['$location', '$rootScope', '$route', 'getdatas
     //If both are defined as well as report title, contact server
 		if(angular.isDefined($scope.dateTo && $scope.dateFrom && $scope.title)){
       //ready report
-      var reportData = {
+      var planData = {
         "title": $scope.title,
         "data":
           {
