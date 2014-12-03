@@ -1,5 +1,5 @@
 <?php
-include('php/mads/core.php');
+include('php/core.php');
 
 ?>
 

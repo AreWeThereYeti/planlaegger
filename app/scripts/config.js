@@ -28,8 +28,8 @@ var app = angular.module('app', [
       controller: 'PlanlaeggerCtrl',
       controllerAs: 'Plan',
       resolve: {
-        entries: function (getdataservice, $route) {
-          return getdataservice.getAllOrganizers($route.current.params);
+        planner: function (getdataservice, $route) {
+          return getdataservice.getOrganizer($route.current.params);
         }
       }
     })

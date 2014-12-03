@@ -23,7 +23,7 @@
           <span class="date" ng-class="{active : Overview.predicate == 'timestamp'}">dato</span>
         </span>
         <span  class="col-1-8" ng-class="{'active' : Overview.predicate == 'id'}">
-          <a ng-href=""><span class="title">titel</span></a>
+          <a ng-href="#/planner/{{entry.objectID}}"><span class="title">{{entry.title}}</span></a>
         </span>
         <span class="col-1-8">
           Læremiddel
@@ -43,5 +43,11 @@
             </span>
           </div>
         </span>
+    </div>
+    <div class="no-list-items" ng-hide="Overview.entries">
+      <ul>
+        <li>Der er ikke oprettet nogen planlæggere.</li>
+        <li>Klik på plusset i øverste højre hjørne for at tilføje en ny planlægger</li>
+      </ul>
     </div>
 </div>

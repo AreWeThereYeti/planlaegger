@@ -1192,6 +1192,15 @@ h1 {
   line-height: 22px;
   font-size: 26px;
 }
+/* line 96, ../sass/components/_list.scss */
+.list .no-list-items {
+  color: #999999;
+  padding-top: 220px;
+  font-size: 24px;
+  font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
+  line-height: 49px;
+  text-align: center;
+}
 
 /* line 3, ../sass/components/_circle-icons.scss */
 .circ {

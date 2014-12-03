@@ -5,7 +5,6 @@ app.controller('PlanMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope
   var PlanMenubar = this;
 
   //Test variable. If you see it when the app runs you are good to go
-  PlanMenubar.testVar = 'This is data from the menubar!';
 
 
 

@@ -12,7 +12,31 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'GET',
-            url: 'php/mads/getOrganizers.php?userID=' + userID /*+ $location.search().userID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+            url: 'php/getOrganizers.php?userID=' + userID /*+ $location.search().userID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+          })
+            .success(function (data, status, headers, config) {
+              if (data) {
+                console.log(data);
+
+
+              }else{
+                console.log("error on organizer data request. component data has not been loaded");
+              }
+            });
+
+          return promise;
+        },
+        getOrganizer: function(params){
+
+          var objectID = params.id ;
+
+          var promise = $http({
+            cache: false,
+            headers: {
+              'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            method: 'GET',
+            url: 'php/getOrganizer.php?objectID=' + objectID /*+ $location.search().userID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
           })
             .success(function (data, status, headers, config) {
               if (data) {
@@ -71,7 +95,7 @@ angular.module('gyldendal.services', [])
                 'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
               },
               method: 'GET',
-              url: 'php/mads/deleteEntry.php?componentID=' + '540025f23c5b5a07d0570c53' /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+              url: 'php/deleteEntry.php?componentID=' + '540025f23c5b5a07d0570c53' /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
               })
               .success(function (data, status, headers, config) {
               if (data.Content !== null) {
@@ -95,7 +119,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'GET',
-            url: 'php/mads/getLatestEntry.php?userID=' + UserID + '&componentID=' + ComponentID /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+            url: 'php/getLatestEntry.php?userID=' + UserID + '&componentID=' + ComponentID /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
             })
             .success(function (data, status, headers, config) {
             if (data.Content !== null) {
@@ -131,7 +155,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'POST',
-            url: 'php/mads/addEntry.php',
+            url: 'php/addEntry.php',
             data: angular.toJson(request)
           })
             .success(function (data, status, headers, config) {
@@ -165,7 +189,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'POST',
-            url: 'php/mads/updateEntry.php',
+            url: 'php/updateEntry.php',
             data: angular.toJson(request)
           })
             .success(function (data, status, headers, config) {
@@ -191,7 +215,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'POST',
-            url: 'php/mads/deleteEntry.php',
+            url: 'php/deleteEntry.php',
             data: angular.toJson(request)
           })
             .success(function (data, status, headers, config) {
