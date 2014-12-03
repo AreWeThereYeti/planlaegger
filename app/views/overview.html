@@ -20,7 +20,7 @@
     <!--item in logs-->
     <div class="listitem animate" ng-repeat="entry in Overview.entries | logRange:Overview.filterRange |orderBy:Overview.predicate:!reverse">
         <span class="col-1-8">
-          <span class="date" ng-class="{active : Overview.predicate == 'timestamp'}">dato</span>
+          <span class="date" ng-class="{active : Overview.predicate == 'timestamp'}">{{entry.created * 1000 | date:'dd-MM-yyyy'}}</span> <!--multiply with 1000 to get convert from unix time-->
         </span>
         <span  class="col-1-8" ng-class="{'active' : Overview.predicate == 'id'}">
           <a ng-href="#/planner/{{entry.objectID}}"><span class="title">{{entry.title}}</span></a>
