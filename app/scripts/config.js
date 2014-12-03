@@ -6,7 +6,8 @@ var app = angular.module('app', [
   'gyldendal.services',
   'gyldendal.directives',
   'gyldendal.filters',
-  'angularSpinner'
+  'angularSpinner',
+  'ang-drag-drop'
 ])
 
 .config(['$routeProvider', '$locationProvider' ,function ($routeProvider, $locationProvider) {
