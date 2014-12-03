@@ -12,18 +12,18 @@
         <h2 class="label dato">Læremiddel</h2>
         <div class="select">
           <div class="select-inner left">
-            <div ng-class="{active : $scope.dropDown == 'year'}" class="dropdown_header" ng-click="$scope.dropDown = 'year'">{{fromYear || "Vælg læremiddel"}}</div>
-            <div ng-if="$scope.dropDown == 'year'" ng-class="{dropdown_content : $scope.dropDown == 'year'}" class="animate col-1-8">
+            <div ng-class="{active : $scope.dropDown == 'laeremiddel'}" class="dropdown_header" ng-click="$scope.dropDown = 'laeremiddel'">{{valgtLaeremiddel || "Vælg læremiddel"}}</div>
+            <div ng-if="$scope.dropDown == 'laeremiddel'" ng-class="{dropdown_content : $scope.dropDown == 'laeremiddel'}" class="animate col-1-8">
               <ul>
                 <li>
-                  <div class="custom-radio" ng-repeat="year in year" >
-                    <input id="checkfrom{{$paret.$paret.year}}{{$index}}" type="radio" name="check" value="checkfrom{{$paret.$paret.year}}{{$index}}" ng-checked="fromYear == year">
-                    <label for="checkfrom{{$paret.$paret.year}}{{$index}}" ng-click="$parent.$parent.fromYear = $parent.$parent.year[$index]; $scope.dropDown = ''">{{year}}</label>
+                  <div class="custom-radio" ng-repeat="laeremiddel in laeremidler" >
+                    <input id="checkfrom{{$paret.$paret.laeremiddel}}{{$index}}" type="radio" name="check" value="checkfrom{{$paret.$paret.laeremiddel}}{{$index}}" ng-checked="laeremiddel == valgtLaeremiddel">
+                    <label for="checkfrom{{$paret.$paret.laeremiddel}}{{$index}}" ng-click="$parent.$parent.valgtLaeremiddel = $parent.$parent.laeremidler[$index]; $scope.dropDown = ''">{{laeremiddel}}</label>
                   </div>
                 </li>
               </ul>
             </div>
-            <div ng-show="$scope.dropDown == 'year'" ng-click="$scope.dropDown =''" class="datepicker-overlay"></div>
+            <div ng-show="$scope.dropDown == 'laeremiddel'" ng-click="$scope.dropDown =''" class="datepicker-overlay"></div>
           </div>
         </div>
       </div>
@@ -31,23 +31,23 @@
         <h2 class="label dato">Niveau</h2>
         <div class="select">
           <div class="select-inner left">
-            <div ng-class="{active : $scope.dropDown == 'toYear'}" class="dropdown_header" ng-click="$scope.dropDown = 'toYear'">{{toYear || "År"}}</div>
-            <div ng-if="$scope.dropDown == 'toYear'" ng-class="{dropdown_content : $scope.dropDown == 'toYear'}" class="animate col-1-8">
+            <div ng-class="{active : $scope.dropDown == 'niveau'}" class="dropdown_header" ng-click="$scope.dropDown = 'niveau'">{{valgtNiveau || "Vælg niveau"}}</div>
+            <div ng-if="$scope.dropDown == 'niveau'" ng-class="{dropdown_content : $scope.dropDown == 'niveau'}" class="animate col-1-8">
               <ul>
                 <li>
-                  <div class="custom-radio" ng-repeat="year in year" >
-                    <input id="checkto{{year}}{{$index}}" type="radio" name="check" value="checkto{{year}}{{$index}}" ng-checked="toYear == year">
-                    <label for="checkto{{year}}{{$index}}" ng-click="$parent.$parent.toYear= $parent.$parent.year[$index]; $scope.dropDown = ''">{{year}}</label>
+                  <div class="custom-radio" ng-repeat="niv in niveau" >
+                    <input id="checkto{{niv}}{{$index}}" type="radio" name="check" value="checkto{{year}}{{$index}}" ng-checked="valgtNiveau == niv">
+                    <label for="checkto{{niv}}{{$index}}" ng-click="$parent.$parent.valgtNiveau= $parent.$parent.niveau[$index]; $scope.dropDown = ''">{{niv}}</label>
                   </div>
                 </li>
               </ul>
             </div>
-            <div ng-show="$scope.dropDown == 'toYear'" ng-click="$scope.dropDown =''" class="datepicker-overlay"></div>
+            <div ng-show="$scope.dropDown == 'niveau'" ng-click="$scope.dropDown =''" class="datepicker-overlay"></div>
           </div>
         </div>
       </div>
       <div class="grid">
-        <button class="btn" ng-click="createPlan();">Opret planlægger</button>
+        <button class="btn" ng-click="createPlanner();">Opret planlægger</button>
       </div>
     </div>
   </div>

@@ -1525,12 +1525,13 @@ h1 {
 }
 /* line 130, ../sass/directives/_datepicker.scss */
 .datepicker .content .btn, .error .content .btn, .share .content .btn {
+  background-color: #dc4320;
   font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
   font-size: 18px;
   margin: 25px 0;
   float: right;
 }
-/* line 137, ../sass/directives/_datepicker.scss */
+/* line 138, ../sass/directives/_datepicker.scss */
 .datepicker .datepicker-overlay, .error .datepicker-overlay, .share .datepicker-overlay {
   position: fixed;
   top: 0;

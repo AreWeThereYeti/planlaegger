@@ -6,7 +6,7 @@ app.controller('DialogCtrl', [ '$rootScope', function ($rootScope) {
 
 	Dialog.openFormularDialog = function(){
 
-	}
+	};
 
 	Dialog.closeDialog = function(){
 		if($rootScope.dialog != ''){
