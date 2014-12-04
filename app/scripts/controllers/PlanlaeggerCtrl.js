@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('PlanlaeggerCtrl', [ '$timeout', 'planner', '$rootScope', '$location', 'getdataservice', '$scope', '$route', function ($timeout, planner, $rootScope, $location, getdataservice, $scope, $route) {
+app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$location', 'getdataservice', '$scope', '$route', function (plannerData, planner, $rootScope, $location, getdataservice, $scope, $route) {
 
   //Save reference to controller in order to avoid reference soup
   var Plan = this;
@@ -8,5 +8,6 @@ app.controller('PlanlaeggerCtrl', [ '$timeout', 'planner', '$rootScope', '$locat
   // current planner
   Plan.current = planner.data;
 
+  Plan.plandata = angular.fromJson(plannerData.data);
 
 }]);

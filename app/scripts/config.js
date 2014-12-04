@@ -30,6 +30,9 @@ var app = angular.module('app', [
       resolve: {
         planner: function (getdataservice, $route) {
           return getdataservice.getOrganizer($route.current.params);
+        },
+        plannerData: function (getdataservice, $route) {
+          return getdataservice.getPanner($route.current.params);
         }
       }
     })

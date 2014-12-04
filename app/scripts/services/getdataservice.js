@@ -50,6 +50,22 @@ angular.module('gyldendal.services', [])
 
           return promise;
         },
+        getPanner: function() {
+
+          var promise = $http.get('testjson/geografi7-9.json')
+
+            .success(function (data, status, headers, config) {
+              if (data) {
+                console.log(angular.fromJson(data));
+
+
+              }else{
+                console.log("error on plannerservice data request. planner data has not been loaded");
+              }
+            });
+
+          return promise;
+        },
 
         loadComponent: function() {
 
