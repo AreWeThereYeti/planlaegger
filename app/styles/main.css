@@ -873,10 +873,11 @@ h1 {
   height: 50px;
   background-color: #dc4320;
   line-height: 50px;
-  padding: 0 25px;
   float: left;
   border-top: 2px solid #b33f26;
   font-size: 18px;
+  font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
+  color: white;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -884,9 +885,57 @@ h1 {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 19, ../sass/components/_toolbar.scss */
-.toolbar div {
-  color: white;
+/* line 21, ../sass/components/_toolbar.scss */
+.toolbar .goals {
+  width: 40%;
+  padding: 0 25px;
+  float: left;
+}
+/* line 25, ../sass/components/_toolbar.scss */
+.toolbar .goals .toolbar-clear {
+  color: #f5f5f5;
+  opacity: 0.55;
+  font-size: 14px;
+}
+/* line 29, ../sass/components/_toolbar.scss */
+.toolbar .goals .toolbar-clear:before {
+  padding: 5px;
+  content: 'X';
+}
+/* line 36, ../sass/components/_toolbar.scss */
+.toolbar .courses {
+  width: 30%;
+  padding: 0 25px;
+  float: left;
+}
+/* line 41, ../sass/components/_toolbar.scss */
+.toolbar .selected {
+  width: 30%;
+  padding: 0 25px;
+  float: left;
+  font-weight: bold;
+}
+/* line 46, ../sass/components/_toolbar.scss */
+.toolbar .selected ul {
+  width: 100%;
+}
+/* line 48, ../sass/components/_toolbar.scss */
+.toolbar .selected ul li {
+  display: inline-block;
+  float: left;
+}
+/* line 52, ../sass/components/_toolbar.scss */
+.toolbar .selected ul li:last-of-type {
+  float: right;
+}
+/* line 56, ../sass/components/_toolbar.scss */
+.toolbar .selected .count {
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 2px 6px;
+  vertical-align: top;
 }
 
 /* line 2, ../sass/components/_animation.scss */

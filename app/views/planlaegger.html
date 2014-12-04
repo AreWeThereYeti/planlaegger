@@ -1,6 +1,26 @@
 <div ng-controller="PlanMenubarCtrl as PlanMenubar" class="menubar" ng-include="'scripts/templates/planmenubar.html'"></div>
 
-<div class="toolbar"></div>
+<div ng-controller="ToolbarCtrl as Toolbar" class="toolbar">
+  <div class="goals">
+    <span class="toolbar-head">Mål</span>
+    <span class="float-right toolbar-clear">Ryd alle</span>
+  </div>
+  <div class="courses">
+    <span class="toolbar-head">Forløb</span>
+
+  </div>
+  <div class="selected">
+    <ul>
+      <li class="toolbar-head">Dine valgte forløb</li>
+      <li>
+        <span class="count">6</span>
+      </li>
+    </ul>
+   <!-- <span class="toolbar-head">Dine valgte forløb</span>
+    <span class="count float-right">6</span>-->
+  </div>
+</div>
+
 
 <div class="plan-content">
   <div class="goals">

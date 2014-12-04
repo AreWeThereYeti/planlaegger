@@ -5,10 +5,11 @@
   height: 50px;
   background-color: #dc4320;
   line-height: 50px;
-  padding: $base-padding;
   float: left;
   border-top: 2px solid #b33f26;
   font-size: 18px;
+  font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
+  color: white;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -16,7 +17,49 @@
   -ms-user-select: none;
   user-select: none;
 
-  div {
-    color: white;
+
+  .goals{
+    width: 40%;
+    padding: $base-padding;
+    float:left;
+    .toolbar-clear{
+      color: #f5f5f5;
+      opacity: 0.55;
+      font-size: 14px;
+      &:before{
+        padding: 5px;
+        // needs correct icon here...
+        content: 'X';
+      }
+    }
+  }
+  .courses{
+    width: 30%;
+    padding: $base-padding;
+    float:left;
+  }
+  .selected{
+    width: 30%;
+    padding: $base-padding;
+    float: left;
+    font-weight: bold;
+    ul{
+      width: 100%;
+      li{
+        display: inline-block;
+        float: left;
+      }
+      li:last-of-type{
+        float: right;
+      }
+    }
+    .count{
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: normal;
+      padding: 2px 6px;
+      vertical-align: top;
+    }
   }
 }
