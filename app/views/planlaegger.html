@@ -25,7 +25,7 @@
 <div class="plan-content">
   <div class="goals">
     <div class="goal-container"  ng-repeat="elem in Plan.plandata.planlaegger.kompetenceomraader.kompetenceomraade">
-      <div class="head" ng-click="Plan.activeGoal = $index; Plan.activeSubGoal = '' " ng-class="{active: Plan.activeGoal == $index}">{{elem.value}}</div>
+      <div class="head" ng-click="Plan.activeGoal = $index; Plan.activeSubGoal = '';" ng-class="{active: Plan.activeGoal == $index}">{{elem.value}}</div>
       <div class="goal-content" ng-show="Plan.activeGoal == $index">
         <ul>
           <li  ng-repeat="subelem in elem.faerdighedsOgVidensmaalPLURALIS.faerdighedsOgvidensmaalSINGULARIS">

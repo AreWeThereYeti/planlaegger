@@ -771,7 +771,7 @@ h1 {
 }
 /* line 13, ../sass/pages/_planner.scss */
 .plan-content .goals {
-  overflow-y: auto;
+  overflow-y: scroll;
   width: 40%;
   height: 100%;
   float: left;
