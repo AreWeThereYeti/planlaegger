@@ -10,4 +10,26 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
 
   Plan.plandata = angular.fromJson(plannerData.data);
 
+
+  Plan.dropdownDummyData = ['element1','element2','element3','element4','element5','element6']
+  Plan.levels = Plan.dropdownDummyData;
+  Plan.courses = Plan.dropdownDummyData;
+
+
+// angular drag drop test
+
+  Plan.selected= [];
+
+  Plan.addText = "";
+
+
+  Plan.dropSuccessHandler = function($event,index,array){
+    console.log(index);
+  };
+
+  Plan.onDrop = function($event,$data,array){
+    alert($data);
+  };
+
+
 }]);

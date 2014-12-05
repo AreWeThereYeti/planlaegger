@@ -24,6 +24,7 @@ include('php/core.php');
           <script>
             document.createElement('ng-include');
             document.createElement('ng-pluralize');
+            document.createElement('ng-pluralize');
           </script>
 
       <![endif]-->
@@ -42,6 +43,7 @@ include('php/core.php');
 
 
       <link rel="stylesheet" href="styles/main.css" />
+      <link rel="stylesheet" href="styles/ionicons.min.css" />
 
 
     </head>
@@ -80,7 +82,7 @@ include('php/core.php');
 
 
 
-    <script src="scripts/controllers/DatePickerCtrl.js"></script>
+      <script src="scripts/controllers/DatePickerCtrl.js"></script>
       <script src="scripts/controllers/DialogCtrl.js"></script>
 
       <!--Component/template controllers-->

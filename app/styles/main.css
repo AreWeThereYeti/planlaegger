@@ -784,20 +784,25 @@ h1 {
   padding: 25px;
   float: left;
   background-color: #f5f5f5;
+  overflow-y: scroll;
 }
-/* line 28, ../sass/pages/_planner.scss */
+/* line 31, ../sass/pages/_planner.scss */
 .plan-content .dropdown {
   padding-bottom: 25px;
 }
-/* line 31, ../sass/pages/_planner.scss */
+/* line 34, ../sass/pages/_planner.scss */
 .plan-content .selected {
   width: 30%;
   height: 100%;
   padding: 25px;
   float: left;
-  background-color: #fafafa;
+  background-color: #ffffff;
 }
 /* line 40, ../sass/pages/_planner.scss */
+.plan-content .selected.on-drag-hover {
+  background-color: #fafafa;
+}
+/* line 45, ../sass/pages/_planner.scss */
 .plan-content .plan-overlay {
   position: fixed;
   top: 0;
@@ -810,12 +815,12 @@ h1 {
   height: 100%;
   -webkit-backface-visibility: hidden;
 }
-/* line 55, ../sass/pages/_planner.scss */
+/* line 60, ../sass/pages/_planner.scss */
 .plan-content .select-inner {
   margin: 0;
   border-bottom: 2px solid #000;
 }
-/* line 59, ../sass/pages/_planner.scss */
+/* line 64, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_content {
   max-height: 300px;
   width: calc(30% - 20px);
@@ -823,17 +828,17 @@ h1 {
   overflow: auto;
   font-size: 18px;
 }
-/* line 66, ../sass/pages/_planner.scss */
+/* line 71, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_header {
   line-height: 32px;
   font-size: 18px;
 }
-/* line 69, ../sass/pages/_planner.scss */
+/* line 74, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_header.active {
   line-height: 32px;
   background-color: white;
 }
-/* line 74, ../sass/pages/_planner.scss */
+/* line 79, ../sass/pages/_planner.scss */
 .plan-content .select-inner select {
   background-color: rgba(0, 0, 0, 0);
   outline: 0;
@@ -938,6 +943,42 @@ h1 {
   padding-bottom: 0;
 }
 
+/* line 1, ../sass/components/_course-container.scss */
+.course-container {
+  height: 40px;
+  padding-left: 15px;
+  margin-bottom: 25px;
+  font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 40px;
+  color: #383838;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+  /*  .course-icon:after{
+      padding-right: 5px;
+      font-family: Ionicons;
+      font-size: 40px;
+      content: '\f13f';
+      float:right;
+    }*/
+}
+/* line 13, ../sass/components/_course-container.scss */
+.course-container:hover {
+  background-color: #ffffff;
+}
+/* line 15, ../sass/components/_course-container.scss */
+.course-container:hover .course-icon {
+  color: #dc4320;
+}
+/* line 21, ../sass/components/_course-container.scss */
+.course-container .course-icon {
+  position: relative;
+  right: 5px;
+  padding-right: 5px;
+  font-size: 40px;
+  float: right;
+}
+
 /* line 1, ../sass/components/_topheader.scss */
 .topheader {
   height: 50px;
@@ -993,35 +1034,36 @@ h1 {
 /* line 29, ../sass/components/_toolbar.scss */
 .toolbar .goals .toolbar-clear:before {
   padding: 5px;
-  content: 'X';
+  font-family: Ionicons;
+  content: '\f12a';
 }
-/* line 36, ../sass/components/_toolbar.scss */
+/* line 37, ../sass/components/_toolbar.scss */
 .toolbar .courses {
   width: 30%;
   padding: 0 25px;
   float: left;
 }
-/* line 41, ../sass/components/_toolbar.scss */
+/* line 42, ../sass/components/_toolbar.scss */
 .toolbar .selected {
   width: 30%;
   padding: 0 25px;
   float: left;
   font-weight: bold;
 }
-/* line 46, ../sass/components/_toolbar.scss */
+/* line 47, ../sass/components/_toolbar.scss */
 .toolbar .selected ul {
   width: 100%;
 }
-/* line 48, ../sass/components/_toolbar.scss */
+/* line 49, ../sass/components/_toolbar.scss */
 .toolbar .selected ul li {
   display: inline-block;
   float: left;
 }
-/* line 52, ../sass/components/_toolbar.scss */
+/* line 53, ../sass/components/_toolbar.scss */
 .toolbar .selected ul li:last-of-type {
   float: right;
 }
-/* line 56, ../sass/components/_toolbar.scss */
+/* line 57, ../sass/components/_toolbar.scss */
 .toolbar .selected .count {
   border: 2px solid #ffffff;
   border-radius: 50%;
@@ -1828,14 +1870,14 @@ h1 {
   padding-bottom: 15px;
 }
 
-/* line 33, ../sass/main.scss */
+/* line 34, ../sass/main.scss */
 body {
   background-color: #E9E9E9;
   font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
   overflow: hidden;
 }
 
-/* line 39, ../sass/main.scss */
+/* line 40, ../sass/main.scss */
 .collapsable {
   display: inline-block;
   overflow: hidden;
@@ -1855,34 +1897,34 @@ body {
     }*/
 }
 
-/* line 58, ../sass/main.scss */
+/* line 59, ../sass/main.scss */
 .collapsable.showme {
   height: 75px;
   line-height: 70px;
   clear: both;
 }
-/* line 62, ../sass/main.scss */
+/* line 63, ../sass/main.scss */
 .collapsable.showme .arrow_box {
   cursor: pointer;
   opacity: 1;
 }
 
-/* line 68, ../sass/main.scss */
+/* line 69, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 72, ../sass/main.scss */
+/* line 73, ../sass/main.scss */
 a {
   color: #383838;
   text-decoration: none;
 }
 
-/* line 77, ../sass/main.scss */
+/* line 78, ../sass/main.scss */
 .active {
   color: #e04f2f;
 }
-/* line 78, ../sass/main.scss */
+/* line 79, ../sass/main.scss */
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;
 }

@@ -87,8 +87,13 @@
         </div>
       </div>
     </div>
+
+    <div class="course-container" ui-draggable="true" drag-channel="courses" on-drop-success="Plan.dropSuccessHandler($event,$index,Plan.selected)" drag="course" ng-repeat="course in Plan.courses">
+      <span class="course-title">{{course}}</span>
+      <span class="course-icon icon ion-grid"></span>
+    </div>
   </div>
 
-  <div class="selected">
+  <div class="selected" ui-on-Drop="Plan.onDrop($event,$data,Plan.selected)" drop-channel="courses">
   </div>
 </div>

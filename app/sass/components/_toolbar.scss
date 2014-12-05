@@ -29,7 +29,8 @@
       &:before{
         padding: 5px;
         // needs correct icon here...
-        content: 'X';
+        font-family: Ionicons;
+        content: '\f12a';
       }
     }
   }
