@@ -60,12 +60,13 @@
 
 
       }
-      .icon-trash-bin{
+      .icon-trash:before{
         float: right;
-        font-size: 30px;
+        font-family: ilog;
+        font-size: 22px;
+        content: 'D';
         padding-right: 10px;
         line-height: 40px;
-        padding-top: 5px;
       }
     }
 
