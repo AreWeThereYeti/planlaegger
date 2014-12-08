@@ -30,7 +30,26 @@
         position: relative;
       }
     }
-
+    .export-plan{
+      .arrow_box:after{
+        border-top-color: transparent;
+        border-bottom-color: #000000;
+        margin-top: -2px;
+        left: 350px;
+        position: relative;
+      }
+    }
+    &.export-dialog{
+      left: calc(100% - 410px);
+      right: 12px \9;// needs better IE8 fix
+      z-index: 1000;
+      position: absolute;
+      width: 400px;
+      -webkit-backface-visibility: hidden;
+      float: right;
+      top: 64px;
+      text-align: left;
+    }
   }
 
   .third{

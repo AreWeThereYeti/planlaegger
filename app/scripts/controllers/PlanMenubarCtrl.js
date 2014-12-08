@@ -4,8 +4,14 @@ app.controller('PlanMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope
   //Save reference to controller in order to avoid reference soup
   var PlanMenubar = this;
 
-  //Test variable. If you see it when the app runs you are good to go
-
+  PlanMenubar.exportPlan = function () {
+    if($rootScope.dialog == 'export plan'){
+      $rootScope.dialog = '';
+    }
+    else{
+      $rootScope.dialog = 'export plan';
+    }
+  };
 
 
 }]);
