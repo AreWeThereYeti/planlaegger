@@ -13,7 +13,7 @@
     <ul>
       <li class="toolbar-head">Dine valgte forløb</li>
       <li>
-        <span class="count">6</span>
+        <div class="count">{{Plan.selected.length}}</div>
       </li>
     </ul>
    <!-- <span class="toolbar-head">Dine valgte forløb</span>
@@ -63,9 +63,13 @@
           <div ng-if="Plan.dropDown == 'level'" ng-class="{dropdown_content : Plan.dropDown == 'level'}" class="animate col-1-8">
             <ul>
               <li>
+                <div class="custom-radio" >
+                  <input id="course-dropdown-allLevels" type="radio" name="check" value="" ng-checked="Plan.selectedLevel == 'Alle klassetrin'">
+                  <label for="course-dropdown-allLevels" ng-click="Plan.selectedLevel = 'Alle klassetrin'; Plan.dropDown = ''">Alle klassetrin</label>
+                </div>
                 <div class="custom-radio" ng-repeat="option in Plan.levels" >
                   <input id="level-dropdown{{$index}}" type="radio" name="check" value="Plan-checkfrom-{{input.id}}{{$index}}" ng-checked="Plan.selectedLevel == option">
-                  <label for="level-dropdown{{$index}}" ng-click="Plan.selectedLevel = Plan.levels[$index]; Plan.dropDown = ''">{{option}}</label>
+                  <label for="level-dropdown{{$index}}" ng-click="Plan.selectedLevel = Plan.levels[$index]; Plan.dropDown = ''">{{option}}. Klasse</label>
                 </div>
               </li>
             </ul>
@@ -81,7 +85,11 @@
           <div ng-if="Plan.dropDown == 'course'" ng-class="{dropdown_content : Plan.dropDown == 'course'}" class="animate col-1-8">
             <ul>
               <li>
-                <div class="custom-radio" ng-repeat="option in Plan.courses" >
+                <div class="custom-radio" >
+                  <input id="course-dropdown-all" type="radio" name="check" value="" ng-checked="Plan.selectedCourse == 'Alle forløb'">
+                  <label for="course-dropdown-all" ng-click="Plan.selectedCourse = 'Alle forløb'; Plan.dropDown = ''">Alle forløb</label>
+                </div>
+                <div class="custom-radio" ng-repeat="option in Plan.dropdownDummyData" >
                   <input id="course-dropdown{{$index}}" type="radio" name="check" value="Plan-checkfrom-{{input.id}}{{$index}}" ng-checked="Plan.selectedCourse == option">
                   <label for="course-dropdown{{$index}}" ng-click="Plan.selectedCourse = Plan.courses[$index]; Plan.dropDown = ''">{{option}}</label>
                 </div>
@@ -94,7 +102,7 @@
     </div>
 
     <div class="course-container" ui-draggable="true" drag-channel="courses" on-drop-success="Plan.dropSuccessHandler($event,$index,Plan.selected)" drag="course" ng-repeat="course in Plan.courses">
-      <span class="course-title">{{course}}</span>
+      <span class="course-title">{{course.value}}</span>
       <span class="course-icon icon ion-grid"></span>
     </div>
   </div>
@@ -102,12 +110,12 @@
   <div class="selected" ng-class="{empty: !Plan.selected.length}" ui-on-Drop="Plan.onDrop($event,$data,Plan.selected)" drop-channel="courses">
     <div class="planner-title" >
       <input type="text" placeholder="Vælg forløbstitel" ng-model="Plan.pannerTitle">
-      <span class="icon-trash"></span>
+      <span class="icon-trash" ng-click="Plan.clearSelected()"></span>
 
     </div>
 
     <div class="course-container" ng-repeat="course in Plan.selected track by $index">
-      <span class="course-title">{{course}}</span>
+      <span class="course-title">{{course.value}}</span>
       <span class="course-icon icon ion-grid"></span>
     </div>
   </div>
