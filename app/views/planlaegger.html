@@ -25,7 +25,12 @@
 <div class="plan-content">
   <div class="goals">
     <div class="goal-container"  ng-repeat="elem in Plan.plandata.planlaegger.kompetenceomraader.kompetenceomraade">
-      <div class="head" ng-click="Plan.activeGoal = $index; Plan.activeSubGoal = '';" ng-class="{active: Plan.activeGoal == $index}">{{elem.value}}</div>
+      <div class="head" ng-click="Plan.activeGoal = $index; Plan.activeSubGoal = '';" ng-class="{active: Plan.activeGoal == $index}">
+        <span>{{elem.value}}</span>
+        <span class="round-arrow" ng-class="{active: Plan.activeGoal == $index}"></span>
+        <span class="check"></span>
+
+      </div>
       <div class="goal-content" ng-show="Plan.activeGoal == $index">
         <ul>
           <li  ng-repeat="subelem in elem.faerdighedsOgVidensmaalPLURALIS.faerdighedsOgvidensmaalSINGULARIS">
@@ -98,11 +103,14 @@
     <div class="planner-title" >
       <input type="text" placeholder="Vælg forløbstitel" ng-model="Plan.pannerTitle">
       <span class="icon-trash-bin"></span>
+
+    </div>
+
+    <div class="course-container" ng-repeat="course in Plan.selected track by $index">
+      <span class="course-title">{{course}}</span>
+      <span class="course-icon icon ion-grid"></span>
     </div>
   </div>
 
-  <div class="course-container" ng-repeat="course in Plan.selected">
-    <span class="course-title">{{course}}</span>
-    <span class="course-icon icon ion-grid"></span>
-  </div>
+
 </div>

@@ -11,11 +11,54 @@
   border-bottom: 1px solid #e2e2e2;
   border-right: 1px solid #dadada;
 
+  .check{
+    color: #ebebeb;
+    position: relative;
+
+    &:before{
+      float: right;
+      padding-right: 10px;
+      font-size: 22px;
+      font-family: ilog;
+      content: 'p'
+    }
+    &.active {
+      &:before{
+        color: white;
+      }
+    }
+
+  }
+
+  .round-arrow{
+    color: #ffffff;
+    position: relative;
+    right: 5px;
+
+    &:before{
+      float: right;
+      font-size: 25;
+      font-family: ilog;
+      content: 'B'
+    }
+    &.active {
+      &:before{
+        float: right;
+        font-size: 25px;
+        font-family: ilog;
+        content: 'C';
+      }
+    }
+
+  }
+
   &:hover {
     background-color: #e9e9e9;
     border: none;
     border-right: 1px solid #dadada;
-
+    .check {
+      color: #d7d7d7;
+    }
   }
   &.active {
     background-color: #dc4320;
@@ -23,30 +66,40 @@
     border: none;
 
   }
+
+
 }
-  .goal-content{
+  .goal-content {
     padding: 10px 25px 10px 50px;
     line-height: 49px;
     font-size: 18px;
     color: #383838;
 
-    .sub-head:before{
-      padding-right: 15px;
-      content: '-';
-    }
-    .sub-head:after{
-      padding-right: 15px;
-      content: '√';
-      float: right;
-    }
+    .sub-head{
 
-    &.active {
-      color: #dc4320;
-      .sub-head:before{
+      &:before {
         padding-right: 15px;
-        content: '+';
+        font-size: 10px;
+        font-family: ilog;
+        content: 'z';
+
       }
-    }
+      &:after {
+        padding-right: 15px;
+        font-family: ilog;
+        content: 'p';
+        float: right;
+      }
+
+      &.active {
+        color: #dc4320;
+        &:before {
+          font-size: 10px;
+          padding-right: 15px;
+          content: 'w';
+        }
+      }
+  }
     .sub-content {
       padding: 10px 25px;
       font-size: 12px;

@@ -29,6 +29,7 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
 
   Plan.onDrop = function($event,$data,array){
     array.push($data);
+    console.log(Plan.selected)
   };
 
 

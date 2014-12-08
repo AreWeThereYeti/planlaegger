@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* line 13, ../sass/reset/_reset.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -895,79 +894,124 @@ h1 {
   border-right: 1px solid #dadada;
 }
 /* line 14, ../sass/components/_goal-container.scss */
+.goal-container .head .check {
+  color: #ebebeb;
+  position: relative;
+}
+/* line 18, ../sass/components/_goal-container.scss */
+.goal-container .head .check:before {
+  float: right;
+  padding-right: 10px;
+  font-size: 22px;
+  font-family: ilog;
+  content: "p";
+}
+/* line 26, ../sass/components/_goal-container.scss */
+.goal-container .head .check.active:before {
+  color: white;
+}
+/* line 33, ../sass/components/_goal-container.scss */
+.goal-container .head .round-arrow {
+  color: #ffffff;
+  position: relative;
+  right: 5px;
+}
+/* line 38, ../sass/components/_goal-container.scss */
+.goal-container .head .round-arrow:before {
+  float: right;
+  font-size: 25;
+  font-family: ilog;
+  content: "B";
+}
+/* line 45, ../sass/components/_goal-container.scss */
+.goal-container .head .round-arrow.active:before {
+  float: right;
+  font-size: 25px;
+  font-family: ilog;
+  content: 'C';
+}
+/* line 55, ../sass/components/_goal-container.scss */
 .goal-container .head:hover {
   background-color: #e9e9e9;
   border: none;
   border-right: 1px solid #dadada;
 }
-/* line 20, ../sass/components/_goal-container.scss */
+/* line 59, ../sass/components/_goal-container.scss */
+.goal-container .head:hover .check {
+  color: #d7d7d7;
+}
+/* line 63, ../sass/components/_goal-container.scss */
 .goal-container .head.active {
   background-color: #dc4320;
   color: #ffffff;
   border: none;
 }
-/* line 27, ../sass/components/_goal-container.scss */
+/* line 72, ../sass/components/_goal-container.scss */
 .goal-container .goal-content {
   padding: 10px 25px 10px 50px;
   line-height: 49px;
   font-size: 18px;
   color: #383838;
 }
-/* line 33, ../sass/components/_goal-container.scss */
+/* line 80, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-head:before {
   padding-right: 15px;
-  content: '-';
+  font-size: 10px;
+  font-family: ilog;
+  content: 'z';
 }
-/* line 37, ../sass/components/_goal-container.scss */
+/* line 87, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-head:after {
   padding-right: 15px;
-  content: '√';
+  font-family: ilog;
+  content: 'p';
   float: right;
 }
-/* line 43, ../sass/components/_goal-container.scss */
-.goal-container .goal-content.active {
+/* line 94, ../sass/components/_goal-container.scss */
+.goal-container .goal-content .sub-head.active {
   color: #dc4320;
 }
-/* line 45, ../sass/components/_goal-container.scss */
-.goal-container .goal-content.active .sub-head:before {
+/* line 96, ../sass/components/_goal-container.scss */
+.goal-container .goal-content .sub-head.active:before {
+  font-size: 10px;
   padding-right: 15px;
-  content: '+';
+  content: 'w';
 }
-/* line 50, ../sass/components/_goal-container.scss */
+/* line 103, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content {
   padding: 10px 25px;
   font-size: 12px;
   line-height: 15px;
 }
-/* line 55, ../sass/components/_goal-container.scss */
+/* line 108, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content {
   padding-bottom: 25px;
 }
-/* line 57, ../sass/components/_goal-container.scss */
+/* line 110, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content:last-of-type {
   padding-bottom: 0px;
 }
-/* line 62, ../sass/components/_goal-container.scss */
+/* line 115, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-elem li {
   padding-bottom: 25px;
 }
-/* line 64, ../sass/components/_goal-container.scss */
+/* line 117, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-elem li:last-of-type {
   padding-bottom: 0;
 }
-/* line 70, ../sass/components/_goal-container.scss */
+/* line 123, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-scope {
   float: left;
   padding-right: 15px;
   padding-top: 3px;
   font-size: 18px;
 }
-/* line 77, ../sass/components/_goal-container.scss */
+/* line 130, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-text {
   padding-left: 25px;
   padding-right: 25px;
 }
-/* line 80, ../sass/components/_goal-container.scss */
+/* line 133, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-text li {
   padding-bottom: 0;
 }
@@ -1854,7 +1898,7 @@ h1 {
 .select-inner .dropdown_header:after {
   font-family: "ilog" !important;
   display: inline-block;
-  content: "k";
+  content: "w";
   float: right;
   font-size: 12px;
 }
@@ -1865,7 +1909,7 @@ h1 {
 /* line 38, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_header.active:after {
   font-family: "ilog" !important;
-  content: "l";
+  content: "y";
   font-size: 12px;
 }
 /* line 46, ../sass/components/_dropdown.scss */
