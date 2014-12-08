@@ -802,7 +802,32 @@ h1 {
 .plan-content .selected.on-drag-hover {
   background-color: #fafafa;
 }
-/* line 45, ../sass/pages/_planner.scss */
+/* line 43, ../sass/pages/_planner.scss */
+.plan-content .selected .planner-title {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 25px;
+  background-color: white;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+/* line 50, ../sass/pages/_planner.scss */
+.plan-content .selected .planner-title input[type='text'] {
+  padding: 0 10px 0 10px;
+  border: none;
+  font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 40px;
+  width: 80%;
+}
+/* line 60, ../sass/pages/_planner.scss */
+.plan-content .selected .planner-title .icon-trash-bin {
+  float: right;
+  font-size: 30px;
+  padding-right: 10px;
+  line-height: 40px;
+  padding-top: 5px;
+}
+/* line 71, ../sass/pages/_planner.scss */
 .plan-content .plan-overlay {
   position: fixed;
   top: 0;
@@ -815,12 +840,12 @@ h1 {
   height: 100%;
   -webkit-backface-visibility: hidden;
 }
-/* line 60, ../sass/pages/_planner.scss */
+/* line 86, ../sass/pages/_planner.scss */
 .plan-content .select-inner {
   margin: 0;
   border-bottom: 2px solid #000;
 }
-/* line 64, ../sass/pages/_planner.scss */
+/* line 90, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_content {
   max-height: 300px;
   width: calc(30% - 20px);
@@ -828,17 +853,17 @@ h1 {
   overflow: auto;
   font-size: 18px;
 }
-/* line 71, ../sass/pages/_planner.scss */
+/* line 97, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_header {
   line-height: 32px;
   font-size: 18px;
 }
-/* line 74, ../sass/pages/_planner.scss */
+/* line 100, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_header.active {
   line-height: 32px;
   background-color: white;
 }
-/* line 79, ../sass/pages/_planner.scss */
+/* line 105, ../sass/pages/_planner.scss */
 .plan-content .select-inner select {
   background-color: rgba(0, 0, 0, 0);
   outline: 0;
