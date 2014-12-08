@@ -803,6 +803,10 @@ h1 {
   background-color: #fafafa;
 }
 /* line 43, ../sass/pages/_planner.scss */
+.plan-content .selected.empty {
+  background: url(../images/background.png) no-repeat white 48% 48%;
+}
+/* line 46, ../sass/pages/_planner.scss */
 .plan-content .selected .planner-title {
   width: 100%;
   height: 40px;
@@ -810,7 +814,7 @@ h1 {
   background-color: white;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 }
-/* line 50, ../sass/pages/_planner.scss */
+/* line 53, ../sass/pages/_planner.scss */
 .plan-content .selected .planner-title input[type='text'] {
   padding: 0 10px 0 10px;
   border: none;
@@ -819,7 +823,7 @@ h1 {
   line-height: 40px;
   width: 80%;
 }
-/* line 60, ../sass/pages/_planner.scss */
+/* line 63, ../sass/pages/_planner.scss */
 .plan-content .selected .planner-title .icon-trash-bin {
   float: right;
   font-size: 30px;
@@ -827,7 +831,7 @@ h1 {
   line-height: 40px;
   padding-top: 5px;
 }
-/* line 71, ../sass/pages/_planner.scss */
+/* line 74, ../sass/pages/_planner.scss */
 .plan-content .plan-overlay {
   position: fixed;
   top: 0;
@@ -840,12 +844,12 @@ h1 {
   height: 100%;
   -webkit-backface-visibility: hidden;
 }
-/* line 86, ../sass/pages/_planner.scss */
+/* line 89, ../sass/pages/_planner.scss */
 .plan-content .select-inner {
   margin: 0;
   border-bottom: 2px solid #000;
 }
-/* line 90, ../sass/pages/_planner.scss */
+/* line 93, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_content {
   max-height: 300px;
   width: calc(30% - 20px);
@@ -853,17 +857,17 @@ h1 {
   overflow: auto;
   font-size: 18px;
 }
-/* line 97, ../sass/pages/_planner.scss */
+/* line 100, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_header {
   line-height: 32px;
   font-size: 18px;
 }
-/* line 100, ../sass/pages/_planner.scss */
+/* line 103, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_header.active {
   line-height: 32px;
   background-color: white;
 }
-/* line 105, ../sass/pages/_planner.scss */
+/* line 108, ../sass/pages/_planner.scss */
 .plan-content .select-inner select {
   background-color: rgba(0, 0, 0, 0);
   outline: 0;

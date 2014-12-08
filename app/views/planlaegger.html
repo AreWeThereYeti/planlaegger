@@ -94,10 +94,15 @@
     </div>
   </div>
 
-  <div class="selected" ui-on-Drop="Plan.onDrop($event,$data,Plan.selected)" drop-channel="courses">
+  <div class="selected" ng-class="{empty: !Plan.selected.length}" ui-on-Drop="Plan.onDrop($event,$data,Plan.selected)" drop-channel="courses">
     <div class="planner-title" >
       <input type="text" placeholder="Vælg forløbstitel" ng-model="Plan.pannerTitle">
       <span class="icon-trash-bin"></span>
     </div>
+  </div>
+
+  <div class="course-container" ng-repeat="course in Plan.selected">
+    <span class="course-title">{{course}}</span>
+    <span class="course-icon icon ion-grid"></span>
   </div>
 </div>

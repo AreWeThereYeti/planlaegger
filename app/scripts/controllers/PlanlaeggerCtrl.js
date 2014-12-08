@@ -18,7 +18,7 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
 
 // angular drag drop test
   Plan.pannerTitle = "";
-  Plan.selected= [];
+  Plan.selected = [];
 
   Plan.addText = "";
 
@@ -28,7 +28,7 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
   };
 
   Plan.onDrop = function($event,$data,array){
-    alert($data);
+    array.push($data);
   };
 
 

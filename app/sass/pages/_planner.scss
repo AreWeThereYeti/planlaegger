@@ -40,6 +40,9 @@
     &.on-drag-hover{
       background-color: #fafafa;
     }
+    &.empty{
+      background: url(../images/background.png) no-repeat #ffffff 48% 48%;
+    }
     .planner-title {
       width: 100%;
       height: 40px;
