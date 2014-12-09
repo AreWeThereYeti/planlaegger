@@ -42,6 +42,9 @@
     }
     &.empty{
       background: url(../images/background.png) no-repeat #ffffff 48% 48%;
+      &.on-drag-hover{
+        background-color: #fafafa;
+      }
     }
     .planner-title {
       width: 100%;
