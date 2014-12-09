@@ -27,9 +27,9 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
 
       // store laeremiddel as value array elements with level as key
       if(angular.isDefined($scope.levelAsKeys[planner.Level])){
-        $scope.levelAsKeys[planner.Level].push(subject);
+        $scope.levelAsKeys[planner.Level].push(planner.ID);
       } else {
-        $scope.levelAsKeys[planner.Level] = [subject];
+        $scope.levelAsKeys[planner.Level] = [planner.ID];
       }
 
 
@@ -48,7 +48,7 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
 
       }
 
-      // store level in $scope.niveau if it doen't exist yet
+/*      // store level in $scope.niveau if it doen't exist yet
       var uniqueLevel = true;
       angular.forEach($scope.niveau, function(niveau){
         if(niveau == planner.Level){
@@ -59,7 +59,7 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
       if(uniqueLevel){
         $scope.niveau.push(planner.Level);
 
-      }
+      }*/
     });
   });
 
