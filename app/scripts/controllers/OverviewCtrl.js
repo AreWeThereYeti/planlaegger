@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('OverviewCtrl', [ '$timeout', 'entries', '$rootScope', '$location', 'getdataservice', '$scope', '$route', function ($timeout, entries, $rootScope, $location, getdataservice, $scope, $route) {
+app.controller('OverviewCtrl', [ 'planners', '$timeout', 'entries', '$rootScope', '$location', 'getdataservice', '$scope', '$route', function (planners, $timeout, entries, $rootScope, $location, getdataservice, $scope, $route) {
 
 	//Save reference to controller in order to avoid reference soup
 	var Overview = this;
@@ -8,6 +8,8 @@ app.controller('OverviewCtrl', [ '$timeout', 'entries', '$rootScope', '$location
   Overview.predicate = 'timestamp';
   Overview.reverse = false;
 
+  Overview.planners = planners.data;
+  console.log(Overview.planners);
 
   // dummy list data
   Overview.entries = entries.data;

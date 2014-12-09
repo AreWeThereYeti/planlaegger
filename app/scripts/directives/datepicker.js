@@ -9,7 +9,17 @@ angular.module('gyldendal.directives')
 			link: function(scope, element, attrs) {
 				element.bind('click', function(element){
 					scope.$apply();
-				})
+				});
+        scope.$watch('valgtLaeremiddel',function(newVal,oldVal){
+          if(angular.isDefined(newVal)) {
+            scope.niveau = scope.subjectAsKeys[newVal];
+          }
+        });
+        scope.$watch('valgtNiveau',function(newVal,oldVal){
+          if(angular.isDefined(newVal)) {
+            scope.laeremidler = scope.levelAsKeys[newVal];
+          }
+        })
 			}
 		};
 	}]);

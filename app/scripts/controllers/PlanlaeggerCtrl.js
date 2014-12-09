@@ -12,8 +12,7 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
   Plan.levels = [];
   Plan.courses = [];
 
-  // Set levels and courses: Search through plandata and set available course levels
-
+  // Set levels: Search through plandata and set available course levels
   angular.forEach(Plan.plandata.planlaegger.topics.topic, function(topic){
     var levels = topic.courses.course.levels;
 
@@ -41,8 +40,17 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
       }
       levels = levels.replace(currentLevel, '');
     }
-
   });
+
+// Set courses: Search through plandata and set available course values
+  angular.forEach(Plan.plandata.planlaegger.kompetenceomraader.kompetenceomraade, function(area){
+    angular.forEach(area.faerdighedsOgVidensmaalPLURALIS.faerdighedsOgvidensmaalSINGULARIS, function(goals){
+
+    });
+  });
+
+
+
 
   Plan.dropdownDummyData = ['element1','element2','element3','element4','element5','element6']
 
