@@ -28,13 +28,13 @@
       <div class="head" ng-click="Plan.activeGoal = $index; Plan.activeSubGoal = '';" ng-class="{active: Plan.activeGoal == $index}">
         <span>{{elem.value}}</span>
         <span class="round-arrow" ng-class="{active: Plan.activeGoal == $index}"></span>
-        <span class="check"></span>
+        <span ng-class="check"></span>
 
       </div>
       <div class="goal-content" ng-show="Plan.activeGoal == $index">
         <ul>
           <li  ng-repeat="subelem in elem.faerdighedsOgVidensmaalPLURALIS.faerdighedsOgvidensmaalSINGULARIS">
-            <div class="sub-head" ng-class="{'active': Plan.activeSubGoal == subelem.id}" ng-click="Plan.activeSubGoal = subelem.id">
+            <div class="sub-head" ng-class="{'active': Plan.activeSubGoal == subelem.id, 'checked': Plan.checkList[subelem.id]}" ng-click="Plan.activeSubGoal = subelem.id">
               {{subelem.value}}
             </div>
             <div class="sub-content" ng-show="Plan.activeSubGoal == subelem.id">
@@ -101,22 +101,22 @@
       </div>
     </div>
 
-    <div class="course-container" ui-draggable="true" drag-channel="courses" on-drop-success="Plan.dropSuccessHandler($event,$index,Plan.selected)" drag="course" ng-repeat="course in Plan.sortedCourses">
+    <div class="course-container" ui-draggable="true" drag-channel="courses" on-drop-success="Plan.dropSuccessHandler($event,$index,course,Plan.courses)" drag="course" ng-repeat="course in Plan.sortedCourses">
       <span class="course-title">{{course.value}}</span>
-      <span class="course-icon icon ion-grid"></span>
+      <span class="course-icon" ng-class="{'icon': !Plan.checkList[course.id], 'ion-grid': !Plan.checkList[course.id], 'checked': Plan.checkList[course.id]}"></span>
     </div>
   </div>
 
   <div class="selected" ng-class="{empty: !Plan.selected.length}" ui-on-Drop="Plan.onDrop($event,$data,Plan.selected)" drop-channel="courses">
     <div class="planner-title" >
-      <input type="text" placeholder="Vælg forløbstitel" ng-model="Plan.pannerTitle">
-      <span class="icon-trash" ng-click="Plan.clearSelected()"></span>
+      <input type="text" placeholder="Vælg forløbstitel" ng-model="Plan.plannerTitle">
+      <span class="icon-trash" ng-click="Plan.plannerTitle = ''"></span>
 
     </div>
 
     <div class="course-container" ng-repeat="course in Plan.selected track by $index">
       <span class="course-title">{{course.value}}</span>
-      <span class="course-icon icon ion-grid"></span>
+      <span class="icon-trash" ng-click="Plan.clearSelected(course)"></span>
     </div>
   </div>
 

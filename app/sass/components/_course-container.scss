@@ -24,12 +24,21 @@
     padding-right: 5px;
     font-size: 40px;
     float: right;
+    &.checked:before{
+      color: #dc4320;
+      font-family: ilog;
+      content: 'p';
+      font-size: 26px;
+      line-height: 40px;
     }
-/*  .course-icon:after{
-    padding-right: 5px;
-    font-family: Ionicons;
-    font-size: 40px;
-    content: '\f13f';
-    float:right;
-  }*/
+  }
+  .icon-trash:before {
+    float: right;
+    font-family: ilog;
+    font-size: 22px;
+    content: 'D';
+    padding-right: 10px;
+    line-height: 40px;
+    cursor: pointer;
+  }
 }

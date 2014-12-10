@@ -5,14 +5,16 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
   //Save reference to controller in order to avoid reference soup
   var Plan = this;
 
-  // current planner
+  // setup api data variables
   Plan.current = planner.data;
-
   Plan.plandata = angular.fromJson(plannerData.data);
+
+  // setup current planner variables
   Plan.levels = [];
   Plan.courses = [];
   Plan.sortedCourses = [];
   Plan.topics = [];
+  Plan.checkList = {};
 
   // Set levels: Search through plandata and set available course levels
   angular.forEach(Plan.plandata.planlaegger.topics.topic, function(topic){
@@ -149,16 +151,56 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
     }
   };
 
-// Function for clearing selected courses
-  Plan.clearSelected = function(){
-    Plan.selected = [];
+// Function for clearing selected course
+  Plan.clearSelected = function(course){
+
+  // remove course from selected array
+    for(var i = 0; i < Plan.selected.length; i++){
+      if(Plan.selected[i].id == course.id) {
+        Plan.selected.splice(i, 1);
+      }
+    }
+
+  // remove course id and goals from checklist
+    delete Plan.checkList[course.id];
+    angular.forEach(course.goals.goal, function(goal) {
+      if(Plan.checkList[goal.id].length == 1){
+        delete Plan.checkList[goal.id];
+      } else {
+        var index = Plan.checkList[goal.id].indexOf(course.id);
+        Plan.checkList[goal.id].splice(index, 1);
+      }
+    });
+    console.log(Plan.checkList)
 
   };
 
 
 // ----------  Drag and drop functionality ------
-  Plan.dropSuccessHandler = function($event,index,array){
-    console.log(index);
+  Plan.dropSuccessHandler = function($event,index,course,array){
+    // set checkmark on all instances of selected course, and its goals
+    // loop all courses to find course with matching id
+    angular.forEach(array, function(aCourse){
+      // when match, add course.id and all course goals id and scope to checkList. Goals as array with course.id
+      if(aCourse.id == course.id){
+        Plan.checkList[course.id] = true;
+        angular.forEach(course.goals.goal, function(goal){
+          // initialize new array at Plan.checkList[goal.id] if it doesn't exist already
+          if(angular.isDefined(Plan.checkList[goal.id])){
+            Plan.checkList[goal.id].push(course.id);
+
+          } else {
+            Plan.checkList[goal.id] = [];
+            Plan.checkList[goal.id].push(course.id);
+          }
+        });
+      }
+    });
+    // re-sort sorted course list to update view
+    Plan.sortCourses();
+
+    console.log(Plan.checkList)
+
   };
 
   Plan.onDrop = function($event,$data,array){
