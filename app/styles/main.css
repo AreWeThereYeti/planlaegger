@@ -1061,6 +1061,17 @@ h1 {
 .goal-container .goal-content .sub-content .sub-content-text li {
   padding-bottom: 0;
 }
+/* line 148, ../sass/components/_goal-container.scss */
+.goal-container .custom-radio {
+  float: right;
+}
+/* line 150, ../sass/components/_goal-container.scss */
+.goal-container .custom-radio label:before {
+  margin: 0;
+  width: 22px;
+  height: 22px;
+  box-shadow: 0 0 0 2px #383838;
+}
 
 /* line 1, ../sass/components/_course-container.scss */
 .course-container {
