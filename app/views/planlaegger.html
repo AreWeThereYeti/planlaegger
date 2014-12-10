@@ -28,7 +28,7 @@
       <div class="head" ng-click="Plan.activeGoal = $index; Plan.activeSubGoal = '';" ng-class="{active: Plan.activeGoal == $index}">
         <span>{{elem.value}}</span>
         <span class="round-arrow" ng-class="{active: Plan.activeGoal == $index}"></span>
-        <span ng-class="check"></span>
+        <span ng-class="{check: elem.checked}"></span>
 
       </div>
       <div class="goal-content" ng-show="Plan.activeGoal == $index">
@@ -41,10 +41,12 @@
               <ul class="sub-content-elem">
                 <li ng-repeat="subsubelem in subelem.faser.fase">
                   <div class="sub-content-scope">{{subsubelem.scope}}</div>
+                  <div ng-class="{checked: subsubelem.checked}"></div>
                   <ul class="sub-content-text">
                     <li>{{subsubelem.faerdighedsmaal}}</li>
                     <li>{{subsubelem.vidensmaal}}</li>
                   </ul>
+
                 </li>
               </ul>
             </div>

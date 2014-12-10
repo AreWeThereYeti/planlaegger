@@ -774,9 +774,10 @@ h1 {
   width: 40%;
   height: 100%;
   float: left;
-  background-color: #ffffff;
+  background-color: #f5f5f5;
+  border-right: 1px solid #dadada;
 }
-/* line 21, ../sass/pages/_planner.scss */
+/* line 23, ../sass/pages/_planner.scss */
 .plan-content .courses {
   width: 30%;
   height: 100%;
@@ -785,11 +786,11 @@ h1 {
   background-color: #f5f5f5;
   overflow-y: scroll;
 }
-/* line 31, ../sass/pages/_planner.scss */
+/* line 33, ../sass/pages/_planner.scss */
 .plan-content .dropdown {
   padding-bottom: 25px;
 }
-/* line 34, ../sass/pages/_planner.scss */
+/* line 36, ../sass/pages/_planner.scss */
 .plan-content .selected {
   width: 30%;
   height: 100%;
@@ -797,19 +798,19 @@ h1 {
   float: left;
   background-color: #ffffff;
 }
-/* line 40, ../sass/pages/_planner.scss */
+/* line 42, ../sass/pages/_planner.scss */
 .plan-content .selected.on-drag-hover {
   background-color: #fafafa;
 }
-/* line 43, ../sass/pages/_planner.scss */
+/* line 45, ../sass/pages/_planner.scss */
 .plan-content .selected.empty {
   background: url(../images/background.png) no-repeat white 48% 48%;
 }
-/* line 45, ../sass/pages/_planner.scss */
+/* line 47, ../sass/pages/_planner.scss */
 .plan-content .selected.empty.on-drag-hover {
   background-color: #fafafa;
 }
-/* line 49, ../sass/pages/_planner.scss */
+/* line 51, ../sass/pages/_planner.scss */
 .plan-content .selected .planner-title {
   width: 100%;
   height: 40px;
@@ -817,7 +818,7 @@ h1 {
   background-color: white;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 }
-/* line 56, ../sass/pages/_planner.scss */
+/* line 58, ../sass/pages/_planner.scss */
 .plan-content .selected .planner-title input[type='text'] {
   padding: 0 10px 0 10px;
   border: none;
@@ -826,7 +827,7 @@ h1 {
   line-height: 40px;
   width: 80%;
 }
-/* line 66, ../sass/pages/_planner.scss */
+/* line 68, ../sass/pages/_planner.scss */
 .plan-content .selected .planner-title .icon-trash:before {
   float: right;
   font-family: ilog;
@@ -836,7 +837,7 @@ h1 {
   line-height: 40px;
   cursor: pointer;
 }
-/* line 79, ../sass/pages/_planner.scss */
+/* line 81, ../sass/pages/_planner.scss */
 .plan-content .plan-overlay {
   position: fixed;
   top: 0;
@@ -849,12 +850,12 @@ h1 {
   height: 100%;
   -webkit-backface-visibility: hidden;
 }
-/* line 94, ../sass/pages/_planner.scss */
+/* line 96, ../sass/pages/_planner.scss */
 .plan-content .select-inner {
   margin: 0;
   border-bottom: 2px solid #000;
 }
-/* line 98, ../sass/pages/_planner.scss */
+/* line 100, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_content {
   max-height: 300px;
   width: calc(30% - 20px);
@@ -862,17 +863,17 @@ h1 {
   overflow: auto;
   font-size: 18px;
 }
-/* line 105, ../sass/pages/_planner.scss */
+/* line 107, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_header {
   line-height: 32px;
   font-size: 18px;
 }
-/* line 108, ../sass/pages/_planner.scss */
+/* line 110, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_header.active {
   line-height: 32px;
   background-color: white;
 }
-/* line 113, ../sass/pages/_planner.scss */
+/* line 115, ../sass/pages/_planner.scss */
 .plan-content .select-inner select {
   background-color: rgba(0, 0, 0, 0);
   outline: 0;
@@ -928,7 +929,6 @@ h1 {
   font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
   font-size: 24px;
   border-bottom: 1px solid #e2e2e2;
-  border-right: 1px solid #dadada;
 }
 /* line 14, ../sass/components/_goal-container.scss */
 .goal-container .head .check {
@@ -972,7 +972,6 @@ h1 {
 .goal-container .head:hover {
   background-color: #e9e9e9;
   border: none;
-  border-right: 1px solid #dadada;
 }
 /* line 61, ../sass/components/_goal-container.scss */
 .goal-container .head.active {
@@ -986,68 +985,79 @@ h1 {
   line-height: 49px;
   font-size: 18px;
   color: #383838;
+  background-color: white;
 }
-/* line 78, ../sass/components/_goal-container.scss */
+/* line 79, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-head:before {
   padding-right: 15px;
   font-size: 10px;
   font-family: ilog;
   content: 'z';
 }
-/* line 85, ../sass/components/_goal-container.scss */
+/* line 86, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-head.checked:after {
   color: #383838;
-  padding-right: 15px;
+  font-size: 22px;
+  padding-right: 10px;
   font-family: ilog;
   content: 'p';
   float: right;
 }
-/* line 93, ../sass/components/_goal-container.scss */
+/* line 95, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-head.active {
   color: #dc4320;
 }
-/* line 95, ../sass/components/_goal-container.scss */
+/* line 97, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-head.active:before {
   color: #383838;
   font-size: 10px;
   padding-right: 15px;
   content: 'w';
 }
-/* line 103, ../sass/components/_goal-container.scss */
+/* line 105, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content {
-  padding: 10px 25px;
+  padding: 10px 0px 10px 25px;
   font-size: 12px;
   line-height: 15px;
 }
-/* line 108, ../sass/components/_goal-container.scss */
+/* line 110, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content {
   padding-bottom: 25px;
 }
-/* line 110, ../sass/components/_goal-container.scss */
+/* line 112, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content:last-of-type {
   padding-bottom: 0px;
 }
-/* line 115, ../sass/components/_goal-container.scss */
+/* line 117, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-elem li {
   padding-bottom: 25px;
 }
-/* line 117, ../sass/components/_goal-container.scss */
+/* line 119, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-elem li:last-of-type {
   padding-bottom: 0;
 }
-/* line 123, ../sass/components/_goal-container.scss */
+/* line 125, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-scope {
   float: left;
   padding-right: 15px;
   padding-top: 3px;
   font-size: 18px;
 }
-/* line 130, ../sass/components/_goal-container.scss */
+/* line 131, ../sass/components/_goal-container.scss */
+.goal-container .goal-content .sub-content .checked:after {
+  color: #dc4320;
+  padding-right: 10px;
+  font-family: ilog;
+  font-size: 22px;
+  content: 'p';
+  float: right;
+}
+/* line 139, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-text {
   padding-left: 25px;
   padding-right: 25px;
 }
-/* line 133, ../sass/components/_goal-container.scss */
+/* line 142, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-text li {
   padding-bottom: 0;
 }

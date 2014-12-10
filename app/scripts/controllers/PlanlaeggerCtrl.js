@@ -171,8 +171,81 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
         Plan.checkList[goal.id].splice(index, 1);
       }
     });
-    console.log(Plan.checkList)
+    setAllChecks();
+  };
 
+  // helperfunction that loops through 'kompetenceomraader' and sets up .checked values for all goal elements
+  var setAllChecks = function(){
+    angular.forEach(Plan.plandata.planlaegger.kompetenceomraader.kompetenceomraade, function(omraade){
+
+      // setup var to determine check status
+      var checkedTopElement = false;
+
+      // loop through sub-elements
+      angular.forEach(omraade.faerdighedsOgVidensmaalPLURALIS.faerdighedsOgvidensmaalSINGULARIS, function(vidensmaal){
+
+        // check if buttom-level element 'vidensmaal.faser.fase' is not array
+        //loop through buttom-level elements
+        angular.forEach(vidensmaal.faser.fase, function(fase){
+          if(!angular.isDefined(vidensmaal.faser.fase.length)){
+            // vidensmaal.faser.fase is not an array
+            //use vidensmaal.faser.fase instead of fase
+            var checkedElement = false;
+            angular.forEach(Plan.checkList[vidensmaal.id], function (couseID) {
+              angular.forEach(Plan.selected, function (course) {
+                if (angular.isDefined(couseID[course.id])) {
+                  if (couseID[course.id][vidensmaal.faser.fase.scope]) {
+                    checkedElement = true;
+                  }
+                }
+              });
+            });
+            // set buttom-level element's check status in relation to Plan.checkList
+            if (checkedElement) {
+              vidensmaal.faser.fase.checked = true;
+            } else {
+              vidensmaal.faser.fase.checked = false;
+            }
+
+          } else {
+            var checkedElement = false;
+            angular.forEach(Plan.checkList[vidensmaal.id], function (couseID) {
+              angular.forEach(Plan.selected, function (course) {
+                if (angular.isDefined(couseID[course.id])) {
+                  if (couseID[course.id][fase.scope]) {
+                    checkedElement = true;
+                  }
+                }
+              });
+            });
+            // set buttom-level element's check status in relation to Plan.checkList
+            if (checkedElement) {
+              fase.checked = true;
+            } else {
+              fase.checked = false;
+            }
+          }
+        });
+
+
+        // set sub element's check status in relation to Plan.checkList[id]
+        if(Plan.checkList[vidensmaal.id]){
+          // check status of this element
+          vidensmaal.checked = true;
+          // check status of parrent element
+          checkedTopElement = true;
+        } else {
+          vidensmaal.checked = false;
+        }
+      });
+
+      // set top element's check status
+      if(checkedTopElement){
+        omraade.checked = true;
+      } else {
+        omraade.checked = false;
+      }
+    });
   };
 
 
@@ -185,13 +258,33 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
       if(aCourse.id == course.id){
         Plan.checkList[course.id] = true;
         angular.forEach(course.goals.goal, function(goal){
+
+
+         // parse and store goal scope
+          var scopes = {};
+          var tempScope = goal.scope;
+          // set up regexp to find numbers in 'levels' string
+          var regexp = "[0-9]+";
+          var re = new RegExp(regexp, "i");
+
+          // find and replace
+          while (tempScope.search(re) != -1) {
+            var currentScope = re.exec(tempScope)[0];
+            scopes[currentScope] = true;
+            tempScope = tempScope.replace(currentScope, '');
+          }
+/*          Plan.checkList[goal.id][course.id] = scopes;
+          console.log(Plan.checkList[goal.id]);*/
+          var tempobejct = {};
+          tempobejct[course.id] = scopes;
+
           // initialize new array at Plan.checkList[goal.id] if it doesn't exist already
           if(angular.isDefined(Plan.checkList[goal.id])){
-            Plan.checkList[goal.id].push(course.id);
 
+            Plan.checkList[goal.id].push(tempobejct);
           } else {
             Plan.checkList[goal.id] = [];
-            Plan.checkList[goal.id].push(course.id);
+            Plan.checkList[goal.id].push(tempobejct);
           }
         });
       }
@@ -199,8 +292,9 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
     // re-sort sorted course list to update view
     Plan.sortCourses();
 
+    // set all check values
     console.log(Plan.checkList)
-
+    setAllChecks();
   };
 
   Plan.onDrop = function($event,$data,array){

@@ -9,7 +9,7 @@
   font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
   font-size: 24px;
   border-bottom: 1px solid #e2e2e2;
-  border-right: 1px solid #dadada;
+  //border-right: 1px solid #dadada;
 
   .check{
     color: #383838;
@@ -56,7 +56,7 @@
   &:hover {
     background-color: #e9e9e9;
     border: none;
-    border-right: 1px solid #dadada;
+    //border-right: 1px solid #dadada;
   }
   &.active {
     background-color: #dc4320;
@@ -72,6 +72,7 @@
     line-height: 49px;
     font-size: 18px;
     color: #383838;
+    background-color: white;
 
     .sub-head{
 
@@ -84,7 +85,8 @@
       }
       &.checked:after {
         color: #383838;
-        padding-right: 15px;
+        font-size: 22px;
+        padding-right: 10px;
         font-family: ilog;
         content: 'p';
         float: right;
@@ -101,7 +103,7 @@
       }
   }
     .sub-content {
-      padding: 10px 25px;
+      padding: 10px 0px 10px 25px;
       font-size: 12px;
       line-height: 15px;
 
@@ -126,13 +128,22 @@
         padding-top: 3px;
         font-size: 18px;
       }
-
+      .checked:after{
+        color: #dc4320;
+        padding-right: 10px;
+        font-family: ilog;
+        font-size: 22px;
+        content: 'p';
+        float: right;
+      }
       .sub-content-text{
         padding-left: 25px;
         padding-right: 25px;
         li {
           padding-bottom: 0;
+
         }
+
       }
 
     }
