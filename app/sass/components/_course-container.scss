@@ -12,7 +12,26 @@
   &.highlighted{
     background-color: #dc4320;
     color: #ffffff;
-
+    .course-icon:before{
+      color: #ffffff !important;
+    }
+    &:before{color: #ffffff;}
+    &:hover{
+      background-color: #dc4320;
+      .course-icon{
+        color: #ffffff;
+      }
+      .course-icon:before{
+        color: #ffffff;
+      }
+    }
+//    &.course-title {
+//      &.checked {
+//        &:before {
+//          color: #ffffff;
+//        }
+//      }
+//    }
   }
 
   &:hover{
@@ -41,6 +60,10 @@
       content: 'p';
       font-size: 26px;
       line-height: 40px;
+      &.highlighted{
+        color: #ffffff;
+      }
+
     }
   }
   .icon-trash:before {

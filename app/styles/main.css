@@ -1091,15 +1091,35 @@ h1 {
   background-color: #dc4320;
   color: #ffffff;
 }
+/* line 15, ../sass/components/_course-container.scss */
+.course-container.highlighted .course-icon:before {
+  color: #ffffff !important;
+}
 /* line 18, ../sass/components/_course-container.scss */
+.course-container.highlighted:before {
+  color: #ffffff;
+}
+/* line 19, ../sass/components/_course-container.scss */
+.course-container.highlighted:hover {
+  background-color: #dc4320;
+}
+/* line 21, ../sass/components/_course-container.scss */
+.course-container.highlighted:hover .course-icon {
+  color: #ffffff;
+}
+/* line 24, ../sass/components/_course-container.scss */
+.course-container.highlighted:hover .course-icon:before {
+  color: #ffffff;
+}
+/* line 37, ../sass/components/_course-container.scss */
 .course-container:hover {
   background-color: #ffffff;
 }
-/* line 20, ../sass/components/_course-container.scss */
+/* line 39, ../sass/components/_course-container.scss */
 .course-container:hover .course-icon {
   color: #dc4320;
 }
-/* line 24, ../sass/components/_course-container.scss */
+/* line 43, ../sass/components/_course-container.scss */
 .course-container .course-title {
   width: 80%;
   white-space: nowrap;
@@ -1107,7 +1127,7 @@ h1 {
   display: inline-block;
   text-overflow: ellipsis;
 }
-/* line 31, ../sass/components/_course-container.scss */
+/* line 50, ../sass/components/_course-container.scss */
 .course-container .course-icon {
   position: relative;
   right: 5px;
@@ -1115,7 +1135,7 @@ h1 {
   font-size: 40px;
   float: right;
 }
-/* line 38, ../sass/components/_course-container.scss */
+/* line 57, ../sass/components/_course-container.scss */
 .course-container .course-icon.checked:before {
   color: #dc4320;
   font-family: ilog;
@@ -1123,7 +1143,11 @@ h1 {
   font-size: 26px;
   line-height: 40px;
 }
-/* line 46, ../sass/components/_course-container.scss */
+/* line 63, ../sass/components/_course-container.scss */
+.course-container .course-icon.checked:before.highlighted {
+  color: #ffffff;
+}
+/* line 69, ../sass/components/_course-container.scss */
 .course-container .icon-trash:before {
   float: right;
   font-family: ilog;

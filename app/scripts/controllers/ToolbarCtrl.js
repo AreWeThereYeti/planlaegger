@@ -20,7 +20,7 @@ app.controller('ToolbarCtrl', ['$scope', function ($scope) {
     angular.forEach($scope.$parent.Plan.courses, function(course){
       course.highlight = false;
     });
-
+    $scope.$parent.Plan.highlighted = {};
   };
 
 
