@@ -1099,7 +1099,15 @@ h1 {
 .course-container:hover .course-icon {
   color: #dc4320;
 }
-/* line 26, ../sass/components/_course-container.scss */
+/* line 24, ../sass/components/_course-container.scss */
+.course-container .course-title {
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+}
+/* line 31, ../sass/components/_course-container.scss */
 .course-container .course-icon {
   position: relative;
   right: 5px;
@@ -1107,7 +1115,7 @@ h1 {
   font-size: 40px;
   float: right;
 }
-/* line 32, ../sass/components/_course-container.scss */
+/* line 38, ../sass/components/_course-container.scss */
 .course-container .course-icon.checked:before {
   color: #dc4320;
   font-family: ilog;
@@ -1115,7 +1123,7 @@ h1 {
   font-size: 26px;
   line-height: 40px;
 }
-/* line 40, ../sass/components/_course-container.scss */
+/* line 46, ../sass/components/_course-container.scss */
 .course-container .icon-trash:before {
   float: right;
   font-family: ilog;

@@ -22,6 +22,11 @@
     }
   }
   .course-title{
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
   }
   .course-icon{
     position: relative;
@@ -29,6 +34,7 @@
     padding-right: 5px;
     font-size: 40px;
     float: right;
+
     &.checked:before{
       color: #dc4320;
       font-family: ilog;

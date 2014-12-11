@@ -108,9 +108,11 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
       });
       if(highlight){
         course.highlight = true;
+      } else {
+        course.highlight = false;
       }
     });
-    Plan.sortCourses();
+    //Plan.sortCourses();
 
   };
 
