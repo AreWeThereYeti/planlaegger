@@ -1212,40 +1212,47 @@ h1 {
   cursor: pointer;
 }
 /* line 30, ../sass/components/_toolbar.scss */
+.toolbar .goals .toolbar-clear:hover {
+  color: #ffffff;
+  opacity: 1;
+}
+/* line 34, ../sass/components/_toolbar.scss */
 .toolbar .goals .toolbar-clear:before {
   vertical-align: bottom;
   padding: 5px;
   font-size: 10px;
   font-family: ilog;
   content: 'A';
+  color: #f5f5f5;
+  opacity: 0.55;
 }
-/* line 39, ../sass/components/_toolbar.scss */
+/* line 45, ../sass/components/_toolbar.scss */
 .toolbar .courses {
   width: 30%;
   padding: 0 25px;
   float: left;
 }
-/* line 44, ../sass/components/_toolbar.scss */
+/* line 50, ../sass/components/_toolbar.scss */
 .toolbar .selected {
   width: 30%;
   padding: 0 25px;
   float: left;
   font-weight: bold;
 }
-/* line 49, ../sass/components/_toolbar.scss */
+/* line 55, ../sass/components/_toolbar.scss */
 .toolbar .selected ul {
   width: 100%;
 }
-/* line 51, ../sass/components/_toolbar.scss */
+/* line 57, ../sass/components/_toolbar.scss */
 .toolbar .selected ul li {
   display: inline-block;
   float: left;
 }
-/* line 55, ../sass/components/_toolbar.scss */
+/* line 61, ../sass/components/_toolbar.scss */
 .toolbar .selected ul li:last-of-type {
   float: right;
 }
-/* line 59, ../sass/components/_toolbar.scss */
+/* line 65, ../sass/components/_toolbar.scss */
 .toolbar .selected .count {
   margin-top: 12px;
   line-height: 27px;
