@@ -100,12 +100,29 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
       Plan.highlighted[id] = true;
     }
     angular.forEach(Plan.courses, function(course){
+
       var highlight = false;
+
       angular.forEach(course.goals.goal, function(goal){
+        // parse current goal's scopes and check for match in Plan.highlighted object
+        var tempScope = goal.scope;
+        // set up regexp to find numbers in 'scope' string
+        var regexp = "[0-9]+";
+        var re = new RegExp(regexp, "i");
+        // find each scope, match it and remove it from tempScope
+        while (tempScope.search(re) != -1) {
+          var currentScope = re.exec(tempScope)[0];
+          if(Plan.highlighted[goal.id+currentScope]){
+            highlight = true;
+          }
+          tempScope = tempScope.replace(currentScope, '');
+        }
+        // match current goal id with Plan.highlighted object
         if(Plan.highlighted[goal.id]){
           highlight = true;
         }
       });
+    // set highlight property on current course
       if(highlight){
         course.highlight = true;
       } else {
