@@ -888,6 +888,38 @@ h1 {
   margin: 0px;
 }
 
+/* line 4, ../sass/components/_popover-container.scss */
+.popover-container:before {
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  top: 285px;
+  position: relative;
+  display: inline-block;
+  pointer-events: none;
+  border-top-color: #383838;
+  border-width: 17px;
+  margin-left: -32px;
+  vertical-align: middle;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+/* line 20, ../sass/components/_popover-container.scss */
+.popover-container .popover-inner {
+  overflow-y: scroll;
+  position: relative;
+  height: 570px;
+  width: 310px;
+  padding: 25px;
+  background-color: white;
+  border-left: solid 3px #383838;
+  color: #383838;
+}
+
 /* line 3, ../sass/components/_export-dialog.scss */
 .share {
   border-top: 4px solid #000;
@@ -2097,14 +2129,14 @@ h1 {
   padding-bottom: 15px;
 }
 
-/* line 35, ../sass/main.scss */
+/* line 36, ../sass/main.scss */
 body {
   background-color: #E9E9E9;
   font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
   overflow: hidden;
 }
 
-/* line 41, ../sass/main.scss */
+/* line 42, ../sass/main.scss */
 .collapsable {
   display: inline-block;
   overflow: hidden;
@@ -2124,34 +2156,34 @@ body {
     }*/
 }
 
-/* line 60, ../sass/main.scss */
+/* line 61, ../sass/main.scss */
 .collapsable.showme {
   height: 75px;
   line-height: 70px;
   clear: both;
 }
-/* line 64, ../sass/main.scss */
+/* line 65, ../sass/main.scss */
 .collapsable.showme .arrow_box {
   cursor: pointer;
   opacity: 1;
 }
 
-/* line 70, ../sass/main.scss */
+/* line 71, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 74, ../sass/main.scss */
+/* line 75, ../sass/main.scss */
 a {
   color: #383838;
   text-decoration: none;
 }
 
-/* line 79, ../sass/main.scss */
+/* line 80, ../sass/main.scss */
 .active {
   color: #e04f2f;
 }
-/* line 80, ../sass/main.scss */
+/* line 81, ../sass/main.scss */
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;
 }

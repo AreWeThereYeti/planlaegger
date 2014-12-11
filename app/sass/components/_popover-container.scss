@@ -1,0 +1,30 @@
+.popover-container{
+
+
+  &:before{
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    top:285px;
+    position: relative;
+    display: inline-block;
+    pointer-events: none;
+    border-top-color: #383838;
+    border-width: 17px;
+    margin-left: -32px;
+    vertical-align: middle;
+    @include transform(rotate(90deg));
+  }
+
+  .popover-inner{
+    overflow-y: scroll;
+    position: relative;
+    height: 570px;
+    width: 310px;
+    padding: 25px;
+    background-color: white;
+    border-left: solid 3px #383838;
+    color: #383838;
+  }
+}

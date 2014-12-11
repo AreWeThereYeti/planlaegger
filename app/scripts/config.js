@@ -7,7 +7,8 @@ var app = angular.module('app', [
   'gyldendal.directives',
   'gyldendal.filters',
   'angularSpinner',
-  'ang-drag-drop'
+  'ang-drag-drop',
+  'nsPopover'
 ])
 
 .config(['$routeProvider', '$locationProvider' ,function ($routeProvider, $locationProvider) {

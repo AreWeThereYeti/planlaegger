@@ -46,6 +46,8 @@ include('php/core.php');
       <link rel="stylesheet" href="styles/ionicons.min.css" />
 
 
+
+
     </head>
     <body ng-controller="MainCtrl as Main">
 
@@ -69,6 +71,7 @@ include('php/core.php');
       <script src="scripts/libs/angular-route.min.js"></script>
       <script src="scripts/libs/angular-animate.min.js"></script>
       <script src="scripts/libs/spin.min.js"></script>
+<script src="scripts/modules/nsPopover.js"></script>
 
       <!--config-->
       <script src="scripts/config.js"></script>
@@ -106,6 +109,15 @@ include('php/core.php');
       <script src="scripts/directives/angular-spinner.min.js"></script>
       <script src="scripts/directives/draganddrop.js"></script>
 
+      <script type="text/ng-template" id="course-popover">
+        <div class="popover-container">
+          <div class="popover-inner">
+            <ul>
+              <li>{{course.value}}</li>
+            </ul>
+          </div>
+        </div>
+      </script>
 
     </body>
 </html>
