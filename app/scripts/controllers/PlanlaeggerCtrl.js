@@ -15,6 +15,7 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
   Plan.sortedCourses = [];
   Plan.topics = [];
   Plan.checkList = {};
+  Plan.highlighted = {};
 
   // Set levels: Search through plandata and set available course levels
   angular.forEach(Plan.plandata.planlaegger.topics.topic, function(topic){
@@ -81,30 +82,42 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
     }
   });
 
-  // initialize Plan.sortedCourses to be equal to all courses
+// initialize Plan.sortedCourses to be equal to all courses
   Plan.sortedCourses = Plan.courses;
-
-
-// Set courses: Search through plandata and set available course values
-  angular.forEach(Plan.plandata.planlaegger.kompetenceomraader.kompetenceomraade, function(area){
-    angular.forEach(area.faerdighedsOgVidensmaalPLURALIS.faerdighedsOgvidensmaalSINGULARIS, function(goals){
-
-    });
-  });
-
-
-
-
-  Plan.dropdownDummyData = ['element1','element2','element3','element4','element5','element6']
-
 
 // angular drag drop test
   Plan.pannerTitle = "";
   Plan.selected = [];
 
-  Plan.addText = "";
 
 
+// function for toggling highlighted id's
+
+  Plan.highlight = function(id){
+    if(angular.isDefined(Plan.highlighted[id])){
+      delete Plan.highlighted[id];
+    } else {
+      Plan.highlighted[id] = true;
+    }
+    angular.forEach(Plan.courses, function(course){
+      var highlight = false;
+      angular.forEach(course.goals.goal, function(goal){
+        if(Plan.highlighted[goal.id]){
+          highlight = true;
+        }
+      });
+      if(highlight){
+        course.highlight = true;
+      }
+    });
+    Plan.sortCourses();
+
+  };
+
+
+
+
+// function for setting the Plan.sortedCourses array in the view
   Plan.sortCourses = function(){
     if(angular.isDefined(Plan.selectedCourse)){
       Plan.sortedCourses = Plan.setLevel(Plan.setTopic(Plan.selectedCourse));
@@ -152,6 +165,7 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
   };
 
 // Function for clearing selected course
+// Removes coures id and course goals from checkList
   Plan.clearSelected = function(course){
 
   // remove course from selected array

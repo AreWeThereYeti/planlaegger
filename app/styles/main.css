@@ -1047,25 +1047,26 @@ h1 {
 .goal-container .goal-content .sub-content .checked:after {
   color: #dc4320;
   padding-right: 10px;
+  padding-top: 4px;
   font-family: ilog;
   font-size: 22px;
   content: 'p';
   float: right;
 }
-/* line 139, ../sass/components/_goal-container.scss */
+/* line 140, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-text {
   padding-left: 25px;
-  padding-right: 25px;
+  padding-right: 60px;
 }
-/* line 142, ../sass/components/_goal-container.scss */
+/* line 143, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-text li {
   padding-bottom: 0;
 }
-/* line 148, ../sass/components/_goal-container.scss */
+/* line 149, ../sass/components/_goal-container.scss */
 .goal-container .custom-radio {
   float: right;
 }
-/* line 150, ../sass/components/_goal-container.scss */
+/* line 151, ../sass/components/_goal-container.scss */
 .goal-container .custom-radio label:before {
   margin: 0;
   width: 22px;
@@ -1085,15 +1086,20 @@ h1 {
   background-color: #ffffff;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 }
-/* line 13, ../sass/components/_course-container.scss */
+/* line 12, ../sass/components/_course-container.scss */
+.course-container.highlighted {
+  background-color: #dc4320;
+  color: #ffffff;
+}
+/* line 18, ../sass/components/_course-container.scss */
 .course-container:hover {
   background-color: #ffffff;
 }
-/* line 15, ../sass/components/_course-container.scss */
+/* line 20, ../sass/components/_course-container.scss */
 .course-container:hover .course-icon {
   color: #dc4320;
 }
-/* line 21, ../sass/components/_course-container.scss */
+/* line 26, ../sass/components/_course-container.scss */
 .course-container .course-icon {
   position: relative;
   right: 5px;
@@ -1101,7 +1107,7 @@ h1 {
   font-size: 40px;
   float: right;
 }
-/* line 27, ../sass/components/_course-container.scss */
+/* line 32, ../sass/components/_course-container.scss */
 .course-container .course-icon.checked:before {
   color: #dc4320;
   font-family: ilog;
@@ -1109,7 +1115,7 @@ h1 {
   font-size: 26px;
   line-height: 40px;
 }
-/* line 35, ../sass/components/_course-container.scss */
+/* line 40, ../sass/components/_course-container.scss */
 .course-container .icon-trash:before {
   float: right;
   font-family: ilog;
@@ -1648,7 +1654,11 @@ h1 {
 .custom-radio input[type=radio] {
   display: none;
 }
-/* line 7, ../sass/components/_custom-checkbox.scss */
+/* line 6, ../sass/components/_custom-checkbox.scss */
+.custom-radio input[type=checkbox] {
+  display: none;
+}
+/* line 9, ../sass/components/_custom-checkbox.scss */
 .custom-radio label:before {
   content: "";
   display: inline-block;
@@ -1661,34 +1671,41 @@ h1 {
   vertical-align: text-top;
   box-sizing: border-box;
 }
-/* line 21, ../sass/components/_custom-checkbox.scss */
+/* line 23, ../sass/components/_custom-checkbox.scss */
 .custom-radio label {
   cursor: pointer;
   display: block;
   width: 100%;
   margin-bottom: 0px;
 }
-/* line 27, ../sass/components/_custom-checkbox.scss */
+/* line 29, ../sass/components/_custom-checkbox.scss */
 .custom-radio label:hover:before {
   background-color: #9b9b9b;
 }
-/* line 32, ../sass/components/_custom-checkbox.scss */
+/* line 34, ../sass/components/_custom-checkbox.scss */
 .custom-radio label:before {
   border-radius: 50%;
 }
-/* line 37, ../sass/components/_custom-checkbox.scss */
+/* line 39, ../sass/components/_custom-checkbox.scss */
 .custom-radio input[type=radio]:checked + label:before {
   content: "";
   background-color: #e04f2f;
   text-align: center;
   line-height: 15px;
 }
+/* line 45, ../sass/components/_custom-checkbox.scss */
+.custom-radio input[type=checkbox]:checked + label:before {
+  content: "";
+  background-color: #e04f2f;
+  text-align: center;
+  line-height: 15px;
+}
 
-/* line 46, ../sass/components/_custom-checkbox.scss */
+/* line 54, ../sass/components/_custom-checkbox.scss */
 .custom-checkbox input[type=checkbox] {
   display: none;
 }
-/* line 50, ../sass/components/_custom-checkbox.scss */
+/* line 58, ../sass/components/_custom-checkbox.scss */
 .custom-checkbox label:before {
   cursor: pointer;
   display: block;
@@ -1699,7 +1716,7 @@ h1 {
   margin-bottom: 0px;
   content: " ";
 }
-/* line 62, ../sass/components/_custom-checkbox.scss */
+/* line 70, ../sass/components/_custom-checkbox.scss */
 .custom-checkbox input[type=checkbox]:checked + label:before {
   content: " ";
   background-color: #dc4320;

@@ -35,7 +35,7 @@
         <ul>
           <li  ng-repeat="subelem in elem.faerdighedsOgVidensmaalPLURALIS.faerdighedsOgvidensmaalSINGULARIS">
             <div class="custom-radio">
-              <input id="{{subelem.id}}{{$index}}" type="radio" name="check" value="" ng-checked="">
+              <input id="{{subelem.id}}{{$index}}" type="checkbox" name="check" value="" ng-checked="Plan.highlighted[subelem.id]">
               <label for="{{subelem.id}}{{$index}}" ng-click="Plan.highlight(subelem.id)" />
             </div>
 
@@ -48,8 +48,8 @@
                 <li ng-repeat="subsubelem in subelem.faser.fase">
                   <div class="sub-content-scope">{{subsubelem.scope}}</div>
                   <div class="custom-radio">
-                    <input id="{{subsubelem.id}}{{$index}}" type="radio" name="check" value="" ng-checked="">
-                    <label for="{{subsubelem.id}}{{$index}}" ng-click="Plan.highlight(subsubelem.id)" />
+                    <input id="{{subelem.id}}{{$index}}" type="checkbox" name="check" value="" ng-checked="Plan.highlighted[subelem.id + subsubelem.scope]">
+                    <label for="{{subelem.id}}{{$index}}" ng-click="Plan.highlight(subelem.id + subsubelem.scope)" />
                   </div>
                   <div ng-class="{checked: subsubelem.checked}"></div>
                   <ul class="sub-content-text">
@@ -113,7 +113,7 @@
       </div>
     </div>
 
-    <div class="course-container" ui-draggable="true" drag-channel="courses" on-drop-success="Plan.dropSuccessHandler($event,$index,course,Plan.courses)" drag="course" ng-repeat="course in Plan.sortedCourses">
+    <div class="course-container" ng-class="{'highlighted': course.highlighted}" ui-draggable="true" drag-channel="courses" on-drop-success="Plan.dropSuccessHandler($event,$index,course,Plan.courses)" drag="course" ng-repeat="course in Plan.sortedCourses">
       <span class="course-title">{{course.value}}</span>
       <span class="course-icon" ng-class="{'icon': !Plan.checkList[course.id], 'ion-grid': !Plan.checkList[course.id], 'checked': Plan.checkList[course.id]}"></span>
     </div>

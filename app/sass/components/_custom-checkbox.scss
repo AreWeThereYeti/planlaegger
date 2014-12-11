@@ -3,7 +3,9 @@
   input[type=radio] {
     display: none;
   }
-
+  input[type=checkbox] {
+    display: none;
+  }
   label:before {
     content: "";
     display: inline-block;
@@ -35,6 +37,12 @@
   }
 
   input[type=radio]:checked + label:before {
+    content: "";
+    background-color: $backgroundcolor-orange;
+    text-align: center;
+    line-height: 15px;
+  }
+  input[type=checkbox]:checked + label:before {
     content: "";
     background-color: $backgroundcolor-orange;
     text-align: center;
