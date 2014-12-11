@@ -3,7 +3,7 @@
 <div ng-controller="ToolbarCtrl as Toolbar" class="toolbar">
   <div class="goals">
     <span class="toolbar-head">Mål</span>
-    <span class="float-right toolbar-clear">Ryd alle</span>
+    <span class="float-right toolbar-clear" ng-click="Toolbar.clearAll()">Ryd alle</span>
   </div>
   <div class="courses">
     <span class="toolbar-head">Forløb</span>
@@ -35,8 +35,8 @@
         <ul>
           <li  ng-repeat="subelem in elem.faerdighedsOgVidensmaalPLURALIS.faerdighedsOgvidensmaalSINGULARIS">
             <div class="custom-radio">
-              <input id="{{subelem.id}}" type="checkbox" name="check" >
-              <label for="{{subelem.id}}" ng-click="Plan.highlight(subelem.id)" />
+              <input id="{{subelem.id}}" type="checkbox" name="check" ng-model="subelem.Selected" >
+              <label for="{{subelem.id}}" ng-click="Plan.highlight(subelem.id); !subelem.Selected"  />
             </div>
 
             <div class="sub-head" ng-class="{'active': Plan.activeSubGoal == subelem.id, 'checked': Plan.checkList[subelem.id]}" ng-click="Plan.activeSubGoal = subelem.id">
@@ -48,8 +48,8 @@
                 <li ng-repeat="subsubelem in subelem.faser.fase">
                   <div class="sub-content-scope">{{subsubelem.scope}}</div>
                   <div class="custom-radio">
-                    <input id="{{subelem.id}}{{subsubelem.scope}}" type="checkbox" name="check"  >
-                    <label for="{{subelem.id}}{{subsubelem.scope}}" ng-click="Plan.highlight(subelem.id + subsubelem.scope)" />
+                    <input id="{{subelem.id}}{{subsubelem.scope}}" type="checkbox" name="check" ng-model="subsubelem.Selected" >
+                    <label for="{{subelem.id}}{{subsubelem.scope}}" ng-click="Plan.highlight(subelem.id + subsubelem.scope); !subsubelem.Selected"  />
                   </div>
                   <div ng-class="{checked: subsubelem.checked}"></div>
                   <ul class="sub-content-text">
