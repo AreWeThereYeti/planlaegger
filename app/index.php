@@ -117,6 +117,7 @@ include('php/core.php');
               <h3 class="popover-course">{{course.value}}</h3>
             </div>
             <div class="popover-content" ng-repeat="goal in course.goals.goal">
+              <h3>{{Plan.getGoalCategory(goal.id).value}}</h3>
               <h3>{{Plan.getGoal(goal.id).value}}</h3>
               <ul>
                 <li ng-show="goal.scope.search('1') != -1">
@@ -137,5 +138,20 @@ include('php/core.php');
         </div>
       </script>
 
+      <script type="text/ng-template" id="goal-popover">
+        <div class="popover-container">
+          <div class="popover-inner">
+            <div class="popover-head">
+              <h2>{{elem.value}}</h2>
+              <div>{{subelem.value}}</div>
+              <div>Fase {{subsubelem.scope}}</div>
+            </div>
+            <div class="popover-content">
+              <h3>Understøttede forløb:</h3>
+              <div class="popover-goal" ng-repeat="course in Plan.popoverGoals">{{course.topic}}: {{course.course}}</div>
+            </div>
+          </div>
+        </div>
+      </script>
     </body>
 </html>

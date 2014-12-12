@@ -52,7 +52,14 @@
                     <label for="{{subelem.id}}{{subsubelem.scope}}" ng-click="Plan.highlight(subelem.id + subsubelem.scope); !subsubelem.Selected"  />
                   </div>
                   <div ng-class="{checked: subsubelem.checked}"></div>
-                  <ul class="sub-content-text">
+                  <ul
+                          ns-popover
+                          ns-popover-timeout="0"
+                          ns-popover-template="goal-popover"
+                          ns-popover-trigger="mouseover"
+                          ns-popover-placement="right|center"
+
+                          class="sub-content-text" ng-mouseover="Plan.setPopoverGoals(subelem.id, subsubelem.scope)">
                     <li>{{subsubelem.faerdighedsmaal}}</li>
                     <li>{{subsubelem.vidensmaal}}</li>
                   </ul>

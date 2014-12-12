@@ -16,6 +16,7 @@ app.controller('PlanlaeggerCtrl', [  'plannerData', 'planner', '$rootScope', '$l
   Plan.topics = [];
   Plan.checkList = {};
   Plan.highlighted = {};
+  Plan.popoverGoals = [];
 
   // Set levels: Search through plandata and set available course levels
   angular.forEach(Plan.plandata.planlaegger.topics.topic, function(topic){
@@ -207,6 +208,40 @@ app.controller('PlanlaeggerCtrl', [  'plannerData', 'planner', '$rootScope', '$l
     setAllChecks();
   };
 
+  // helperfunction takes goal.id and scope and sets Plan.popoverGoals array with all matching courses as [{topic-name, course-name}, ...]
+  Plan.setPopoverGoals = function(id, scope){
+    // empty popover array
+    Plan.popoverGoals = [];
+
+    // loop through topics
+    angular.forEach(Plan.topics, function(topic){
+      //checks if topic.courses.course is array or object
+      if(angular.isDefined(topic.courses.course.length)) {
+        angular.forEach(topic.courses.course, function (course) {
+          angular.forEach(course.goals.goal, function(goal){
+            if (goal.id == id && goal.scope.search(scope) != -1) {
+              var obj = {
+                topic: topic.value,
+                course: course.value
+              };
+              Plan.popoverGoals.push(obj);
+            }
+          });
+        });
+      } else {
+        angular.forEach(topic.courses.course.goals.goal, function(goal){
+          if (goal.id == id && goal.scope.search(scope) != -1) {
+            var obj = {
+              topic: topic.value,
+              course: topic.courses.course.value
+            };
+            Plan.popoverGoals.push(obj);
+          }
+        });
+      }
+    });
+  };
+
   // helperfunction takes course.id and returns course topic
   Plan.getTopic = function(id){
     var courseTopic = '';
@@ -234,6 +269,21 @@ app.controller('PlanlaeggerCtrl', [  'plannerData', 'planner', '$rootScope', '$l
       angular.forEach(omraade.faerdighedsOgVidensmaalPLURALIS.faerdighedsOgvidensmaalSINGULARIS, function(vidensmaal){
         if(vidensmaal.id == id){
           goalInfo = vidensmaal;
+
+        }
+      });
+    });
+    return goalInfo
+  };
+
+  // helperfunction takes goal.id and returns goal category info
+  Plan.getGoalCategory = function(id){
+    var goalInfo = '';
+    angular.forEach(Plan.plandata.planlaegger.kompetenceomraader.kompetenceomraade, function(omraade){
+      angular.forEach(omraade.faerdighedsOgVidensmaalPLURALIS.faerdighedsOgvidensmaalSINGULARIS, function(vidensmaal){
+        if(vidensmaal.id == id){
+          goalInfo = omraade;
+
         }
       });
     });

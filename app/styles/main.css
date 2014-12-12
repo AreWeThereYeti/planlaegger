@@ -936,19 +936,20 @@ h1 {
 /* line 41, ../sass/components/_popover-container.scss */
 .popover-container .popover-inner .popover-head {
   padding-bottom: 25px;
+  font-size: 14px;
 }
-/* line 44, ../sass/components/_popover-container.scss */
-.popover-container .popover-inner .popover-head:last-of-type {
-  font-size: 10px;
+/* line 47, ../sass/components/_popover-container.scss */
+.popover-container .popover-inner .popover-content .popover-goal {
+  font-size: 14px;
 }
-/* line 48, ../sass/components/_popover-container.scss */
+/* line 50, ../sass/components/_popover-container.scss */
 .popover-container .popover-inner .popover-content .scope {
   padding-right: 10px;
 }
-/* line 51, ../sass/components/_popover-container.scss */
+/* line 53, ../sass/components/_popover-container.scss */
 .popover-container .popover-inner .popover-content ul {
   padding-bottom: 25px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 /* line 3, ../sass/components/_export-dialog.scss */

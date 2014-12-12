@@ -40,17 +40,19 @@
     }
     .popover-head{
       padding-bottom: 25px;
+      font-size: 14px;
     }
-    .popover-head:last-of-type{
-      font-size: 10px;
-    }
+
     .popover-content{
+      .popover-goal{
+        font-size: 14px;
+      }
       .scope{
         padding-right: 10px;
       }
       ul{
         padding-bottom: 25px;
-        font-size: 12px;
+        font-size: 14px;
       }
     }
   }
