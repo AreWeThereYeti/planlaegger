@@ -921,6 +921,35 @@ h1 {
   border-left: solid 3px #383838;
   color: #383838;
 }
+/* line 31, ../sass/components/_popover-container.scss */
+.popover-container .popover-inner h2 {
+  font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+/* line 36, ../sass/components/_popover-container.scss */
+.popover-container .popover-inner h3 {
+  font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+/* line 41, ../sass/components/_popover-container.scss */
+.popover-container .popover-inner .popover-head {
+  padding-bottom: 25px;
+}
+/* line 44, ../sass/components/_popover-container.scss */
+.popover-container .popover-inner .popover-head:last-of-type {
+  font-size: 10px;
+}
+/* line 48, ../sass/components/_popover-container.scss */
+.popover-container .popover-inner .popover-content .scope {
+  padding-right: 10px;
+}
+/* line 51, ../sass/components/_popover-container.scss */
+.popover-container .popover-inner .popover-content ul {
+  padding-bottom: 25px;
+  font-size: 12px;
+}
 
 /* line 3, ../sass/components/_export-dialog.scss */
 .share {

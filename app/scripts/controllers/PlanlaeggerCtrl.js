@@ -207,6 +207,39 @@ app.controller('PlanlaeggerCtrl', [  'plannerData', 'planner', '$rootScope', '$l
     setAllChecks();
   };
 
+  // helperfunction takes course.id and returns course topic
+  Plan.getTopic = function(id){
+    var courseTopic = '';
+    angular.forEach(Plan.topics, function(topic){
+      //checks if topic.courses.course is array or object
+      if(angular.isDefined(topic.courses.course.length)) {
+        angular.forEach(topic.courses.course, function (course) {
+          if (course.id == id) {
+            courseTopic = topic;
+          }
+        });
+      } else {
+        if (topic.courses.course.id == id) {
+          courseTopic = topic;
+        }
+      }
+    });
+    return courseTopic
+  };
+
+  // helperfunction takes goal.id and returns goal info
+  Plan.getGoal = function(id){
+    var goalInfo = '';
+    angular.forEach(Plan.plandata.planlaegger.kompetenceomraader.kompetenceomraade, function(omraade){
+      angular.forEach(omraade.faerdighedsOgVidensmaalPLURALIS.faerdighedsOgvidensmaalSINGULARIS, function(vidensmaal){
+        if(vidensmaal.id == id){
+          goalInfo = vidensmaal;
+        }
+      });
+    });
+    return goalInfo
+  };
+
   // helperfunction that loops through 'kompetenceomraader' and sets up .checked values for all goal elements
   var setAllChecks = function(){
     angular.forEach(Plan.plandata.planlaegger.kompetenceomraader.kompetenceomraade, function(omraade){

@@ -27,5 +27,31 @@
     background-color: white;
     border-left: solid 3px #383838;
     color: #383838;
+
+    h2{
+      font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    h3{
+      font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .popover-head{
+      padding-bottom: 25px;
+    }
+    .popover-head:last-of-type{
+      font-size: 10px;
+    }
+    .popover-content{
+      .scope{
+        padding-right: 10px;
+      }
+      ul{
+        padding-bottom: 25px;
+        font-size: 12px;
+      }
+    }
   }
 }
