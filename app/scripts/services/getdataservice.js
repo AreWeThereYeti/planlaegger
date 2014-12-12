@@ -3,7 +3,7 @@ angular.module('gyldendal.services', [])
 			var sdo= {
 
         getAllOrganizers: function(){
-          var userID = 'mort088k'; // hardcoded userID for testing
+          var userID = 'poul1371'; // hardcoded userID for testing
           var returndata;
 
           var promise = $http({

@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('DialogCtrl', [ '$rootScope', function ($rootScope) {
+app.controller('DialogCtrl', [ '$window', '$routeParams', '$rootScope', function ($window, $routeParams, $rootScope) {
 	//Save reference to controller in order to avoid reference soup
 	var Dialog = this;
 
@@ -12,6 +12,11 @@ app.controller('DialogCtrl', [ '$rootScope', function ($rootScope) {
 		if($rootScope.dialog != ''){
 			$rootScope.dialog = '';
 		}
-	}
+	};
+
+  Dialog.exportPlanner = function(){
+    var route = $routeParams.id;
+    $window.open('planner/'+route);
+  }
 
 }]);
