@@ -139,11 +139,19 @@ app.controller('PlanlaeggerCtrl', [  'plannerData', 'planner', '$rootScope', '$l
 
 // function for setting the Plan.sortedCourses array in the view
   Plan.sortCourses = function(){
+
     if(angular.isDefined(Plan.selectedCourse)){
+      Plan.sortedCourses = Plan.setTopic(Plan.selectedCourse);
+    } else {
+      Plan.sortedCourses = Plan.courses;
+    }
+
+    // removes level dropdown
+/*    if(angular.isDefined(Plan.selectedCourse)){
       Plan.sortedCourses = Plan.setLevel(Plan.setTopic(Plan.selectedCourse));
     } else {
       Plan.sortedCourses = Plan.setLevel(Plan.courses);
-    }
+    }*/
   };
 
 
