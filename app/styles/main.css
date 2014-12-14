@@ -1253,12 +1253,13 @@ h1 {
   content: 'p';
   font-size: 26px;
   line-height: 40px;
+  vertical-align: bottom;
 }
-/* line 63, ../sass/components/_course-container.scss */
+/* line 64, ../sass/components/_course-container.scss */
 .course-container .course-icon.checked:before.highlighted {
   color: #ffffff;
 }
-/* line 69, ../sass/components/_course-container.scss */
+/* line 70, ../sass/components/_course-container.scss */
 .course-container .icon-trash:before {
   float: right;
   font-family: ilog;
@@ -1268,7 +1269,7 @@ h1 {
   line-height: 40px;
   cursor: pointer;
 }
-/* line 80, ../sass/components/_course-container.scss */
+/* line 81, ../sass/components/_course-container.scss */
 .course-container .icon-trash:hover {
   color: #dc4320;
 }

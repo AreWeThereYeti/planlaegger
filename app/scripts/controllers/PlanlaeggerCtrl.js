@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('PlanlaeggerCtrl', [  'plannerData', 'planner', '$rootScope', '$location', 'getdataservice', '$scope', '$route', function ( plannerData, planner, $rootScope, $location, getdataservice, $scope, $route) {
+app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$location', 'getdataservice', '$scope', '$route', function ( plannerData, planner, $rootScope, $location, getdataservice, $scope, $route) {
 
   //Save reference to controller in order to avoid reference soup
   var Plan = this;
@@ -429,5 +429,10 @@ app.controller('PlanlaeggerCtrl', [  'plannerData', 'planner', '$rootScope', '$l
     console.log(Plan.selected)
   };
 
+  Plan.drag = function($event,$data,array){
+    //array.push($data);
+    console.log("DRAG!!!!!")
+    hidePopover();
+  };
 
 }]);
