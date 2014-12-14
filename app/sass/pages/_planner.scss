@@ -110,12 +110,17 @@
       width: 28.2% \9;
       overflow: auto;
       font-size: 18px;
+      margin-top: -37px;
     }
     .dropdown_header {
       line-height: 32px;
       font-size: 18px;
       &.active {
-        line-height: 32px;
+        line-height: 43px;
+        margin-top: -5px;
+        margin-bottom: -6px;
+
+        //line-height: 32px;
         background-color: white;
       }
     }

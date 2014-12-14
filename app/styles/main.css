@@ -866,18 +866,21 @@ h1 {
   width: 28.2% \9;
   overflow: auto;
   font-size: 18px;
+  margin-top: -37px;
 }
-/* line 114, ../sass/pages/_planner.scss */
+/* line 115, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_header {
   line-height: 32px;
   font-size: 18px;
 }
-/* line 117, ../sass/pages/_planner.scss */
+/* line 118, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_header.active {
-  line-height: 32px;
+  line-height: 43px;
+  margin-top: -5px;
+  margin-bottom: -6px;
   background-color: white;
 }
-/* line 122, ../sass/pages/_planner.scss */
+/* line 127, ../sass/pages/_planner.scss */
 .plan-content .select-inner select {
   background-color: rgba(0, 0, 0, 0);
   outline: 0;
