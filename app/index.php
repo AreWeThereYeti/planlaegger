@@ -139,8 +139,8 @@ include('php/core.php');
       </script>
 
       <script type="text/ng-template" id="goal-popover">
-        <div class="popover-container">
-          <div class="popover-inner">
+        <div class="popover-container goal">
+          <div class="popover-inner goal">
             <div class="popover-head">
               <h2>{{elem.value}}</h2>
               <div>{{subelem.value}}</div>
