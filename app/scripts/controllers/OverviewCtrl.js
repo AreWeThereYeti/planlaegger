@@ -11,6 +11,10 @@ app.controller('OverviewCtrl', [ 'planners', '$timeout', 'entries', '$rootScope'
   Overview.planners = planners.data;
   console.log(Overview.planners);
 
+
+  // set page title
+  $rootScope.title = "Gyldendal Planlægger";
+
   // dummy list data
   Overview.entries = entries.data;
   console.log(entries.data);

@@ -18,6 +18,9 @@ app.controller('PlanlaeggerCtrl', [  'plannerData', 'planner', '$rootScope', '$l
   Plan.highlighted = {};
   Plan.popoverGoals = [];
 
+  // set page title
+  $rootScope.title = "Gyldendal Planlægger | " + Plan.current.title;
+
   // Set levels: Search through plandata and set available course levels
   angular.forEach(Plan.plandata.planlaegger.topics.topic, function(topic){
 

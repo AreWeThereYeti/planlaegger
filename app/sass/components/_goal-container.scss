@@ -12,6 +12,8 @@
     border-bottom: 1px solid #e2e2e2;
     //border-right: 1px solid #dadada;
 
+    -webkit-transition:0.2s linear background-color;
+    transition:0.2s linear background-color;
     &:hover {
 
       .round-arrow {
@@ -74,8 +76,20 @@
       //border-right: 1px solid #dadada;
     }
     &.active {
+      -webkit-transition:0.2s linear all;
+      transition:0.2s linear all;
+
       background-color: #dc4320;
       color: #ffffff;
+      border: none;
+
+    }
+    &.active-remove {
+      -webkit-transition:0.2s linear background-color;
+      transition:0.2s linear background-color;
+
+      background-color: #f5f5f5;
+      color: #383838;
       border: none;
 
     }

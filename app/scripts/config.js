@@ -18,6 +18,7 @@ var app = angular.module('app', [
       templateUrl: 'views/overview.html',
       controller: 'OverviewCtrl',
       controllerAs: 'Overview',
+      title: 'Oversigt',
       resolve: {
         entries: function (getdataservice, $route) {
           return getdataservice.getAllOrganizers($route.current.params);
