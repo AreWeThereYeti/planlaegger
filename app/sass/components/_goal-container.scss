@@ -1,4 +1,5 @@
 .goal-container{
+  cursor: default;
 
   .head {
     padding: 0 25px 0 50px;
@@ -10,6 +11,14 @@
     font-size: 24px;
     border-bottom: 1px solid #e2e2e2;
     //border-right: 1px solid #dadada;
+
+    &:hover {
+
+      .round-arrow {
+        color: #dc4320;
+
+      }
+    }
 
     .check{
       color: #383838;
@@ -39,7 +48,8 @@
         float: right;
         font-size: 25;
         font-family: ilog;
-        content: 'B'
+        content: 'B';
+
       }
       &.active {
         &:before{
@@ -48,6 +58,11 @@
           font-size: 25px;
           font-family: ilog;
           content: 'C';
+          color: #383838;
+
+          &:hover{
+            color: #383838;
+          }
         }
       }
 
@@ -75,7 +90,11 @@
     background-color: white;
 
     .sub-head{
-
+      &:hover{
+        &:before {
+          color: #dc4320;
+        }
+      }
       &:before {
         padding-right: 15px;
         font-size: 10px;

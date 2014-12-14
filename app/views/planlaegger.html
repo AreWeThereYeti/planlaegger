@@ -25,13 +25,13 @@
 <div class="plan-content">
   <div class="goals">
     <div class="goal-container"  ng-repeat="elem in Plan.plandata.planlaegger.kompetenceomraader.kompetenceomraade">
-      <div class="head" ng-click="Plan.activeGoal = $index; Plan.activeSubGoal = '';" ng-class="{active: Plan.activeGoal == $index}">
+      <div class="head" ng-click="elem.activeGoal = !elem.activeGoal; Plan.activeSubGoal = '';" ng-class="{active: elem.activeGoal}">
         <span>{{elem.value}}</span>
-        <span class="round-arrow" ng-class="{active: Plan.activeGoal == $index}"></span>
+        <span class="round-arrow" ng-class="{active: elem.activeGoal}"></span>
         <span ng-class="{check: elem.checked}"></span>
 
       </div>
-      <div class="goal-content" ng-show="Plan.activeGoal == $index">
+      <div class="goal-content" ng-show="elem.activeGoal">
         <ul>
           <li  ng-repeat="subelem in elem.faerdighedsOgVidensmaalPLURALIS.faerdighedsOgvidensmaalSINGULARIS">
             <div class="custom-radio">
@@ -39,11 +39,11 @@
               <label for="{{subelem.id}}" ng-click="Plan.highlight(subelem.id); !subelem.Selected"  />
             </div>
 
-            <div class="sub-head" ng-class="{'active': Plan.activeSubGoal == subelem.id, 'checked': Plan.checkList[subelem.id]}" ng-click="Plan.activeSubGoal = subelem.id">
+            <div class="sub-head" ng-class="{'active': subelem.activeSubGoal, 'checked': Plan.checkList[subelem.id]}" ng-click="subelem.activeSubGoal = !subelem.activeSubGoal">
               {{subelem.value}}
             </div>
 
-            <div class="sub-content" ng-show="Plan.activeSubGoal == subelem.id">
+            <div class="sub-content" ng-show="subelem.activeSubGoal">
               <ul class="sub-content-elem">
                 <li ng-repeat="subsubelem in subelem.faser.fase">
                   <div class="sub-content-scope">{{subsubelem.scope}}</div>

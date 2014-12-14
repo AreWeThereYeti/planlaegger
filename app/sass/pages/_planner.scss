@@ -28,6 +28,13 @@
     background-color: #f5f5f5;
     overflow-y: scroll;
 
+    .course-container{
+      cursor:
+        url('../images/hand.cur'),
+        url('../images/hand.gif'),
+        move !important;
+    }
+
 
   }
   .dropdown {
