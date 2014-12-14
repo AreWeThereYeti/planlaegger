@@ -1,4 +1,6 @@
+
 .popover-container{
+  transition:1s linear all;
 
   &:before{
     border: solid transparent;
@@ -22,10 +24,11 @@
   }
   .popover-inner{
     opacity: 0.95;
+    line-height: 18px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
     overflow-y: scroll;
     position: relative;
-    max-height: 570px;
+    max-height: 450px;
     width: 310px;
     padding: 25px;
     background-color: white;

@@ -916,7 +916,11 @@ h1 {
   margin: 0px;
 }
 
-/* line 3, ../sass/components/_popover-container.scss */
+/* line 2, ../sass/components/_popover-container.scss */
+.popover-container {
+  transition: 1s linear all;
+}
+/* line 5, ../sass/components/_popover-container.scss */
 .popover-container:before {
   border: solid transparent;
   content: " ";
@@ -936,53 +940,54 @@ h1 {
   -o-transform: rotate(90deg);
   transform: rotate(90deg);
 }
-/* line 19, ../sass/components/_popover-container.scss */
+/* line 21, ../sass/components/_popover-container.scss */
 .popover-container.goal:before {
   margin-left: -7px;
 }
-/* line 23, ../sass/components/_popover-container.scss */
+/* line 25, ../sass/components/_popover-container.scss */
 .popover-container .popover-inner {
   opacity: 0.95;
+  line-height: 18px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
   overflow-y: scroll;
   position: relative;
-  max-height: 570px;
+  max-height: 450px;
   width: 310px;
   padding: 25px;
   background-color: white;
   border-left: solid 3px #383838;
   color: #383838;
 }
-/* line 34, ../sass/components/_popover-container.scss */
+/* line 37, ../sass/components/_popover-container.scss */
 .popover-container .popover-inner.goal {
   margin-left: 25px;
 }
-/* line 37, ../sass/components/_popover-container.scss */
+/* line 40, ../sass/components/_popover-container.scss */
 .popover-container .popover-inner h2 {
   font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
   font-size: 18px;
   font-weight: bold;
 }
-/* line 42, ../sass/components/_popover-container.scss */
+/* line 45, ../sass/components/_popover-container.scss */
 .popover-container .popover-inner h3 {
   font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
   font-size: 14px;
   font-weight: bold;
 }
-/* line 47, ../sass/components/_popover-container.scss */
+/* line 50, ../sass/components/_popover-container.scss */
 .popover-container .popover-inner .popover-head {
   padding-bottom: 25px;
   font-size: 14px;
 }
-/* line 53, ../sass/components/_popover-container.scss */
+/* line 56, ../sass/components/_popover-container.scss */
 .popover-container .popover-inner .popover-content .popover-goal {
   font-size: 14px;
 }
-/* line 56, ../sass/components/_popover-container.scss */
+/* line 59, ../sass/components/_popover-container.scss */
 .popover-container .popover-inner .popover-content .scope {
   padding-right: 10px;
 }
-/* line 59, ../sass/components/_popover-container.scss */
+/* line 62, ../sass/components/_popover-container.scss */
 .popover-container .popover-inner .popover-content ul {
   padding-bottom: 25px;
   font-size: 14px;
