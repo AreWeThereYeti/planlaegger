@@ -33,8 +33,14 @@
         url('../images/hand.cur'),
         url('../images/hand.gif'),
         move !important;
-    }
+      &:hover{
+        color: #dc4320;
+        &.highlighted{
+          color: #ffffff;
+        }
+      }
 
+    }
 
   }
   .dropdown {
