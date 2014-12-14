@@ -1256,6 +1256,10 @@ h1 {
   line-height: 40px;
   cursor: pointer;
 }
+/* line 80, ../sass/components/_course-container.scss */
+.course-container .icon-trash:hover {
+  color: #dc4320;
+}
 
 /* line 1, ../sass/components/_topheader.scss */
 .topheader {
