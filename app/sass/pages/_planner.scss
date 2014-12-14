@@ -46,6 +46,10 @@
     padding: 25px;
     float: left;
     background-color: #ffffff;
+    -webkit-box-shadow: inset 4px 0px 6px 0px rgba(0, 0, 0, 0.10);
+    -moz-box-shadow: inset 4px 0px 6px 0px rgba(0, 0, 0, 0.10);
+    box-shadow: inset 4px 0px 6px 0px rgba(0, 0, 0, 0.10);
+
     &.on-drag-hover{
       background-color: #fafafa;
     }

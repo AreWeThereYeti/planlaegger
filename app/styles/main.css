@@ -801,20 +801,23 @@ h1 {
   padding: 25px;
   float: left;
   background-color: #ffffff;
+  -webkit-box-shadow: inset 4px 0px 6px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 4px 0px 6px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 4px 0px 6px 0px rgba(0, 0, 0, 0.1);
 }
-/* line 49, ../sass/pages/_planner.scss */
+/* line 53, ../sass/pages/_planner.scss */
 .plan-content .selected.on-drag-hover {
   background-color: #fafafa;
 }
-/* line 52, ../sass/pages/_planner.scss */
+/* line 56, ../sass/pages/_planner.scss */
 .plan-content .selected.empty {
   background: url(../images/background.png) no-repeat white 48% 48%;
 }
-/* line 54, ../sass/pages/_planner.scss */
+/* line 58, ../sass/pages/_planner.scss */
 .plan-content .selected.empty.on-drag-hover {
   background-color: #fafafa;
 }
-/* line 58, ../sass/pages/_planner.scss */
+/* line 62, ../sass/pages/_planner.scss */
 .plan-content .selected .planner-title {
   width: 100%;
   height: 40px;
@@ -822,7 +825,7 @@ h1 {
   background-color: white;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 }
-/* line 65, ../sass/pages/_planner.scss */
+/* line 69, ../sass/pages/_planner.scss */
 .plan-content .selected .planner-title input[type='text'] {
   padding: 0 10px 0 10px;
   border: none;
@@ -831,7 +834,7 @@ h1 {
   line-height: 40px;
   width: 80%;
 }
-/* line 75, ../sass/pages/_planner.scss */
+/* line 79, ../sass/pages/_planner.scss */
 .plan-content .selected .planner-title .icon-trash:before {
   float: right;
   font-family: ilog;
@@ -841,7 +844,7 @@ h1 {
   line-height: 40px;
   cursor: pointer;
 }
-/* line 88, ../sass/pages/_planner.scss */
+/* line 92, ../sass/pages/_planner.scss */
 .plan-content .plan-overlay {
   position: fixed;
   top: 0;
@@ -854,12 +857,12 @@ h1 {
   height: 100%;
   -webkit-backface-visibility: hidden;
 }
-/* line 103, ../sass/pages/_planner.scss */
+/* line 107, ../sass/pages/_planner.scss */
 .plan-content .select-inner {
   margin: 0;
   border-bottom: 2px solid #000;
 }
-/* line 107, ../sass/pages/_planner.scss */
+/* line 111, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_content {
   max-height: 300px;
   width: calc(30% - 20px);
@@ -868,19 +871,19 @@ h1 {
   font-size: 18px;
   margin-top: -37px;
 }
-/* line 115, ../sass/pages/_planner.scss */
+/* line 119, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_header {
   line-height: 32px;
   font-size: 18px;
 }
-/* line 118, ../sass/pages/_planner.scss */
+/* line 122, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_header.active {
   line-height: 43px;
   margin-top: -5px;
   margin-bottom: -6px;
   background-color: white;
 }
-/* line 127, ../sass/pages/_planner.scss */
+/* line 131, ../sass/pages/_planner.scss */
 .plan-content .select-inner select {
   background-color: rgba(0, 0, 0, 0);
   outline: 0;
