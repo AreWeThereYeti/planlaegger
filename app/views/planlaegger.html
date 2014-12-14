@@ -133,11 +133,11 @@
     </div>
   </div>
   <div class="selected" ng-class="{empty: !Plan.selected.length}" ui-on-Drop="Plan.onDrop($event,$data,Plan.selected)" drop-channel="courses">
-    <div class="planner-title" >
+    <!--<div class="planner-title" >
       <input type="text" placeholder="Vælg forløbstitel" ng-model="Plan.plannerTitle">
       <span class="icon-trash" ng-click="Plan.plannerTitle = ''"></span>
 
-    </div>
+    </div>-->
 
     <div class="course-container" ng-repeat="course in Plan.selected track by $index">
       <span class="course-title">{{course.value}}</span>
