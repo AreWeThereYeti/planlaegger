@@ -269,7 +269,12 @@
 
           var positionY = function() {
             if (align === 'center') {
-              return Math.round(rect.top + rect.height/2 - popoverRect.height/2);
+              // overwrites the left most popover to display at the center of the checkbox --------- CUSTOM OVERWRITE
+              if(rect.left < 100){
+                return Math.round(rect.top + 7 - popoverRect.height/2);
+              } else {
+                return Math.round(rect.top + rect.height/2 - popoverRect.height/2);
+              }
             } else if(align === 'bottom') {
               return rect.bottom - popoverRect.height;
             }

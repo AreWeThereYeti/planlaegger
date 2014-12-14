@@ -45,21 +45,21 @@
 
             <div class="sub-content" ng-show="subelem.activeSubGoal">
               <ul class="sub-content-elem">
-                <li ng-repeat="subsubelem in subelem.faser.fase">
+                <li
+                        ns-popover
+                        ns-popover-timeout="0"
+                        ns-popover-template="goal-popover"
+                        ns-popover-trigger="mouseover"
+                        ns-popover-placement="right|center"
+
+                        ng-repeat="subsubelem in subelem.faser.fase">
                   <div class="sub-content-scope">{{subsubelem.scope}}</div>
                   <div class="custom-radio">
                     <input id="{{subelem.id}}{{subsubelem.scope}}" type="checkbox" name="check" ng-model="subsubelem.Selected" >
                     <label for="{{subelem.id}}{{subsubelem.scope}}" ng-click="Plan.highlight(subelem.id + subsubelem.scope); !subsubelem.Selected"  />
                   </div>
                   <div ng-class="{checked: subsubelem.checked}"></div>
-                  <ul
-                          ns-popover
-                          ns-popover-timeout="0"
-                          ns-popover-template="goal-popover"
-                          ns-popover-trigger="mouseover"
-                          ns-popover-placement="right|center"
-
-                          class="sub-content-text" ng-mouseover="Plan.setPopoverGoals(subelem.id, subsubelem.scope)">
+                  <ul class="sub-content-text" ng-mouseover="Plan.setPopoverGoals(subelem.id, subsubelem.scope)">
                     <li>{{subsubelem.faerdighedsmaal}}</li>
                     <li>{{subsubelem.vidensmaal}}</li>
                   </ul>
