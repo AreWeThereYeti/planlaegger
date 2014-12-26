@@ -4,7 +4,7 @@
   top: 150px;
   overflow: auto;
   width: 100%;
-  height: calc(100% - 200px);
+  height: calc(100% - 150px);
   height: 80% \9;
   float: left;
   font-size: 14px;
@@ -14,8 +14,8 @@
   -o-transition:      top 0.2s;
   &.no-filter{
     top: 87px;
-    height: calc(100% - 137px);
-    height: 80% \9;
+    height: calc(100% - 87px);
+    height: 90% \9;
     transition:         top 0.2s;
     -webkit-transition: top 0.2s;
     -moz-transition:    top 0.2s;
