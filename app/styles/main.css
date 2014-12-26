@@ -883,8 +883,8 @@ h1 {
 /* line 130, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_content {
   max-height: 300px;
-  width: calc(30% - 20px);
-  width: 28.2% \9;
+  width: calc(100% - 20px);
+  width: 94% \9;
   overflow: auto;
   font-size: 18px;
   margin-top: -37px;
