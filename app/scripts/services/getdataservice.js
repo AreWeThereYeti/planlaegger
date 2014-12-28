@@ -3,7 +3,7 @@ angular.module('gyldendal.services', [])
 			var sdo= {
 
         getAllOrganizers: function(){
-          var userID = 'poul1371'; // hardcoded userID for testing
+          var userID = 'mort088k'; // hardcoded userID for testing
           var returndata;
 
           var promise = $http({
@@ -46,6 +46,47 @@ angular.module('gyldendal.services', [])
               }else{
                 console.log("error on organizer data request. component data has not been loaded");
               }
+            });
+
+          return promise;
+        },
+        addOrganizer: function(plannerInfo) {
+
+          //Needs userID
+          var UserID = 'mort088k';
+
+          var returndata;
+
+          var request = {
+            "organizer": {
+              "userID":   UserID,
+              "title":    plannerInfo.title,
+              "subjects": "i-log",
+              "levels":   plannerInfo.levels,
+              "content":  plannerInfo.content,
+              "version": 'FM 2014'
+            }
+          };
+          console.log("request: "+request);
+
+          var promise = $http({
+            cache: false,
+            headers: {
+              'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            method: 'POST',
+            url: 'php/addOrganizer.php',
+            data: angular.toJson(request)
+          })
+            .success(function (data, status, headers, config) {
+              if (data !== null) {
+                console.log("response: "+JSON.stringify(data));
+                //returndata = angular.fromJson(data);
+              }
+            })
+            .error(function(error){
+              console.log("err: "+JSON.stringify(error));
+
             });
 
           return promise;

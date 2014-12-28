@@ -78,15 +78,20 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
 	$scope.createPlanner = function(){
 
     //If niveau and laeremiddel are defined as well as title, contact server
-    if(angular.isDefined($scope.valgtNiveau && $scope.valgtLaeremiddel && $scope.title)){
+    if(angular.isDefined($scope.selectedPlannerID && $scope.valgtNiveau && $scope.valgtLaeremiddel && $scope.title)){
 
       //ready planner data
       var planData = {
         "title": $scope.title,
-        "ID": $scope.valgtLaeremiddel+"_"+$scope.valgtNiveau.replace(' klasse',''),
-        "laeremiddel": $scope.valgtLaeremiddel,
-        "niveau": $scope.valgtNiveau,
-        "version": "FM 2014"
+        "laeremiddel": [$scope.valgtLaeremiddel],
+        "levels": [$scope.valgtNiveau],
+        "version": "FM 2014",
+        "content": {
+          "data": [],
+          "courses": [],
+          "goals": [],
+          "plannerID": $scope.selectedPlannerID
+        }
       };
 
       //save planner
