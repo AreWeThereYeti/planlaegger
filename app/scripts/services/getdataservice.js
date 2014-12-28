@@ -76,6 +76,41 @@ angular.module('gyldendal.services', [])
 
           return promise;
         },
+        updateOrganizer: function(plannerInfo, objectID) {
+
+
+          var request = {
+            "objectID": objectID,
+            "organizer": {
+              "title":    plannerInfo.title,
+              "subjects": plannerInfo.subjects,
+              "levels":   plannerInfo.levels,
+              "content":  angular.toJson(plannerInfo.content)
+            }
+          };
+          console.log("request: "+request);
+
+          var promise = $http({
+            cache: false,
+            headers: {
+              'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            method: 'POST',
+            url: 'php/updateOrganizer.php',
+            data: angular.toJson(request)
+          })
+            .success(function (data, status, headers, config) {
+              if (data !== null) {
+                console.log("response: "+JSON.stringify(data));
+              }
+            })
+            .error(function(error){
+              console.log("err: "+JSON.stringify(error));
+
+            });
+
+          return promise;
+        },
         addOrganizer: function(plannerInfo) {
 
           //Needs userID
@@ -117,7 +152,7 @@ angular.module('gyldendal.services', [])
 
           return promise;
         },
-        getPanner: function() {
+        getPlanner: function(plannerID) {
 
           var promise = $http.get('testjson/geografi7-9.json')
 

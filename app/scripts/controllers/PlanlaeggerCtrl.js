@@ -1,40 +1,78 @@
 "use strict";
 
-app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$location', 'getdataservice', '$scope', '$route', function ( plannerData, planner, $rootScope, $location, getdataservice, $scope, $route) {
+app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getdataservice', '$scope', '$route', function (  planner, $rootScope, $location, getdataservice, $scope, $route) {
 
   //Save reference to controller in order to avoid reference soup
   var Plan = this;
 
+  // set loading view while getting plannerdata
+  $rootScope.loadingView = true;
+
   // setup api data variables
   Plan.current = planner.data;
-  Plan.plandata = angular.fromJson(plannerData.data);
 
-  // setup current planner variables
-  Plan.levels = [];
-  Plan.courses = [];
-  Plan.sortedCourses = [];
-  Plan.topics = [];
-  Plan.checkList = {};
-  Plan.highlighted = {};
-  Plan.popoverGoals = [];
+  // get the raw planner data from the plannerId in the user-defined planner
+  getdataservice.getPlanner(angular.fromJson(Plan.current.content).plannerID).then(function(data){
+    // remove loading view when planner is loaded
+    $rootScope.loadingView = false;
 
-  // set page title
-  $rootScope.title = "Gyldendal Planlægger | " + Plan.current.title;
+    Plan.plandata = angular.fromJson(data.data);
 
-  // Set levels: Search through plandata and set available course levels
-  angular.forEach(Plan.plandata.planlaegger.topics.topic, function(topic){
+    // setup current planner variables
+    Plan.levels = [];
+    Plan.courses = [];
+    Plan.sortedCourses = [];
+    Plan.topics = [];
+    Plan.checkList = {};
+    Plan.highlighted = {};
+    Plan.popoverGoals = [];
 
-    Plan.topics.push(topic);
+    // set page title
+    $rootScope.title = "Gyldendal Planlægger | " + Plan.current.title;
 
-    // parse levels and courses if planlaegger.topics.topic.courses is an array
-    if(angular.isDefined(topic.courses.length)){
-      angular.forEach(topic.courses, function(course){
-        var levels = course.levels;
+    // Set levels: Search through plandata and set available course levels
+    angular.forEach(Plan.plandata.planlaegger.topics.topic, function(topic){
+
+      Plan.topics.push(topic);
+
+      // parse levels and courses if planlaegger.topics.topic.courses is an array
+      if(angular.isDefined(topic.courses.length)){
+        angular.forEach(topic.courses, function(course){
+          var levels = course.levels;
+
+          // set up regexp to find numbers in 'levels' string
+          var regexp = "[0-9]+";
+          var re = new RegExp(regexp, "i");
+
+          // find and replace
+          while (levels.search(re) != -1) {
+            var unique = true;
+            var currentLevel = re.exec(levels)[0];
+            if (!Plan.levels.length) {
+              Plan.levels.push(currentLevel);
+            } else {
+              angular.forEach(Plan.levels, function (level) {
+                if (level == currentLevel) {
+                  unique = false;
+                }
+              });
+
+              if (unique) {
+                Plan.levels.push(currentLevel);
+              }
+            }
+            levels = levels.replace(currentLevel, '');
+          }
+        });
+      } else {
+        // parse levels and courses if planlaegger.topics.topic.courses is NOT an array
+
+        Plan.courses.push(topic.courses.course);
+        var levels = topic.courses.course.levels;
 
         // set up regexp to find numbers in 'levels' string
         var regexp = "[0-9]+";
         var re = new RegExp(regexp, "i");
-
         // find and replace
         while (levels.search(re) != -1) {
           var unique = true;
@@ -54,45 +92,23 @@ app.controller('PlanlaeggerCtrl', [ 'plannerData', 'planner', '$rootScope', '$lo
           }
           levels = levels.replace(currentLevel, '');
         }
-      });
-    } else {
-    // parse levels and courses if planlaegger.topics.topic.courses is NOT an array
-
-      Plan.courses.push(topic.courses.course);
-      var levels = topic.courses.course.levels;
-
-      // set up regexp to find numbers in 'levels' string
-      var regexp = "[0-9]+";
-      var re = new RegExp(regexp, "i");
-      // find and replace
-      while (levels.search(re) != -1) {
-        var unique = true;
-        var currentLevel = re.exec(levels)[0];
-        if (!Plan.levels.length) {
-          Plan.levels.push(currentLevel);
-        } else {
-          angular.forEach(Plan.levels, function (level) {
-            if (level == currentLevel) {
-              unique = false;
-            }
-          });
-
-          if (unique) {
-            Plan.levels.push(currentLevel);
-          }
-        }
-        levels = levels.replace(currentLevel, '');
       }
-    }
-  });
+    });
 
 // initialize Plan.sortedCourses to be equal to all courses
-  Plan.sortedCourses = Plan.courses;
+    Plan.sortedCourses = Plan.courses;
 
-// angular drag drop test
-  Plan.pannerTitle = "";
-  Plan.selected = [];
+// initialize selected courses from current planner data
+    Plan.selected = [];
+    angular.forEach(angular.fromJson(planner.data.content).courses, function(courseID){
+      angular.forEach(Plan.courses, function(course){
+        if(courseObj.id == courseID){
+          Plan.selected.push(course);
+        }
+      })
+    });
 
+  });
 
 
 // function for toggling highlighted id's

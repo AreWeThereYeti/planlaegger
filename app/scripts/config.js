@@ -35,10 +35,12 @@ var app = angular.module('app', [
       resolve: {
         planner: function (getdataservice, $route) {
           return getdataservice.getOrganizer($route.current.params);
-        },
+        }/*,
         plannerData: function (getdataservice, $route) {
-          return getdataservice.getPanner($route.current.params);
-        }
+          getdataservice.getOrganizer($route.current.params).then(function(data){
+            return getdataservice.getPlanner(angular.fromJson(data.data.content).plannerID);
+          })
+        }*/
       }
     })
 }])
