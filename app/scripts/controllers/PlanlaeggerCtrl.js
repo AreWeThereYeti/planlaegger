@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getdataservice', '$scope', '$route', function (  planner, $rootScope, $location, getdataservice, $scope, $route) {
+app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getdataservice', '$scope', '$route', '$routeParams', function (  planner, $rootScope, $location, getdataservice, $scope, $route, $routeParams) {
 
   //Save reference to controller in order to avoid reference soup
   var Plan = this;
@@ -102,11 +102,62 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
     Plan.selected = [];
     angular.forEach(angular.fromJson(planner.data.content).courses, function(courseID){
       angular.forEach(Plan.courses, function(course){
-        if(courseObj.id == courseID){
+        if(course.id == courseID){
           Plan.selected.push(course);
         }
       })
     });
+
+
+
+
+    // set checkmark on all instances of selected course, and its goals
+    // loop all courses to find course with matching id
+    angular.forEach(Plan.courses,function(course) {
+      angular.forEach(Plan.selected, function (aCourse) {
+        // when match, add course.id and all course goals id and scope to checkList. Goals as array with course.id
+        if (aCourse.id == course.id) {
+          Plan.checkList[course.id] = true;
+          angular.forEach(course.goals.goal, function (goal) {
+
+
+            // parse and store goal scope
+            var scopes = {};
+            var tempScope = goal.scope;
+            // set up regexp to find numbers in 'levels' string
+            var regexp = "[0-9]+";
+            var re = new RegExp(regexp, "i");
+
+            // find and replace
+            while (tempScope.search(re) != -1) {
+              var currentScope = re.exec(tempScope)[0];
+              scopes[currentScope] = true;
+              tempScope = tempScope.replace(currentScope, '');
+            }
+            /*          Plan.checkList[goal.id][course.id] = scopes;
+             console.log(Plan.checkList[goal.id]);*/
+            var tempobejct = {};
+            tempobejct[course.id] = scopes;
+
+            // initialize new array at Plan.checkList[goal.id] if it doesn't exist already
+            if (angular.isDefined(Plan.checkList[goal.id])) {
+
+              Plan.checkList[goal.id].push(tempobejct);
+            } else {
+              Plan.checkList[goal.id] = [];
+              Plan.checkList[goal.id].push(tempobejct);
+            }
+          });
+        }
+      });
+    });
+
+    // re-sort sorted course list to update view
+    Plan.sortCourses();
+
+    // set all check values
+    console.log(Plan.checkList)
+    setAllChecks();
 
   });
 
@@ -391,9 +442,34 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
     });
   };
 
+  // function for updating the user's planner with the data selected in the UI
+  Plan.updatePlanner = function(){
+    // get current planner content
+    var plannerContent = angular.fromJson(Plan.current.content);
+    var courses = [];
+    var objectID = $routeParams.id;
+    //var plannerInfo = {};
+
+    // sets up selected courses
+    angular.forEach(Plan.selected, function(course){
+      courses.push(course.id);
+    });
+    plannerContent.courses = courses;
+
+    // set Plan.current to updated planner data
+    Plan.current.content = angular.toJson(plannerContent);
+
+    getdataservice.updateOrganizer(Plan.current, objectID).then(function(data){
+      console.log(data);
+    });
+  };
 
 // ----------  Drag and drop functionality ------
   Plan.dropSuccessHandler = function($event,index,course,array){
+
+    // update planner content on drop success
+    Plan.updatePlanner();
+
     // set checkmark on all instances of selected course, and its goals
     // loop all courses to find course with matching id
     angular.forEach(array, function(aCourse){
@@ -447,7 +523,6 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
 
   Plan.drag = function($event,$data,array){
     //array.push($data);
-    console.log("DRAG!!!!!")
     hidePopover();
   };
 

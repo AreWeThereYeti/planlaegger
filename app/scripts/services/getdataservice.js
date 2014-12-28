@@ -85,7 +85,7 @@ angular.module('gyldendal.services', [])
               "title":    plannerInfo.title,
               "subjects": plannerInfo.subjects,
               "levels":   plannerInfo.levels,
-              "content":  angular.toJson(plannerInfo.content)
+              "content":  plannerInfo.content
             }
           };
           console.log("request: "+request);
