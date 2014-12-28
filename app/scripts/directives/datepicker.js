@@ -15,11 +15,15 @@ angular.module('gyldendal.directives')
             scope.niveau = scope.subjectAsKeys[newVal];
           }
         });
-        /*scope.$watch('valgtNiveau',function(newVal,oldVal){
+        scope.$watch('valgtNiveau',function(newVal,oldVal){
           if(angular.isDefined(newVal)) {
-            scope.laeremidler = scope.levelAsKeys[newVal];
+            angular.forEach(scope.niveau, function(planner){
+              if(newVal == planner.Level){
+                scope.selectedPlannerID = planner.ID;
+              }
+            });
           }
-        })*/
+        })
 			}
 		};
 	}]);

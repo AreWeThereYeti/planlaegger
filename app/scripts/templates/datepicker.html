@@ -36,8 +36,8 @@
               <ul>
                 <li>
                   <div class="custom-radio" ng-repeat="niv in niveau" >
-                    <input id="checkto{{niv}}{{$index}}" type="radio" name="check" value="checkto{{year}}{{$index}}" ng-checked="valgtNiveau == niv">
-                    <label for="checkto{{niv}}{{$index}}" ng-click="$parent.$parent.valgtNiveau= $parent.$parent.niveau[$index]; $scope.dropDown = ''">{{niv}}</label>
+                    <input id="checkto-niv-{{$index}}" type="radio" name="check" value="checkto{{year}}{{$index}}" ng-checked="valgtNiveau == niv.Level">
+                    <label for="checkto-niv-{{$index}}" ng-click="$parent.$parent.valgtNiveau = $parent.$parent.niveau[$index].Level; $scope.dropDown = ''">{{niv.Level}}</label>
                   </div>
                 </li>
               </ul>

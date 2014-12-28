@@ -7,22 +7,28 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
   $scope.laeremidler = [];
   $scope.niveau = [];
 
+  $scope.selectedPlannerID = '';
+
   $scope.levelAsKeys = {};
   $scope.subjectAsKeys = {};
 
 
   console.log($scope.plannerList);
   angular.forEach($scope.plannerList, function(plannerdata){
+
+    // store url in laeremiddel array
+    $scope.laeremidler.push(plannerdata.Url);
+
+    // store planners (level and ID) in relation to planner url
     angular.forEach(plannerdata.Planners, function(planner){
 
-      // parse subject from ID
-      var subject = planner.ID.slice(0, planner.ID.search(/\_/));
+      var subject = plannerdata.Url;
 
       // store level as value array elements with laeremiddel as key
       if(angular.isDefined($scope.subjectAsKeys[subject])){
-        $scope.subjectAsKeys[subject].push(planner.Level);
+        $scope.subjectAsKeys[subject].push(planner);
       } else {
-        $scope.subjectAsKeys[subject] = [planner.Level];
+        $scope.subjectAsKeys[subject] = [planner];
       }
 
       // store laeremiddel as value array elements with level as key
@@ -33,7 +39,7 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
       }
 
 
-      // parse and store laeremiddel in $scope.laeremidler if it doen't exist yet
+/*      // parse and store laeremiddel in $scope.laeremidler if it doen't exist yet
       var unique = true;
       angular.forEach($scope.laeremidler, function(laeremiddel){
         if(laeremiddel == planner.ID.slice(0, planner.ID.search(/\_/))){
@@ -46,7 +52,7 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
         var laeremiddel = planner.ID.slice(0, planner.ID.search(/\_/));
         $scope.laeremidler.push(laeremiddel);
 
-      }
+      }*/
 
 /*      // store level in $scope.niveau if it doen't exist yet
       var uniqueLevel = true;
