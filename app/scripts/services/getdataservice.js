@@ -50,6 +50,32 @@ angular.module('gyldendal.services', [])
 
           return promise;
         },
+        deleteOrganizer: function(plannerID) {
+
+
+
+          var request = {
+            "objectID": plannerID
+          };
+
+          var promise = $http({
+            cache: false,
+            headers: {
+              'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            method: 'POST',
+            url: 'php/deleteOrganizer.php',
+            data: angular.toJson(request)
+          })
+            .success(function (data, status, headers, config) {
+
+            })
+            .error(function(error){
+
+            });
+
+          return promise;
+        },
         addOrganizer: function(plannerInfo) {
 
           //Needs userID
@@ -61,10 +87,10 @@ angular.module('gyldendal.services', [])
             "organizer": {
               "userID":   UserID,
               "title":    plannerInfo.title,
-              "subjects": "i-log",
+              "subjects": plannerInfo.subjects,
               "levels":   plannerInfo.levels,
-              "content":  plannerInfo.content,
-              "version": 'FM 2014'
+              "content":  angular.toJson(plannerInfo.content),
+              "version": 2
             }
           };
           console.log("request: "+request);

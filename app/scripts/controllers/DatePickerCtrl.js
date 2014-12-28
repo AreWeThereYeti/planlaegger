@@ -83,9 +83,9 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
       //ready planner data
       var planData = {
         "title": $scope.title,
-        "laeremiddel": [$scope.valgtLaeremiddel],
+        "subjects": [$scope.valgtLaeremiddel],
         "levels": [$scope.valgtNiveau],
-        "version": "FM 2014",
+
         "content": {
           "data": [],
           "courses": [],
@@ -93,13 +93,17 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
           "plannerID": $scope.selectedPlannerID
         }
       };
-
-      //save planner
-
       console.log(planData);
 
-      // close dialog
-      $rootScope.dialog = false;
+      //save planner
+      getdataservice.addOrganizer(planData).then(function(data){
+        // close dialog
+        $rootScope.dialog = false;
+        $route.reload();
+
+      });
+
+
 
 
 		}

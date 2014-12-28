@@ -19,6 +19,15 @@ app.controller('OverviewCtrl', [ 'planners', '$timeout', 'entries', '$rootScope'
   Overview.entries = entries.data;
   console.log(entries.data);
 
+  // delete planner
+  Overview.deletePlanner = function(objectID){
+    if(confirm("Der du sikker på at du vil slette denne planlægger?")) {
+
+      getdataservice.deleteOrganizer(objectID).then(function () {
+        $route.reload();
+      });
+    }
+  };
 
   $scope.changeRange = function(range){
     Overview.filterRange = range;
