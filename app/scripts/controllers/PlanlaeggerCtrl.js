@@ -284,6 +284,7 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
       }
     });
     setAllChecks();
+    Plan.updatePlanner();
   };
 
   // helperfunction takes goal.id and scope and sets Plan.popoverGoals array with all matching courses as [{topic-name, course-name}, ...]
