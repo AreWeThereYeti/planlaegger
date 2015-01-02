@@ -8,7 +8,7 @@ angular.module('gyldendal.filters', [])
           var today = new Date().getTime();
 
           // objects[i].timestamp should match the data format for logs
-          var last_modified = new Date(objects[i].timestamp).getTime();
+          var last_modified = new Date(objects[i].created*1000).getTime();
 
           var diffDays = Math.round(Math.abs((today - last_modified)/(one_day)));
 
