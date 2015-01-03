@@ -10,6 +10,7 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
 
   // setup api data variables
   Plan.current = planner.data;
+  $rootScope.current = planner.data;
 
   // get the raw planner data from the plannerId in the user-defined planner
   getdataservice.getPlanner(angular.fromJson(Plan.current.content).plannerID).then(function(data){
@@ -504,6 +505,7 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
 
     // set Plan.current to updated planner data
     Plan.current.content = angular.toJson(plannerContent);
+    $rootScope.current  = angular.toJson(plannerContent);
 
     getdataservice.updateOrganizer(Plan.current, objectID).then(function(data){
       console.log(data);
