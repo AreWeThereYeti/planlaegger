@@ -447,15 +447,60 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
   Plan.updatePlanner = function(){
     // get current planner content
     var plannerContent = angular.fromJson(Plan.current.content);
-    var courses = [];
+    var updatedCourses = [];
+    var updatedData = [];
     var objectID = $routeParams.id;
-    //var plannerInfo = {};
 
     // sets up selected courses
     angular.forEach(Plan.selected, function(course){
-      courses.push(course.id);
+      // push course id to courses array
+      updatedCourses.push(course.id);
+    // set up and push data object for selected course
+
+      // goal cell starts with explaining text
+      var goals = "Undervisningen i forløbet skal lede frem mod, at eleverne har tilegnet sig kundskaber og færdigheder, der sætter dem i stand til at<br><br>";
+      // loop through all course goals at present goal title in <b> tags and goal scopes as <ul>
+      angular.forEach(course.goals.goal, function(goal){
+        var newGoalData = Plan.getGoal(goal.id);
+        goals += "<b>"+newGoalData.value+"</b><ul>";
+
+        // checks for instance where goal.faser.fase is an object and not an array
+        if(angular.isUndefined(newGoalData.faser.fase.length)){
+
+          goals += "<li>" + newGoalData.faser.fase.faerdighedsmaal + "</li>";
+          // GOAL VIDESMAAL COULD BE ADDED HERE...
+          //newGoalData.faser.fase.vidensmaal
+
+        } else {
+          // checks for scope matches before adding sub goals
+          if (goal.scope.search('1') != -1) {
+            goals += "<li>" + newGoalData.faser.fase[0].faerdighedsmaal + "</li>";
+            // GOAL VIDESMAAL COULD BE ADDED HERE...
+            //newGoalData.faser.fase[0].vidensmaal
+          }
+          if (goal.scope.search('2') != -1) {
+            goals += "<li>" + newGoalData.faser.fase[1].faerdighedsmaal + "</li>";
+            // GOAL VIDESMAAL COULD BE ADDED HERE...
+            //newGoalData.faser.fase[1].vidensmaal
+          }
+          if (goal.scope.search('3') != -1) {
+            goals += "<li>" + newGoalData.faser.fase[2].faerdighedsmaal + "</li>";
+            // GOAL VIDESMAAL COULD BE ADDED HERE...
+            //newGoalData.faser.fase[2].vidensmaal
+          }
+        }
+        goals += "</ul>";
+      });
+
+      var data = {
+        'forloeb': Plan.getTopic(course.id).value+"<br><b>"+course.value+"</b><br><i style='font-size:0.8em;'>"+course.duration+"</i>",
+        'maal': goals
+      };
+      updatedData.push(data);
+
     });
-    plannerContent.courses = courses;
+    plannerContent.courses = updatedCourses;
+    plannerContent.data = updatedData;
 
     // set Plan.current to updated planner data
     Plan.current.content = angular.toJson(plannerContent);
