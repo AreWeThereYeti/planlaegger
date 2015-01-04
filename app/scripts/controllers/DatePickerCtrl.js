@@ -13,7 +13,6 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
   $scope.subjectAsKeys = {};
 
 
-  console.log($scope.plannerList);
   angular.forEach($scope.plannerList, function(plannerdata){
 
     // store url in laeremiddel array
@@ -93,7 +92,6 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
           "plannerID": $scope.selectedPlannerID
         }
       };
-      console.log(planData);
 
       //save planner
       getdataservice.addOrganizer(planData).then(function(data){

@@ -157,7 +157,6 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
     Plan.sortCourses();
 
     // set all check values
-    console.log(Plan.checkList)
     setAllChecks();
 
   });
@@ -530,7 +529,6 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
     $rootScope.current.content  = angular.toJson(plannerContent);
 
     getdataservice.updateOrganizer(Plan.current, objectID).then(function(data){
-      console.log(data);
     });
   };
 
@@ -582,13 +580,12 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
     Plan.sortCourses();
 
     // set all check values
-    console.log(Plan.checkList)
     setAllChecks();
   };
 
   Plan.onDrop = function($event,$data,array){
     array.push($data);
-    console.log(Plan.selected)
+    //console.log(Plan.selected)
   };
 
   Plan.drag = function($event,$data,array){

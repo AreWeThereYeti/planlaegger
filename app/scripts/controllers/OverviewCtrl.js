@@ -9,15 +9,13 @@ app.controller('OverviewCtrl', [ 'planners', '$timeout', 'entries', '$rootScope'
   Overview.reverse = false;
 
   Overview.planners = planners.data;
-  console.log(Overview.planners);
 
 
   // set page title
   $rootScope.title = "Gyldendal Planlægger";
 
-  // dummy list data
+  // list data
   Overview.entries = entries.data;
-  console.log(entries.data);
 
   // delete planner
   Overview.deletePlanner = function(objectID){
