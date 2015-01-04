@@ -165,9 +165,21 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
 
 // function for toggling highlighted id's
 
-  Plan.highlight = function(id){
-    if(angular.isDefined(Plan.highlighted[id])){
+  Plan.highlight = function(id, parent){
+    if(angular.isDefined(Plan.highlighted[id]) && parent){
       delete Plan.highlighted[id];
+      delete Plan.highlighted[id+"1"];
+      delete Plan.highlighted[id+"2"];
+      delete Plan.highlighted[id+"3"];
+
+    } else if(angular.isDefined(Plan.highlighted[id])){
+      delete Plan.highlighted[id];
+
+    } else if(parent){
+      Plan.highlighted[id] = true;
+      Plan.highlighted[id+"1"] = true;
+      Plan.highlighted[id+"2"] = true;
+      Plan.highlighted[id+"3"] = true;
     } else {
       Plan.highlighted[id] = true;
     }
@@ -205,7 +217,17 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
 
   };
 
-
+  Plan.toggleSubelements = function(element){
+    if(!element.Selected){
+      angular.forEach(element.faser.fase, function(subelement){
+        subelement.Selected = true;
+      });
+    } else {
+      angular.forEach(element.faser.fase, function(subelement){
+        subelement.Selected = false;
+      });
+    }
+  };
 
 
 // function for setting the Plan.sortedCourses array in the view
