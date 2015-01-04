@@ -505,7 +505,7 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
 
     // set Plan.current to updated planner data
     Plan.current.content = angular.toJson(plannerContent);
-    $rootScope.current  = angular.toJson(plannerContent);
+    $rootScope.current.content  = angular.toJson(plannerContent);
 
     getdataservice.updateOrganizer(Plan.current, objectID).then(function(data){
       console.log(data);
