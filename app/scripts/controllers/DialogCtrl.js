@@ -44,13 +44,14 @@ app.controller('DialogCtrl', [ '$window', '$routeParams', '$rootScope', function
       exportWindow.document.head.appendChild(x);
 
       // setup copy button
-      var button = document.createElement('div');
+/*      var button = document.createElement('div');
 
-      button.innerHTML = "<button class='btn'>Kopier valgte forløb</button>";
-      exportWindow.document.body.appendChild(button);
+      button.innerHTML = "<button id='copy_button' data-clipboard-target='table' class='btn'>Kopier valgte forløb</button>";
+      exportWindow.document.body.appendChild(button);*/
 
       // setup table
       var table = document.createElement("TABLE");
+      table.setAttribute('id', 'table');
 
       // fill table with course data for each selectedcoursein data array
       for(var i = 0; i<exportObject.data.length; i++){
