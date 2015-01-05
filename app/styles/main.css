@@ -1044,19 +1044,22 @@ h1 {
   font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
   font-size: 24px;
   border-bottom: 1px solid #e2e2e2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   -webkit-transition: 0.2s linear background-color;
   transition: 0.2s linear background-color;
 }
-/* line 19, ../sass/components/_goal-container.scss */
+/* line 22, ../sass/components/_goal-container.scss */
 .goal-container .head:hover .round-arrow {
   color: #dc4320;
 }
-/* line 25, ../sass/components/_goal-container.scss */
+/* line 28, ../sass/components/_goal-container.scss */
 .goal-container .head .check {
   color: #383838;
   position: relative;
 }
-/* line 29, ../sass/components/_goal-container.scss */
+/* line 32, ../sass/components/_goal-container.scss */
 .goal-container .head .check:before {
   float: right;
   padding-right: 10px;
@@ -1064,24 +1067,24 @@ h1 {
   font-family: ilog;
   content: "p";
 }
-/* line 37, ../sass/components/_goal-container.scss */
+/* line 40, ../sass/components/_goal-container.scss */
 .goal-container .head .check.active:before {
   color: white;
 }
-/* line 44, ../sass/components/_goal-container.scss */
+/* line 47, ../sass/components/_goal-container.scss */
 .goal-container .head .round-arrow {
   color: #383838;
   position: relative;
   right: 5px;
 }
-/* line 49, ../sass/components/_goal-container.scss */
+/* line 52, ../sass/components/_goal-container.scss */
 .goal-container .head .round-arrow:before {
   float: right;
   font-size: 25;
   font-family: ilog;
   content: 'B';
 }
-/* line 57, ../sass/components/_goal-container.scss */
+/* line 60, ../sass/components/_goal-container.scss */
 .goal-container .head .round-arrow.active:before {
   color: #ffffff;
   float: right;
@@ -1089,16 +1092,16 @@ h1 {
   font-family: ilog;
   content: 'C';
 }
-/* line 64, ../sass/components/_goal-container.scss */
+/* line 67, ../sass/components/_goal-container.scss */
 .goal-container .head .round-arrow.active:before:hover {
   color: #383838;
 }
-/* line 72, ../sass/components/_goal-container.scss */
+/* line 75, ../sass/components/_goal-container.scss */
 .goal-container .head:hover {
   background-color: #e9e9e9;
   border: none;
 }
-/* line 77, ../sass/components/_goal-container.scss */
+/* line 80, ../sass/components/_goal-container.scss */
 .goal-container .head.active {
   -webkit-transition: 0.2s linear all;
   transition: 0.2s linear all;
@@ -1106,7 +1109,7 @@ h1 {
   color: #ffffff;
   border: none;
 }
-/* line 86, ../sass/components/_goal-container.scss */
+/* line 89, ../sass/components/_goal-container.scss */
 .goal-container .head.active-remove {
   -webkit-transition: 0.2s linear background-color;
   transition: 0.2s linear background-color;
@@ -1114,7 +1117,7 @@ h1 {
   color: #383838;
   border: none;
 }
-/* line 98, ../sass/components/_goal-container.scss */
+/* line 101, ../sass/components/_goal-container.scss */
 .goal-container .goal-content {
   padding: 10px 25px 10px 50px;
   line-height: 49px;
@@ -1122,18 +1125,18 @@ h1 {
   color: #383838;
   background-color: white;
 }
-/* line 107, ../sass/components/_goal-container.scss */
+/* line 110, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-head:hover:before {
   color: #dc4320;
 }
-/* line 111, ../sass/components/_goal-container.scss */
+/* line 114, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-head:before {
   padding-right: 15px;
   font-size: 10px;
   font-family: ilog;
   content: 'z';
 }
-/* line 118, ../sass/components/_goal-container.scss */
+/* line 121, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-head.checked:after {
   color: #383838;
   font-size: 22px;
@@ -1142,47 +1145,47 @@ h1 {
   content: 'p';
   float: right;
 }
-/* line 127, ../sass/components/_goal-container.scss */
+/* line 130, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-head.active {
   color: #dc4320;
 }
-/* line 129, ../sass/components/_goal-container.scss */
+/* line 132, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-head.active:before {
   color: #383838;
   font-size: 10px;
   padding-right: 15px;
   content: 'w';
 }
-/* line 137, ../sass/components/_goal-container.scss */
+/* line 140, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content {
   padding: 10px 0px 10px 25px;
   font-size: 12px;
   line-height: 15px;
 }
-/* line 142, ../sass/components/_goal-container.scss */
+/* line 145, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content {
   padding-bottom: 25px;
 }
-/* line 144, ../sass/components/_goal-container.scss */
+/* line 147, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content:last-of-type {
   padding-bottom: 0px;
 }
-/* line 149, ../sass/components/_goal-container.scss */
+/* line 152, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-elem li {
   padding-bottom: 25px;
 }
-/* line 151, ../sass/components/_goal-container.scss */
+/* line 154, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-elem li:last-of-type {
   padding-bottom: 0;
 }
-/* line 157, ../sass/components/_goal-container.scss */
+/* line 160, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-scope {
   float: left;
   padding-right: 15px;
   padding-top: 3px;
   font-size: 18px;
 }
-/* line 163, ../sass/components/_goal-container.scss */
+/* line 166, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .checked:after {
   color: #dc4320;
   padding-right: 10px;
@@ -1192,20 +1195,20 @@ h1 {
   content: 'p';
   float: right;
 }
-/* line 172, ../sass/components/_goal-container.scss */
+/* line 175, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-text {
   padding-left: 25px;
   padding-right: 60px;
 }
-/* line 175, ../sass/components/_goal-container.scss */
+/* line 178, ../sass/components/_goal-container.scss */
 .goal-container .goal-content .sub-content .sub-content-text li {
   padding-bottom: 0;
 }
-/* line 181, ../sass/components/_goal-container.scss */
+/* line 184, ../sass/components/_goal-container.scss */
 .goal-container .custom-radio {
   float: right;
 }
-/* line 183, ../sass/components/_goal-container.scss */
+/* line 186, ../sass/components/_goal-container.scss */
 .goal-container .custom-radio label:before {
   margin: 0;
   width: 22px;

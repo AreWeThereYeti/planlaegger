@@ -26,7 +26,7 @@
   <div class="goals">
     <div class="goal-container"  ng-repeat="elem in Plan.plandata.planlaegger.kompetenceomraader.kompetenceomraade">
       <div class="head" ng-click="elem.activeGoal = !elem.activeGoal; Plan.activeSubGoal = '';" ng-class="{active: elem.activeGoal == true}">
-        <span>{{elem.value}}</span>
+        <span title="{{elem.value}}">{{elem.value}}</span>
         <span class="round-arrow" ng-class="{active: elem.activeGoal == true}"></span>
         <span ng-class="{check: elem.checked == true}"></span>
 
