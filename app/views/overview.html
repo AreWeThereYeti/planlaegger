@@ -23,7 +23,7 @@
           <span class="date" ng-class="{active : Overview.predicate == 'created'}">{{entry.created * 1000 | date:'dd-MM-yyyy'}}</span> <!--multiply with 1000 to get convert from unix time-->
         </span>
         <span  class="col-2-8" ng-class="{'active' : Overview.predicate == 'title'}">
-          <a ng-href="#/planner/{{entry.objectID}}"><span class="title">{{entry.title}}</span></a>
+          <span class="title" ng-click="Overview.goToPlanner(entry.objectID)">{{entry.title}}</span>
         </span>
         <span class="col-2-8">
           {{entry.subjects[0]}}
@@ -33,11 +33,9 @@
         </span>
         <span class="col-1-8">
           <div class="float-right">
-            <a ng-href="#/planner/{{entry.objectID}}">
-              <span class="circ">
+              <span class="circ" ng-click="Overview.goToPlanner(entry.objectID)">
                 <span class="icon icon-edit"></span>
               </span>
-            </a>
             <span class="circ">
               <span class="icon icon-trash-bin" ng-click="Overview.deletePlanner(entry.objectID)"></span>
             </span>

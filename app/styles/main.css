@@ -787,32 +787,38 @@ h1 {
   background-color: #f5f5f5;
   overflow-y: scroll;
   -webkit-transform: translate3d(0, 0, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-/* line 33, ../sass/pages/_planner.scss */
+/* line 40, ../sass/pages/_planner.scss */
 .plan-content .courses .course-container {
   cursor: url("../images/hand.cur"), url("../images/hand.gif"), move !important;
 }
-/* line 38, ../sass/pages/_planner.scss */
+/* line 45, ../sass/pages/_planner.scss */
 .plan-content .courses .course-container:hover {
   color: #dc4320;
 }
-/* line 40, ../sass/pages/_planner.scss */
+/* line 47, ../sass/pages/_planner.scss */
 .plan-content .courses .course-container:hover.highlighted {
   color: #ffffff;
 }
-/* line 46, ../sass/pages/_planner.scss */
+/* line 53, ../sass/pages/_planner.scss */
 .plan-content .courses .course-container:active {
   cursor: url("../images/hand.cur"), url("../images/hand.gif"), move !important;
 }
-/* line 52, ../sass/pages/_planner.scss */
+/* line 59, ../sass/pages/_planner.scss */
 .plan-content .courses .course-container:focus {
   cursor: url("../images/hand.cur"), url("../images/hand.gif"), move !important;
 }
-/* line 59, ../sass/pages/_planner.scss */
+/* line 66, ../sass/pages/_planner.scss */
 .plan-content .dropdown {
   padding-bottom: 25px;
 }
-/* line 62, ../sass/pages/_planner.scss */
+/* line 69, ../sass/pages/_planner.scss */
 .plan-content .selected {
   width: 30%;
   height: 100%;
@@ -823,19 +829,19 @@ h1 {
   -moz-box-shadow: inset 4px 0px 6px 0px rgba(0, 0, 0, 0.1);
   box-shadow: inset 4px 0px 6px 0px rgba(0, 0, 0, 0.1);
 }
-/* line 72, ../sass/pages/_planner.scss */
+/* line 79, ../sass/pages/_planner.scss */
 .plan-content .selected.on-drag-hover {
   background-color: #fafafa;
 }
-/* line 75, ../sass/pages/_planner.scss */
+/* line 82, ../sass/pages/_planner.scss */
 .plan-content .selected.empty {
   background: url(../images/background.png) no-repeat white 48% 48%;
 }
-/* line 77, ../sass/pages/_planner.scss */
+/* line 84, ../sass/pages/_planner.scss */
 .plan-content .selected.empty.on-drag-hover {
   background-color: #fafafa;
 }
-/* line 81, ../sass/pages/_planner.scss */
+/* line 88, ../sass/pages/_planner.scss */
 .plan-content .selected .planner-title {
   width: 100%;
   height: 40px;
@@ -843,7 +849,7 @@ h1 {
   background-color: white;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 }
-/* line 88, ../sass/pages/_planner.scss */
+/* line 95, ../sass/pages/_planner.scss */
 .plan-content .selected .planner-title input[type='text'] {
   padding: 0 10px 0 10px;
   border: none;
@@ -852,7 +858,7 @@ h1 {
   line-height: 40px;
   width: 80%;
 }
-/* line 98, ../sass/pages/_planner.scss */
+/* line 105, ../sass/pages/_planner.scss */
 .plan-content .selected .planner-title .icon-trash:before {
   float: right;
   font-family: ilog;
@@ -862,7 +868,7 @@ h1 {
   line-height: 40px;
   cursor: pointer;
 }
-/* line 111, ../sass/pages/_planner.scss */
+/* line 118, ../sass/pages/_planner.scss */
 .plan-content .plan-overlay {
   position: fixed;
   top: 0;
@@ -875,33 +881,33 @@ h1 {
   height: 100%;
   -webkit-backface-visibility: hidden;
 }
-/* line 126, ../sass/pages/_planner.scss */
+/* line 133, ../sass/pages/_planner.scss */
 .plan-content .select-inner {
   margin: 0;
   border-bottom: 2px solid #000;
 }
-/* line 130, ../sass/pages/_planner.scss */
+/* line 137, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_content {
   max-height: 300px;
+  width: 29%;
   width: calc(100% - 20px);
-  width: 94% \9;
   overflow: auto;
   font-size: 18px;
   margin-top: -37px;
 }
-/* line 138, ../sass/pages/_planner.scss */
+/* line 145, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_header {
   line-height: 32px;
   font-size: 18px;
 }
-/* line 141, ../sass/pages/_planner.scss */
+/* line 148, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_header.active {
   line-height: 43px;
   margin-top: -5px;
   margin-bottom: -6px;
   background-color: white;
 }
-/* line 150, ../sass/pages/_planner.scss */
+/* line 157, ../sass/pages/_planner.scss */
 .plan-content .select-inner select {
   background-color: rgba(0, 0, 0, 0);
   outline: 0;
@@ -1335,26 +1341,28 @@ h1 {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  z-index: 1;
 }
-/* line 21, ../sass/components/_toolbar.scss */
+/* line 22, ../sass/components/_toolbar.scss */
 .toolbar .goals {
   width: 40%;
   padding: 0 25px;
   float: left;
 }
-/* line 25, ../sass/components/_toolbar.scss */
+/* line 26, ../sass/components/_toolbar.scss */
 .toolbar .goals .toolbar-clear {
   color: #f5f5f5;
   opacity: 0.55;
   font-size: 14px;
   cursor: pointer;
 }
-/* line 30, ../sass/components/_toolbar.scss */
+/* line 31, ../sass/components/_toolbar.scss */
 .toolbar .goals .toolbar-clear:hover {
   color: #ffffff;
   opacity: 1;
 }
-/* line 34, ../sass/components/_toolbar.scss */
+/* line 35, ../sass/components/_toolbar.scss */
 .toolbar .goals .toolbar-clear:before {
   vertical-align: bottom;
   padding: 5px;
@@ -1364,33 +1372,33 @@ h1 {
   color: #f5f5f5;
   opacity: 0.55;
 }
-/* line 45, ../sass/components/_toolbar.scss */
+/* line 46, ../sass/components/_toolbar.scss */
 .toolbar .courses {
   width: 30%;
   padding: 0 25px;
   float: left;
 }
-/* line 50, ../sass/components/_toolbar.scss */
+/* line 51, ../sass/components/_toolbar.scss */
 .toolbar .selected {
   width: 30%;
   padding: 0 25px;
   float: left;
   font-weight: bold;
 }
-/* line 55, ../sass/components/_toolbar.scss */
+/* line 56, ../sass/components/_toolbar.scss */
 .toolbar .selected ul {
   width: 100%;
 }
-/* line 57, ../sass/components/_toolbar.scss */
+/* line 58, ../sass/components/_toolbar.scss */
 .toolbar .selected ul li {
   display: inline-block;
   float: left;
 }
-/* line 61, ../sass/components/_toolbar.scss */
+/* line 62, ../sass/components/_toolbar.scss */
 .toolbar .selected ul li:last-of-type {
   float: right;
 }
-/* line 65, ../sass/components/_toolbar.scss */
+/* line 66, ../sass/components/_toolbar.scss */
 .toolbar .selected .count {
   margin-top: 12px;
   line-height: 27px;
@@ -1446,16 +1454,16 @@ h1 {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 16, ../sass/components/_filterbar.scss */
+/* line 17, ../sass/components/_filterbar.scss */
 .filterbar div {
   color: white;
 }
-/* line 20, ../sass/components/_filterbar.scss */
+/* line 21, ../sass/components/_filterbar.scss */
 .filterbar .dateheader {
   z-index: 201;
   color: #e04f2f;
 }
-/* line 24, ../sass/components/_filterbar.scss */
+/* line 25, ../sass/components/_filterbar.scss */
 .filterbar .dateheader.arrow_box:after {
   -webkit-transform: rotate(-180deg);
   -moz-transform: rotate(-180deg);
@@ -1464,7 +1472,7 @@ h1 {
   transform: rotate(-180deg);
   margin-bottom: 10px;
 }
-/* line 30, ../sass/components/_filterbar.scss */
+/* line 31, ../sass/components/_filterbar.scss */
 .filterbar .datefilter {
   margin-left: -15px;
   position: absolute;
@@ -1475,29 +1483,29 @@ h1 {
   background-color: #FFF;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 }
-/* line 40, ../sass/components/_filterbar.scss */
+/* line 41, ../sass/components/_filterbar.scss */
 .filterbar .datefilter .dato {
   margin-bottom: -15px;
 }
-/* line 43, ../sass/components/_filterbar.scss */
+/* line 44, ../sass/components/_filterbar.scss */
 .filterbar .datefilter div {
   margin-bottom: -15px;
   color: #e04f2f;
 }
-/* line 47, ../sass/components/_filterbar.scss */
+/* line 48, ../sass/components/_filterbar.scss */
 .filterbar .datefilter label {
   color: #383838;
 }
-/* line 50, ../sass/components/_filterbar.scss */
+/* line 51, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul {
   width: 215px;
 }
-/* line 53, ../sass/components/_filterbar.scss */
+/* line 54, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul li {
   margin-left: 15px;
   line-height: 50px;
 }
-/* line 56, ../sass/components/_filterbar.scss */
+/* line 57, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul li:last-of-type {
   padding-bottom: 15px;
 }

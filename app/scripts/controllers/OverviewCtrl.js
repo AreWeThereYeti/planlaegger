@@ -7,9 +7,7 @@ app.controller('OverviewCtrl', [ 'planners', '$timeout', 'entries', '$rootScope'
   // intial active sort
   Overview.predicate = 'timestamp';
   Overview.reverse = false;
-
   Overview.planners = planners.data;
-
 
   // set page title
   $rootScope.title = "Gyldendal Planlægger";
@@ -31,5 +29,13 @@ app.controller('OverviewCtrl', [ 'planners', '$timeout', 'entries', '$rootScope'
     Overview.filterRange = range;
   };
 
-
+  // sends user to a planner view
+  Overview.goToPlanner = function(plannerID){
+    if(window.parent.updatePlannerUrl) {
+      $location.path('/planner/' + plannerID).replace();
+      window.parent.updatePlannerUrl();
+    } else {
+      $location.path('/planner/' + plannerID);
+    }
+  }
 }]);

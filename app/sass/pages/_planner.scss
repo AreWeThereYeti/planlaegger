@@ -30,6 +30,13 @@
     overflow-y: scroll;
     -webkit-transform: translate3d(0, 0, 0);
 
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
     .course-container{
       cursor:
         url('../images/hand.cur'),
@@ -129,8 +136,8 @@
 
     .dropdown_content {
       max-height: 300px;
+      width: 29%;
       width: calc(100% - 20px);
-      width: 94% \9;
       overflow: auto;
       font-size: 18px;
       margin-top: -37px;

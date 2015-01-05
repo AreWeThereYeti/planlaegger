@@ -25,13 +25,13 @@
 <div class="plan-content">
   <div class="goals">
     <div class="goal-container"  ng-repeat="elem in Plan.plandata.planlaegger.kompetenceomraader.kompetenceomraade">
-      <div class="head" ng-click="elem.activeGoal = !elem.activeGoal; Plan.activeSubGoal = '';" ng-class="{active: elem.activeGoal}">
+      <div class="head" ng-click="elem.activeGoal = !elem.activeGoal; Plan.activeSubGoal = '';" ng-class="{active: elem.activeGoal == true}">
         <span>{{elem.value}}</span>
-        <span class="round-arrow" ng-class="{active: elem.activeGoal}"></span>
-        <span ng-class="{check: elem.checked}"></span>
+        <span class="round-arrow" ng-class="{active: elem.activeGoal == true}"></span>
+        <span ng-class="{check: elem.checked == true}"></span>
 
       </div>
-      <div class="goal-content" ng-show="elem.activeGoal">
+      <div class="goal-content" ng-show="elem.activeGoal == true">
         <ul>
           <li  ng-repeat="subelem in elem.faerdighedsOgVidensmaalPLURALIS.faerdighedsOgvidensmaalSINGULARIS">
             <div class="custom-radio">
@@ -43,7 +43,7 @@
               {{subelem.value}}
             </div>
 
-            <div class="sub-content" ng-show="subelem.activeSubGoal">
+            <div class="sub-content" ng-show="subelem.activeSubGoal == true">
               <ul class="sub-content-elem">
                 <li
                         ns-popover
