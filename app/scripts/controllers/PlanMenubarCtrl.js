@@ -12,6 +12,14 @@ app.controller('PlanMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope
       $rootScope.dialog = 'export plan';
     }
   };
-
+// sends user to a planner view
+  PlanMenubar.goToOverview = function(){
+    if(window.parent.updatePlannerUrl) {
+      $location.path('/').replace();
+      window.parent.updatePlannerUrl();
+    } else {
+      $location.path('/');
+    }
+  }
 
 }]);
