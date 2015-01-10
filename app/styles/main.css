@@ -762,13 +762,13 @@ h1 {
   position: absolute;
   background-color: #f5f5f5;
   top: 130px;
-  overflow: auto;
+  overflow: hidden;
   width: 100%;
   height: calc(100% - 130px);
   height: 80% \9;
   float: left;
 }
-/* line 13, ../sass/pages/_planner.scss */
+/* line 12, ../sass/pages/_planner.scss */
 .plan-content .goals {
   overflow-y: scroll;
   width: 40%;
@@ -778,7 +778,7 @@ h1 {
   border-right: 1px solid #dadada;
   -webkit-transform: translate3d(0, 0, 0);
 }
-/* line 24, ../sass/pages/_planner.scss */
+/* line 23, ../sass/pages/_planner.scss */
 .plan-content .courses {
   width: 30%;
   height: 100%;
@@ -794,32 +794,33 @@ h1 {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 40, ../sass/pages/_planner.scss */
+/* line 39, ../sass/pages/_planner.scss */
 .plan-content .courses .course-container {
   cursor: url("../images/hand.cur"), url("../images/hand.gif"), move !important;
 }
-/* line 45, ../sass/pages/_planner.scss */
+/* line 44, ../sass/pages/_planner.scss */
 .plan-content .courses .course-container:hover {
   color: #dc4320;
 }
-/* line 47, ../sass/pages/_planner.scss */
+/* line 46, ../sass/pages/_planner.scss */
 .plan-content .courses .course-container:hover.highlighted {
   color: #ffffff;
 }
-/* line 53, ../sass/pages/_planner.scss */
+/* line 52, ../sass/pages/_planner.scss */
 .plan-content .courses .course-container:active {
   cursor: url("../images/hand.cur"), url("../images/hand.gif"), move !important;
 }
-/* line 59, ../sass/pages/_planner.scss */
+/* line 58, ../sass/pages/_planner.scss */
 .plan-content .courses .course-container:focus {
   cursor: url("../images/hand.cur"), url("../images/hand.gif"), move !important;
 }
-/* line 66, ../sass/pages/_planner.scss */
+/* line 65, ../sass/pages/_planner.scss */
 .plan-content .dropdown {
   padding-bottom: 25px;
 }
-/* line 69, ../sass/pages/_planner.scss */
+/* line 68, ../sass/pages/_planner.scss */
 .plan-content .selected {
+  overflow-y: scroll;
   width: 30%;
   height: 100%;
   padding: 25px;
@@ -2147,7 +2148,7 @@ h1 {
   -moz-appearance: none;
   margin: 0px;
 }
-/* line 131, ../sass/directives/_datepicker.scss */
+/* line 125, ../sass/directives/_datepicker.scss */
 .datepicker .content .btn, .error .content .btn {
   background-color: #dc4320;
   font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
@@ -2155,7 +2156,7 @@ h1 {
   margin: 25px 0;
   float: right;
 }
-/* line 139, ../sass/directives/_datepicker.scss */
+/* line 133, ../sass/directives/_datepicker.scss */
 .datepicker .datepicker-overlay, .error .datepicker-overlay {
   position: fixed;
   top: 0;
