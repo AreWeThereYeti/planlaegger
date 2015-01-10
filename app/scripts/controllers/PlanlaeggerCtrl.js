@@ -31,6 +31,15 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
     // set page title
     $rootScope.title = "Gyldendal Planlægger | " + Plan.current.title;
 
+    // change planner goal data object bottom element to array if they are obojects to fix data inconsistency
+    angular.forEach(Plan.plandata.planlaegger.kompetenceomraader.kompetenceomraade, function(elem){
+      angular.forEach(elem.faerdighedsOgVidensmaalPLURALIS.faerdighedsOgvidensmaalSINGULARIS, function(subelem){
+        if(angular.isUndefined(subelem.faser.fase.length)){
+          subelem.faser.fase = [subelem.faser.fase];
+        }
+      })
+    });
+
     // Set levels: Search through plandata and set available course levels
     angular.forEach(Plan.plandata.planlaegger.topics.topic, function(topic){
 
