@@ -28,6 +28,7 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
     Plan.highlighted = {};
     Plan.popoverGoals = [];
 
+
     // set page title
     $rootScope.title = "Gyldendal Planlægger | " + Plan.current.title;
 
@@ -543,60 +544,12 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
 
 // ----------  Drag and drop functionality ------
   Plan.dropSuccessHandler = function($event,index,course,array){
-/*
-    // update planner content on drop success
-    Plan.updatePlanner();
 
-    // set checkmark on all instances of selected course, and its goals
-    // loop all courses to find course with matching id
-    angular.forEach(array, function(aCourse){
-      // when match, add course.id and all course goals id and scope to checkList. Goals as array with course.id
-      if(aCourse.id == course.id){
-        Plan.checkList[course.id] = true;
-        angular.forEach(course.goals.goal, function(goal){
-
-
-         // parse and store goal scope
-          var scopes = {};
-          var tempScope = goal.scope;
-          // set up regexp to find numbers in 'levels' string
-          var regexp = "[0-9]+";
-          var re = new RegExp(regexp, "i");
-
-          // find and replace
-          while (tempScope.search(re) != -1) {
-            var currentScope = re.exec(tempScope)[0];
-            scopes[currentScope] = true;
-            tempScope = tempScope.replace(currentScope, '');
-          }
-*//*          Plan.checkList[goal.id][course.id] = scopes;
-          console.log(Plan.checkList[goal.id]);*//*
-          var tempobejct = {};
-          tempobejct[course.id] = scopes;
-
-          // initialize new array at Plan.checkList[goal.id] if it doesn't exist already
-          if(angular.isDefined(Plan.checkList[goal.id])){
-
-            Plan.checkList[goal.id].push(tempobejct);
-          } else {
-            Plan.checkList[goal.id] = [];
-            Plan.checkList[goal.id].push(tempobejct);
-          }
-        });
-      }
-    });
-    // re-sort sorted course list to update view
-    Plan.sortCourses();
-
-    // set all check values
-    setAllChecks();*/
-    console.log("success");
   };
 
   Plan.onDrop = function($event,$data,array){
-    console.log("drop");
 
-    /*    var duplicate = false;
+        var duplicate = false;
         angular.forEach(array, function(elem){
           if(elem.id == $data.id){
             duplicate = true;
@@ -604,8 +557,54 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
         });
         if(duplicate == false){
           array.push($data);
+          // update planner content on drop success
+          Plan.updatePlanner();
+
+          // set checkmark on all instances of selected course, and its goals
+          // loop all courses to find course with matching id
+          angular.forEach(array, function(aCourse){
+            // when match, add course.id and all course goals id and scope to checkList. Goals as array with course.id
+            if(aCourse.id == $data.id){
+              Plan.checkList[$data.id] = true;
+              angular.forEach($data.goals.goal, function(goal){
+
+
+                // parse and store goal scope
+                var scopes = {};
+                var tempScope = goal.scope;
+                // set up regexp to find numbers in 'levels' string
+                var regexp = "[0-9]+";
+                var re = new RegExp(regexp, "i");
+
+                // find and replace
+                while (tempScope.search(re) != -1) {
+                  var currentScope = re.exec(tempScope)[0];
+                  scopes[currentScope] = true;
+                  tempScope = tempScope.replace(currentScope, '');
+                }
+                Plan.checkList[goal.id][$data.id] = scopes;
+                //console.log(Plan.checkList[goal.id]);
+                var tempobejct = {};
+                tempobejct[$data.id] = scopes;
+
+                // initialize new array at Plan.checkList[goal.id] if it doesn't exist already
+                if(angular.isDefined(Plan.checkList[goal.id])){
+
+                  Plan.checkList[goal.id].push(tempobejct);
+                } else {
+                  Plan.checkList[goal.id] = [];
+                  Plan.checkList[goal.id].push(tempobejct);
+                }
+              });
+            }
+          });
+          // re-sort sorted course list to update view
+          Plan.sortCourses();
+
+          // set all check values
+          setAllChecks();
           //console.log(Plan.selected)
-        }*/
+        }
 
   };
 
