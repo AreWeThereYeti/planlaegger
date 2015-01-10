@@ -11,6 +11,7 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
 
   $scope.levelAsKeys = {};
   $scope.subjectAsKeys = {};
+  $scope.title = '';
 
 
   angular.forEach($scope.plannerList, function(plannerdata){
@@ -75,7 +76,6 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
 
   //On create report click
 	$scope.createPlanner = function(){
-
     //If niveau and laeremiddel are defined as well as title, contact server
     if(angular.isDefined($scope.selectedPlannerID && $scope.valgtNiveau && $scope.valgtLaeremiddel && $scope.title)){
 
