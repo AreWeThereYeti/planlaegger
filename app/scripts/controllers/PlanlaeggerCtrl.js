@@ -543,7 +543,7 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
 
 // ----------  Drag and drop functionality ------
   Plan.dropSuccessHandler = function($event,index,course,array){
-
+/*
     // update planner content on drop success
     Plan.updatePlanner();
 
@@ -569,8 +569,8 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
             scopes[currentScope] = true;
             tempScope = tempScope.replace(currentScope, '');
           }
-/*          Plan.checkList[goal.id][course.id] = scopes;
-          console.log(Plan.checkList[goal.id]);*/
+*//*          Plan.checkList[goal.id][course.id] = scopes;
+          console.log(Plan.checkList[goal.id]);*//*
           var tempobejct = {};
           tempobejct[course.id] = scopes;
 
@@ -589,20 +589,23 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
     Plan.sortCourses();
 
     // set all check values
-    setAllChecks();
+    setAllChecks();*/
+    console.log("success");
   };
 
   Plan.onDrop = function($event,$data,array){
-    var duplicate = false;
-    angular.forEach(array, function(elem){
-      if(elem.id == $data.id){
-        duplicate = true;
-      }
-    });
-    if(duplicate == false){
-      array.push($data);
-      //console.log(Plan.selected)
-    }
+    console.log("drop");
+
+    /*    var duplicate = false;
+        angular.forEach(array, function(elem){
+          if(elem.id == $data.id){
+            duplicate = true;
+          }
+        });
+        if(duplicate == false){
+          array.push($data);
+          //console.log(Plan.selected)
+        }*/
 
   };
 

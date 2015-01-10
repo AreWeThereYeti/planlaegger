@@ -886,29 +886,31 @@ h1 {
 .plan-content .select-inner {
   margin: 0;
   border-bottom: 2px solid #000;
+  position: relative;
 }
-/* line 137, ../sass/pages/_planner.scss */
+/* line 138, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_content {
   max-height: 300px;
-  width: 29%;
-  width: calc(100% - 20px);
+  width: 109%;
+  width: calc(100% + 30px);
+  position: absolute;
   overflow: auto;
   font-size: 18px;
   margin-top: -37px;
 }
-/* line 145, ../sass/pages/_planner.scss */
+/* line 147, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_header {
   line-height: 32px;
   font-size: 18px;
 }
-/* line 148, ../sass/pages/_planner.scss */
+/* line 150, ../sass/pages/_planner.scss */
 .plan-content .select-inner .dropdown_header.active {
   line-height: 43px;
   margin-top: -5px;
   margin-bottom: -6px;
   background-color: white;
 }
-/* line 157, ../sass/pages/_planner.scss */
+/* line 159, ../sass/pages/_planner.scss */
 .plan-content .select-inner select {
   background-color: rgba(0, 0, 0, 0);
   outline: 0;

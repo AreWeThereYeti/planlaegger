@@ -133,11 +133,13 @@
   .select-inner {
     margin: 0;
     border-bottom: 2px solid #000;
+    position: relative;
 
     .dropdown_content {
       max-height: 300px;
-      width: 29%;
-      width: calc(100% - 20px);
+      width: 109%;
+      width: calc(100% + 30px);
+      position: absolute;
       overflow: auto;
       font-size: 18px;
       margin-top: -37px;
