@@ -16,10 +16,18 @@ app.controller('PlanMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope
   PlanMenubar.goToOverview = function(){
     if(window.parent.updatePlannerUrl) {
       $location.path('/').replace();
+      window.parent.updatePlannerUrl('/');
+    } else {
+      $location.path('/');
+    }
+  };
+/*  PlanMenubar.goToOverview = function(){
+    if(window.parent.updatePlannerUrl) {
+      $location.path('/').replace();
       window.parent.updatePlannerUrl();
     } else {
       $location.path('/');
     }
-  }
+  }*/
 
 }]);

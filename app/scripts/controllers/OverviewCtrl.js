@@ -33,9 +33,17 @@ app.controller('OverviewCtrl', [ 'planners', '$timeout', 'entries', '$rootScope'
   Overview.goToPlanner = function(plannerID){
     if(window.parent.updatePlannerUrl) {
       $location.path('/planner/' + plannerID).replace();
-      window.parent.updatePlannerUrl();
+      window.parent.updatePlannerUrl('/planner/' + plannerID);
     } else {
       $location.path('/planner/' + plannerID);
     }
   }
+/*  Overview.goToPlanner = function(plannerID){
+    if(window.parent.updatePlannerUrl) {
+      $location.path('/planner/' + plannerID).replace();
+      window.parent.updatePlannerUrl();
+    } else {
+      $location.path('/planner/' + plannerID);
+    }
+  }*/
 }]);
