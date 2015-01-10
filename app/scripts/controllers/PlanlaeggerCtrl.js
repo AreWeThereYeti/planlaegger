@@ -584,8 +584,17 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
   };
 
   Plan.onDrop = function($event,$data,array){
-    array.push($data);
-    //console.log(Plan.selected)
+    var duplicate = false;
+    angular.forEach(array, function(elem){
+      if(elem.id == $data.id){
+        duplicate = true;
+      }
+    });
+    if(duplicate == false){
+      array.push($data);
+      //console.log(Plan.selected)
+    }
+
   };
 
   Plan.drag = function($event,$data,array){
