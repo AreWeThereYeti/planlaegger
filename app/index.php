@@ -111,7 +111,7 @@ include('php/core.php');
 
       <script type="text/ng-template" id="course-popover">
         <div class="popover-container">
-          <div class="popover-inner">
+          <div class="popover-inner" ng-style="{'top': $root.popset+'px'}">
             <div class="popover-head">
               <h2>{{Plan.getTopic(course.id).value}}</h2>
               <h3 class="popover-course">{{course.value}}</h3>
@@ -140,7 +140,7 @@ include('php/core.php');
 
       <script type="text/ng-template" id="goal-popover">
         <div class="popover-container goal">
-          <div class="popover-inner goal">
+          <div class="popover-inner goal" ng-style="{'top': $root.popset+'px'}">
             <div class="popover-head">
               <h2>{{elem.value}}</h2>
               <div>{{subelem.value}}</div>

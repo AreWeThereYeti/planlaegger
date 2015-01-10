@@ -52,7 +52,7 @@
                         ns-popover-trigger="mouseover"
                         ns-popover-placement="right|center"
 
-                        ng-repeat="subsubelem in subelem.faser.fase">
+                        ng-repeat="subsubelem in subelem.faser.fase" ng-mouseover="Plan.setPopoverPos($event, 40)">
                   <div class="sub-content-scope">{{subsubelem.scope}}</div>
                   <div class="custom-radio">
                     <input id="{{subelem.id}}{{subsubelem.scope}}" type="checkbox" name="check" ng-model="subsubelem.Selected" >
@@ -127,7 +127,7 @@
             ns-popover-trigger="mouseover"
             ns-popover-placement="right|center"
 
-            class="course-container" ng-class="{'highlighted': course.highlight}" ui-draggable="true" drag-channel="courses" on-drop-success="Plan.dropSuccessHandler($event,$index,course,Plan.courses)" drag="course;" ng-mousedown="hidePopover()" ng-repeat="course in Plan.sortedCourses">
+            class="course-container" ng-class="{'highlighted': course.highlight}" ui-draggable="true" drag-channel="courses" on-drop-success="Plan.dropSuccessHandler($event,$index,course,Plan.courses)" drag="course;" ng-mouseover="Plan.setPopoverPos($event, 20)" ng-mousedown="hidePopover()" ng-repeat="course in Plan.sortedCourses">
       <span class="course-title">{{course.value}}</span>
       <span class="course-icon" ng-class="{'icon': !Plan.checkList[course.id], 'ion-grid': !Plan.checkList[course.id], 'checked': Plan.checkList[course.id]}"></span>
     </div>

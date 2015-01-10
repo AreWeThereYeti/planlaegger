@@ -611,4 +611,20 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
     hidePopover();
   };
 
+
+  // function for determining whether a popover window is cut off by window bottom
+  // and calculate the offset to counter act through ng-style.
+  // Takes an mouseover event (e) and a pixel threshold as int (limit) for when to recalculate the offset.
+  Plan.setPopoverPos = function(e, limit){
+    var offset = (e.y + 225) - window.innerHeight;
+
+    if(offset > 0){
+      if(Math.abs(offset + $rootScope.popset) > limit ){
+        $rootScope.popset = -offset;
+      }
+    }else{
+      $rootScope.popset = 0;
+
+    }
+  }
 }]);
