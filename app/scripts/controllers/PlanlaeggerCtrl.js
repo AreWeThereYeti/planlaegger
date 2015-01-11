@@ -227,6 +227,7 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
   };
 
   Plan.toggleSubelements = function(element){
+
     if(element.Selected == false || angular.isUndefined(element.Selected)){
       angular.forEach(element.faser.fase, function(subelement){
         subelement.Selected = true;

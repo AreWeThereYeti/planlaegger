@@ -35,8 +35,8 @@
         <ul>
           <li  ng-repeat="subelem in elem.faerdighedsOgVidensmaalPLURALIS.faerdighedsOgvidensmaalSINGULARIS">
             <div class="custom-radio">
-              <input id="{{subelem.id}}" type="checkbox" name="check" ng-model="subelem.Selected" >
-              <label for="{{subelem.id}}" ng-click="Plan.highlight(subelem.id, true); !subelem.Selected; Plan.toggleSubelements(subelem)"  />
+              <input id="{{subelem.id}}" type="checkbox" name="check" ng-model="subelem.Selected" />
+              <label for="{{subelem.id}}" ng-click="Plan.highlight(subelem.id, true); !subelem.Selected; Plan.toggleSubelements(subelem)"></label>
             </div>
 
             <div class="sub-head" ng-class="{'active': subelem.activeSubGoal, 'checked': Plan.checkList[subelem.id]}" ng-click="subelem.activeSubGoal = !subelem.activeSubGoal">
@@ -55,8 +55,8 @@
                         ng-repeat="subsubelem in subelem.faser.fase" ng-mouseover="Plan.setPopoverPos($event, 40)">
                   <div class="sub-content-scope">{{subsubelem.scope}}</div>
                   <div class="custom-radio">
-                    <input id="{{subelem.id}}{{subsubelem.scope}}" type="checkbox" name="check" ng-model="subsubelem.Selected" >
-                    <label for="{{subelem.id}}{{subsubelem.scope}}" ng-click="Plan.highlight(subelem.id + subsubelem.scope, false); !subsubelem.Selected"  />
+                    <input id="{{subelem.id}}{{$index}}" type="checkbox" name="check" ng-model="subsubelem.Selected" >
+                    <label for="{{subelem.id}}{{$index}}" ng-click="Plan.highlight(subelem.id + subsubelem.scope, false); !subsubelem.Selected"></label>
                   </div>
                   <div ng-class="{checked: subsubelem.checked}"></div>
                   <ul class="sub-content-text" ng-mouseover="Plan.setPopoverGoals(subelem.id, subsubelem.scope)">
