@@ -1047,7 +1047,6 @@ h1 {
   font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
   font-size: 24px;
   border-bottom: 1px solid #e2e2e2;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-transition: 0.2s linear background-color;
@@ -1083,7 +1082,7 @@ h1 {
 /* line 52, ../sass/components/_goal-container.scss */
 .goal-container .head .round-arrow:before {
   float: right;
-  font-size: 25;
+  font-size: 25px;
   font-family: ilog;
   content: 'B';
 }
