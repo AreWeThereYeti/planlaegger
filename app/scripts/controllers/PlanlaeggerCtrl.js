@@ -227,7 +227,7 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
   };
 
   Plan.toggleSubelements = function(element){
-    if(!element.Selected){
+    if(element.Selected == false || angular.isUndefined(element.Selected)){
       angular.forEach(element.faser.fase, function(subelement){
         subelement.Selected = true;
       });
@@ -583,7 +583,7 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
                   tempScope = tempScope.replace(currentScope, '');
                 }
                 Plan.checkList[goal.id][$data.id] = scopes;
-                //console.log(Plan.checkList[goal.id]);
+                console.log(Plan.checkList[goal.id]);
                 var tempobejct = {};
                 tempobejct[$data.id] = scopes;
 
