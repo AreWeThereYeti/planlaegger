@@ -23,8 +23,10 @@ app.controller('DialogCtrl', [ '$window', '$routeParams', '$rootScope', function
 
       // set window styling
       var x = document.createElement("STYLE");
-      var t = document.createTextNode(
-        "table {" +
+      x.setAttribute("type", "text/css");
+      if(x.styleSheet){
+        var t =
+          "table {" +
           "width: 100%;" +
           "margin-top: 10px;" +
           "border: 1px solid #000000;" +
@@ -33,15 +35,38 @@ app.controller('DialogCtrl', [ '$window', '$routeParams', '$rootScope', function
           "color:#000000;" +
           "border-collapse:collapse;" +
           "border-spacing:0}"+
-        "thead {"+
+          "thead {"+
           "font-size: 14px;"+
           "font-weight: bold;"+
-        "}"+
-        "td {border: 1px solid #000000; padding: 10px; vertical-align: top; font-size: 12px;}"+
-        " .btn {line-height: 40px; width: 250px; text-align: left; padding: 0px 15px; margin: 0;  cursor: pointer; outline: 0; border: none; color: #ffffff; background-color: #dc4320; font-family: arial, helvetica, sans-serif; font-size: 14px;}"
-      );
-      x.appendChild(t);
-      exportWindow.document.head.appendChild(x);
+          "}"+
+          "td {border: 1px solid #000000; padding: 10px; vertical-align: top; font-size: 12px;}"+
+          " .btn {line-height: 40px; width: 250px; text-align: left; padding: 0px 15px; margin: 0;  cursor: pointer; outline: 0; border: none; color: #ffffff; background-color: #dc4320; font-family: arial, helvetica, sans-serif; font-size: 14px;}";
+
+        x.styleSheet.cssText = t;
+        exportWindow.document.getElementsByClassName('head')[0].appendChild(x);
+
+      } else {
+        var t = document.createTextNode(
+          "table {" +
+            "width: 100%;" +
+            "margin-top: 10px;" +
+            "border: 1px solid #000000;" +
+            "font-size: 24px;" +
+            "font-family: arial, helvetica, sans-serif;" +
+            "color:#000000;" +
+            "border-collapse:collapse;" +
+            "border-spacing:0}"+
+          "thead {"+
+            "font-size: 14px;"+
+            "font-weight: bold;"+
+          "}"+
+          "td {border: 1px solid #000000; padding: 10px; vertical-align: top; font-size: 12px;}"+
+          " .btn {line-height: 40px; width: 250px; text-align: left; padding: 0px 15px; margin: 0;  cursor: pointer; outline: 0; border: none; color: #ffffff; background-color: #dc4320; font-family: arial, helvetica, sans-serif; font-size: 14px;}"
+        );
+        x.appendChild(t);
+        exportWindow.document.head.appendChild(x);
+
+      }
 
       // setup copy button
 /*      var button = document.createElement('div');
@@ -100,7 +125,6 @@ app.controller('DialogCtrl', [ '$window', '$routeParams', '$rootScope', function
 
 
     };
-
   }
 
 }]);

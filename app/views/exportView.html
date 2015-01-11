@@ -6,7 +6,7 @@
   <title></title>
 </head>
 <body>
-<button id='copy_button' data-clipboard-target='table' class='btn'>Kopier valgte forløb</button>
+<button id='copy_button' data-clipboard-target='table' class='btn'>Kopier til udklipsholder</button>
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.2.0/ZeroClipboard.js"></script>
 <script type="text/javascript">
@@ -22,6 +22,15 @@
 
       event.clipboardData.setData('text/plain', event.relatedTarget.outerHTML);
     } );
+
+    client.on('aftercopy', function(event) {
+      // Check if copied text is not empty
+      if (event.data["text/plain"]) {
+        // Call something on successful copying
+        event.target.innerHTML = "Forløbene er nu kopieret";
+      }
+    });
+
   } );
 
 </script>
