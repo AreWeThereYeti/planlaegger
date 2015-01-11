@@ -19,10 +19,10 @@ app.controller('DialogCtrl', [ '$window', '$routeParams', '$rootScope', function
     var route = $routeParams.id;
     var exportWindow = window.open('views/exportView.html', '_blank' ,"height=600, width=600");
 
-    exportWindow.onload = function () {
 
-      // set window styling
-      var x = document.createElement("STYLE");
+// public funtion that generates the course table when called from child window.
+    window.myFunc=function(doc){
+      var x = doc.createElement("STYLE");
       x.setAttribute("type", "text/css");
       if(x.styleSheet){
         var t =
@@ -43,45 +43,38 @@ app.controller('DialogCtrl', [ '$window', '$routeParams', '$rootScope', function
           " .btn {line-height: 40px; width: 250px; text-align: left; padding: 0px 15px; margin: 0;  cursor: pointer; outline: 0; border: none; color: #ffffff; background-color: #dc4320; font-family: arial, helvetica, sans-serif; font-size: 14px;}";
 
         x.styleSheet.cssText = t;
-        exportWindow.document.getElementsByClassName('head')[0].appendChild(x);
+        doc.getElementsByClassName('head')[0].appendChild(x);
 
       } else {
-        var t = document.createTextNode(
+        var t = doc.createTextNode(
           "table {" +
-            "width: 100%;" +
-            "margin-top: 10px;" +
-            "border: 1px solid #000000;" +
-            "font-size: 24px;" +
-            "font-family: arial, helvetica, sans-serif;" +
-            "color:#000000;" +
-            "border-collapse:collapse;" +
-            "border-spacing:0}"+
+          "width: 100%;" +
+          "margin-top: 10px;" +
+          "border: 1px solid #000000;" +
+          "font-size: 24px;" +
+          "font-family: arial, helvetica, sans-serif;" +
+          "color:#000000;" +
+          "border-collapse:collapse;" +
+          "border-spacing:0}"+
           "thead {"+
-            "font-size: 14px;"+
-            "font-weight: bold;"+
+          "font-size: 14px;"+
+          "font-weight: bold;"+
           "}"+
           "td {border: 1px solid #000000; padding: 10px; vertical-align: top; font-size: 12px;}"+
           " .btn {line-height: 40px; width: 250px; text-align: left; padding: 0px 15px; margin: 0;  cursor: pointer; outline: 0; border: none; color: #ffffff; background-color: #dc4320; font-family: arial, helvetica, sans-serif; font-size: 14px;}"
         );
         x.appendChild(t);
-        exportWindow.document.head.appendChild(x);
-
-      }
-
-      // setup copy button
-/*      var button = document.createElement('div');
-
-      button.innerHTML = "<button id='copy_button' data-clipboard-target='table' class='btn'>Kopier valgte forløb</button>";
-      exportWindow.document.body.appendChild(button);*/
-
+        //exportWindow.document.getElementsByTagName("head")[0].appendChild(x);
+        doc.head.appendChild(x);
+    }
       // setup table
-      var table = document.createElement("TABLE");
+      var table = doc.createElement("TABLE");
       table.setAttribute('id', 'table');
 
       // fill table with course data for each selectedcoursein data array
       for(var i = 0; i<exportObject.data.length; i++){
         // Create an empty <tr> element and add it to the 1st position of the table:
-       var row = table.insertRow(i);
+        var row = table.insertRow(i);
 
         // Insert new cells (<td> elements) at the 1st and 2nd ... position of the "new" <tr> element:
         var periode = row.insertCell(0);
@@ -95,7 +88,7 @@ app.controller('DialogCtrl', [ '$window', '$routeParams', '$rootScope', function
 
       }
 
-   // create table Head
+      // create table Head
       // Create an empty <thead> element and add it to the table:
       var header = table.createTHead();
 
@@ -120,11 +113,11 @@ app.controller('DialogCtrl', [ '$window', '$routeParams', '$rootScope', function
       maal.innerHTML = "Mål";
       bemarkninger.innerHTML = "Bemærkninger";
 
-  //table.innerHTML = "Hello!";
-      exportWindow.document.body.appendChild( table );
-
+      //table.innerHTML = "Hello!";
+      doc.body.appendChild( table );
 
     };
+
   }
 
 }]);

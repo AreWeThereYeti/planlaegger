@@ -26,12 +26,19 @@
     client.on('aftercopy', function(event) {
       // Check if copied text is not empty
       if (event.data["text/plain"]) {
-        // Call something on successful copying
+        // Chang button text on successful copying
         event.target.innerHTML = "Forløbene er nu kopieret";
       }
     });
 
   } );
+
+  if(opener.myFunc){
+    console.log('called myfunc');
+    opener.myFunc(document);
+  }else{
+    console.log('func not defined');
+  }
 
 </script>
 </body>
