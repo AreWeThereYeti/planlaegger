@@ -3,8 +3,14 @@ angular.module('gyldendal.services', [])
 			var sdo= {
 
         getAllOrganizers: function(){
+
+          //finds userID in url
+          if(angular.isDefined($location.search().userID) && $location.search().userID != null){
+            localStorage.userID =  $location.search().userID;
+          }
+
+
           var userID = 'mort088k'; // hardcoded userID for testing
-          var returndata;
 
           var promise = $http({
             cache: false,
@@ -109,15 +115,14 @@ angular.module('gyldendal.services', [])
           return promise;
         },
         addOrganizer: function(plannerInfo) {
-
-          //Needs userID
-          var UserID = 'mort088k';
+          // hardcoded userID for testing
+          var userID = 'mort088k'; // localStorage.userID
 
           var returndata;
 
           var request = {
             "organizer": {
-              "userID":   UserID,
+              "userID":   userID,
               "title":    plannerInfo.title,
               "subjects": plannerInfo.subjects,
               "levels":   plannerInfo.levels,
@@ -149,7 +154,8 @@ angular.module('gyldendal.services', [])
         },
         getPlanner: function(plannerID) {
 
-          var promise = $http.get('testjson/geografi7-9.json')
+          // uses local json list for development
+          var promise = $http.get('testjson/geografi7-9.json')  // $http.get('http://test.plannerservice.gyldendal.dk/api/planner/get/plannerID')
 
             .success(function (data, status, headers, config) {
 
@@ -159,7 +165,9 @@ angular.module('gyldendal.services', [])
         },
         getPlannerList: function() {
 
-          var promise = $http.get('testjson/getList.json')
+          // uses local json list for development
+          var promise = $http.get('testjson/getList.json')   //  $http.get('http://test.plannerservice.gyldendal.dk/api/planner/getList')
+
 
             .success(function (data, status, headers, config) {
 
