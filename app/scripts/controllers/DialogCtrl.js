@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('DialogCtrl', [ '$window', '$routeParams', '$rootScope', function ($window, $routeParams, $rootScope) {
+app.controller('DialogCtrl', [ 'colorPickerService', '$window', '$routeParams', '$rootScope', function (colorPickerService, $window, $routeParams, $rootScope) {
 	//Save reference to controller in order to avoid reference soup
 	var Dialog = this;
 
@@ -14,70 +14,70 @@ app.controller('DialogCtrl', [ '$window', '$routeParams', '$rootScope', function
 		}
 	};
 
-// Function that maps each gyldendal product id to a unique color for display in export table head
-  Dialog.getPlannerColor = function(productID){
-    var color;
-    switch (productID) {
-      case "billedekunst1-2.gyldendal.dk":
-        color = "#960202";
-        break;
-      case "dansk0-2.gyldendal.dk":
-        color = "#960202";
-        break;
-      case "dansk3-6.gyldendal.dk":
-        color = "#960202";
-        break;
-      case "dansk.gyldendal.dk":
-        color = "#960203";
-        break;
-      case "religion.gyldendal.dk":
-        color = "#3a9b7f";
-        break;
-      case "religion4-6.gyldendal.dk":
-        color = "#3a9b7f";
-        break;
-      case "samfundsfag.gyldendal.dk":
-        color = "#317182";
-        break;
-      case "tysk.gyldendal.dk":
-        color = "#00B9A5";
-        break;
-      case "biologi.gyldendal.dk":
-        color = "#3f7c31";
-        break;
-      case "fysik-kemi.gyldendal.dk":
-        color = "#114275";
-        break;
-      case "matematik0-3.gyldendal.dk":
-        color = "#30669a";
-        break;
-      case "matematik.gyldendal.dk":
-        color = "#30669a";
-        break;
-      case "matematik4-6.gyldendal.dk":
-        color = "#30669a";
-        break;
-      case "natur-teknologi4-6.gyldendal.dk":
-        color = "#30679b";
-        break;
-      case "engelsk5-6.gyldendal.dk":
-        color = "#31689e";
-        break;
-      case "engelsk.gyldendal.dk":
-        color = "#31689e";
-        break;
-      case "engelsk0-2.gyldendal.dk":
-        color = "#31689e";
-        break;
-      case "geografi.gyldendal.dk":
-        color = "#326558";
-        break;
-      default:
-        color = "#dc4320";
-        break;
-    }
-    return color
-  };
+//// Function that maps each gyldendal product id to a unique color for display in export table head
+//  Dialog.getPlannerColor = function(productID){
+//    var color;
+//    switch (productID) {
+//      case "billedekunst1-2.gyldendal.dk":
+//        color = "#960202";
+//        break;
+//      case "dansk0-2.gyldendal.dk":
+//        color = "#960202";
+//        break;
+//      case "dansk3-6.gyldendal.dk":
+//        color = "#960202";
+//        break;
+//      case "dansk.gyldendal.dk":
+//        color = "#960203";
+//        break;
+//      case "religion.gyldendal.dk":
+//        color = "#3a9b7f";
+//        break;
+//      case "religion4-6.gyldendal.dk":
+//        color = "#3a9b7f";
+//        break;
+//      case "samfundsfag.gyldendal.dk":
+//        color = "#317182";
+//        break;
+//      case "tysk.gyldendal.dk":
+//        color = "#00B9A5";
+//        break;
+//      case "biologi.gyldendal.dk":
+//        color = "#3f7c31";
+//        break;
+//      case "fysik-kemi.gyldendal.dk":
+//        color = "#114275";
+//        break;
+//      case "matematik0-3.gyldendal.dk":
+//        color = "#30669a";
+//        break;
+//      case "matematik.gyldendal.dk":
+//        color = "#30669a";
+//        break;
+//      case "matematik4-6.gyldendal.dk":
+//        color = "#30669a";
+//        break;
+//      case "natur-teknologi4-6.gyldendal.dk":
+//        color = "#30679b";
+//        break;
+//      case "engelsk5-6.gyldendal.dk":
+//        color = "#31689e";
+//        break;
+//      case "engelsk.gyldendal.dk":
+//        color = "#31689e";
+//        break;
+//      case "engelsk0-2.gyldendal.dk":
+//        color = "#31689e";
+//        break;
+//      case "geografi.gyldendal.dk":
+//        color = "#326558";
+//        break;
+//      default:
+//        color = "#dc4320";
+//        break;
+//    }
+//    return color
+//  };
 
   Dialog.exportPlanner = function(){
    var exportObject = angular.fromJson($rootScope.current.content);
@@ -165,7 +165,7 @@ app.controller('DialogCtrl', [ '$window', '$routeParams', '$rootScope', function
       // Create an empty <thead> element and add it to the table:
       var header = table.createTHead();
 
-      header.setAttribute("style", "background-color:"+Dialog.getPlannerColor($rootScope.current.subjects[0])+"; color: #FFFFFF; font-size: 14px; font-weight: bold;");
+      header.setAttribute("style", "background-color:"+colorPickerService.getColor($rootScope.current.subjects[0])+"; color: #FFFFFF; font-size: 14px; font-weight: bold;");
 
       // Create an empty <tr> element and add it to the <thead>:
       var row = header.insertRow(0);

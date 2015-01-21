@@ -95,6 +95,7 @@ include('php/core.php');
       <!--services-->
       <script src="scripts/services/getdataservice.js"></script>
       <script src="scripts/services/dateservice.js"></script>
+      <script src="scripts/services/colorpickservice.js"></script>
 
       <!--filters-->
       <script src="scripts/filters/logRangeFilter.js"></script>

@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getdataservice', '$scope', '$route', '$routeParams', function (  planner, $rootScope, $location, getdataservice, $scope, $route, $routeParams) {
+app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope', '$location', 'getdataservice', '$scope', '$route', '$routeParams', function ( colorPickerService, planner, $rootScope, $location, getdataservice, $scope, $route, $routeParams) {
 
   //Save reference to controller in order to avoid reference soup
   var Plan = this;
@@ -11,6 +11,10 @@ app.controller('PlanlaeggerCtrl', [  'planner', '$rootScope', '$location', 'getd
   // setup api data variables
   Plan.current = planner.data;
   $rootScope.current = planner.data;
+  // set base planner color from product id
+  $rootScope.baseColor = colorPickerService.getColor($rootScope.current.subjects[0]);
+  $rootScope.hoverColor = "{color: "+colorPickerService.getColor($rootScope.current.subjects[0])+"}";
+
 
   // get the raw planner data from the plannerId in the user-defined planner
   getdataservice.getPlanner(angular.fromJson(Plan.current.content).plannerID).then(function(data){

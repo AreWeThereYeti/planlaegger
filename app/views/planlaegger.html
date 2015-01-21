@@ -1,6 +1,6 @@
 <div ng-controller="PlanMenubarCtrl as PlanMenubar" class="menubar" ng-include="'scripts/templates/planmenubar.html'"></div>
 
-<div ng-controller="ToolbarCtrl as Toolbar" class="toolbar">
+<div ng-controller="ToolbarCtrl as Toolbar" class="toolbar" ng-style="{'background-color': $root.baseColor}">
   <div class="goals">
     <span class="toolbar-head">Mål</span>
     <span class="float-right toolbar-clear" ng-click="Toolbar.clearAll()">Ryd alle</span>
