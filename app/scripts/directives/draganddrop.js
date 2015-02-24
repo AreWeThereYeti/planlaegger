@@ -53,6 +53,11 @@ angular.module("ang-drag-drop",[])
 
                     element.bind("mousedown", function (e) {
                         dragTarget = e.target;
+
+                    });
+                    element.bind("touchmove", function (e) {
+                        e.preventDefault();
+                        dragTarget = e.target;
                     });
                 }
 
@@ -81,6 +86,7 @@ angular.module("ang-drag-drop",[])
                 }
 
                 element.bind("dragend", dragendHandler);
+
 
                 element.bind("dragstart", function (e) {
                     var isDragAllowed = !isDragHandleUsed || dragTarget.classList.contains(dragHandleClass);

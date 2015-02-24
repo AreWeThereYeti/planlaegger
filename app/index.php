@@ -67,11 +67,16 @@ include('php/core.php');
       <div ng-view=""></div>
 
       <!--libs-->
+      <script>
+        var iosDragDropShim = { enableEnterLeave: true }
+      </script>
+      <script src="scripts/libs/ios-drag-drop.js"></script>
       <script src="scripts/libs/angular-resource.min.js"></script>
       <script src="scripts/libs/angular-route.min.js"></script>
       <script src="scripts/libs/angular-animate.min.js"></script>
+      <script src="scripts/libs/angular-touch.js"></script>
       <script src="scripts/libs/spin.min.js"></script>
-<script src="scripts/modules/nsPopover.js"></script>
+      <script src="scripts/modules/nsPopover.js"></script>
 
       <!--config-->
       <script src="scripts/config.js"></script>

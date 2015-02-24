@@ -8,7 +8,8 @@ var app = angular.module('app', [
   'gyldendal.filters',
   'angularSpinner',
   'ang-drag-drop',
-  'nsPopover'
+  'nsPopover',
+  'ngTouch'
 ])
 
 .config(['$routeProvider', '$locationProvider' ,function ($routeProvider, $locationProvider) {
