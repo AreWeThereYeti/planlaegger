@@ -10,7 +10,8 @@ angular.module('gyldendal.services', [])
           }
 
 
-          var userID = 'mort088k'; // hardcoded userID for testing
+          //var userID = 'mort088k'; // hardcoded userID for testing
+          var userID = localStorage.userID;
 
           var promise = $http({
             cache: false,
@@ -115,8 +116,9 @@ angular.module('gyldendal.services', [])
           return promise;
         },
         addOrganizer: function(plannerInfo) {
-          // hardcoded userID for testing
-          var userID = 'mort088k'; // localStorage.userID
+
+
+          var userID = localStorage.userID;
 
           var returndata;
 
@@ -155,8 +157,14 @@ angular.module('gyldendal.services', [])
         getPlanner: function(plannerID) {
 
           // uses local json list for development
-          var promise = $http.get('testjson/geografi7-9.json')  // $http.get('http://test.plannerservice.gyldendal.dk/api/planner/get/plannerID')
-
+          var promise = $http({
+            cache: false,
+            headers: {
+              'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            method: 'GET',
+            url: 'php/getPlannerData.php?plannerID='+plannerID
+          })
             .success(function (data, status, headers, config) {
 
             });
@@ -166,8 +174,14 @@ angular.module('gyldendal.services', [])
         getPlannerList: function() {
 
           // uses local json list for development
-          var promise = $http.get('testjson/getList.json')   //  $http.get('http://test.plannerservice.gyldendal.dk/api/planner/getList')
-
+          var promise = $http({
+            cache: false,
+            headers: {
+              'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            method: 'GET',
+            url: 'php/getPlannerList.php'
+          })
 
             .success(function (data, status, headers, config) {
 

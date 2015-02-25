@@ -14,6 +14,7 @@ var app = angular.module('app', [
 
 .config(['$routeProvider', '$locationProvider' ,function ($routeProvider, $locationProvider) {
 
+
 	$routeProvider
     .when('/', {
       templateUrl: 'views/overview.html',
@@ -36,12 +37,7 @@ var app = angular.module('app', [
       resolve: {
         planner: function (getdataservice, $route) {
           return getdataservice.getOrganizer($route.current.params);
-        }/*,
-        plannerData: function (getdataservice, $route) {
-          getdataservice.getOrganizer($route.current.params).then(function(data){
-            return getdataservice.getPlanner(angular.fromJson(data.data.content).plannerID);
-          })
-        }*/
+        }
       }
     })
 }])
