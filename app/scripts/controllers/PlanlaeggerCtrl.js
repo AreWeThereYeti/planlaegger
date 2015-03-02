@@ -133,35 +133,66 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
         // when match, add course.id and all course goals id and scope to checkList. Goals as array with course.id
         if (aCourse.id == course.id) {
           Plan.checkList[course.id] = true;
-          angular.forEach(course.goals.goal, function (goal) {
+
+          // parse levels and courses if courses.goals.goal is an array
+          if(angular.isDefined(course.goals.goal.length)) {
+            angular.forEach(course.goals.goal, function (goal) {
 
 
-            // parse and store goal scope
-            var scopes = {};
-            var tempScope = goal.scope;
-            // set up regexp to find numbers in 'levels' string
-            var regexp = "[0-9]+";
-            var re = new RegExp(regexp, "i");
+              // parse and store goal scope
+              var scopes = {};
+              var tempScope = goal.scope;
+              // set up regexp to find numbers in 'levels' string
+              var regexp = "[0-9]+";
+              var re = new RegExp(regexp, "i");
 
-            // find and replace
-            while (tempScope.search(re) != -1) {
-              var currentScope = re.exec(tempScope)[0];
-              scopes[currentScope] = true;
-              tempScope = tempScope.replace(currentScope, '');
-            }
+              // find and replace
+              while (tempScope.search(re) != -1) {
+                var currentScope = re.exec(tempScope)[0];
+                scopes[currentScope] = true;
+                tempScope = tempScope.replace(currentScope, '');
+              }
 
-            var tempobejct = {};
-            tempobejct[course.id] = scopes;
+              var tempobejct = {};
+              tempobejct[course.id] = scopes;
 
-            // initialize new array at Plan.checkList[goal.id] if it doesn't exist already
-            if (angular.isDefined(Plan.checkList[goal.id])) {
+              // initialize new array at Plan.checkList[goal.id] if it doesn't exist already
+              if (angular.isDefined(Plan.checkList[goal.id])) {
 
-              Plan.checkList[goal.id].push(tempobejct);
-            } else {
-              Plan.checkList[goal.id] = [];
-              Plan.checkList[goal.id].push(tempobejct);
-            }
-          });
+                Plan.checkList[goal.id].push(tempobejct);
+              } else {
+                Plan.checkList[goal.id] = [];
+                Plan.checkList[goal.id].push(tempobejct);
+              }
+            });
+          } else {
+
+              // parse and store goal scope
+              var scopes = {};
+              var tempScope = course.goals.goal.scope;
+              // set up regexp to find numbers in 'levels' string
+              var regexp = "[0-9]+";
+              var re = new RegExp(regexp, "i");
+
+              // find and replace
+              while (tempScope.search(re) != -1) {
+                var currentScope = re.exec(tempScope)[0];
+                scopes[currentScope] = true;
+                tempScope = tempScope.replace(currentScope, '');
+              }
+
+              var tempobejct = {};
+              tempobejct[course.id] = scopes;
+
+              // initialize new array at Plan.checkList[goal.id] if it doesn't exist already
+              if (angular.isDefined(Plan.checkList[course.goals.goal.id])) {
+
+                Plan.checkList[course.goals.goal.id].push(tempobejct);
+              } else {
+                Plan.checkList[course.goals.goal.id] = [];
+                Plan.checkList[course.goals.goal.id].push(tempobejct);
+              }
+          }
         }
       });
     });
@@ -199,25 +230,46 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
 
       var highlight = false;
 
-      angular.forEach(course.goals.goal, function(goal){
+      // parse levels and courses if courses.goals.goal is an array
+      if(angular.isDefined(course.goals.goal.length)) {
+        angular.forEach(course.goals.goal, function (goal) {
+          // parse current goal's scopes and check for match in Plan.highlighted object
+          var tempScope = goal.scope;
+          // set up regexp to find numbers in 'scope' string
+          var regexp = "[0-9]+";
+          var re = new RegExp(regexp, "i");
+          // find each scope, match it and remove it from tempScope
+          while (tempScope.search(re) != -1) {
+            var currentScope = re.exec(tempScope)[0];
+            if (Plan.highlighted[goal.id + currentScope]) {
+              highlight = true;
+            }
+            tempScope = tempScope.replace(currentScope, '');
+          }
+          // match current goal id with Plan.highlighted object
+          if (Plan.highlighted[goal.id]) {
+            highlight = true;
+          }
+        });
+      } else{
         // parse current goal's scopes and check for match in Plan.highlighted object
-        var tempScope = goal.scope;
+        var tempScope = course.goals.goal.scope;
         // set up regexp to find numbers in 'scope' string
         var regexp = "[0-9]+";
         var re = new RegExp(regexp, "i");
         // find each scope, match it and remove it from tempScope
         while (tempScope.search(re) != -1) {
           var currentScope = re.exec(tempScope)[0];
-          if(Plan.highlighted[goal.id+currentScope]){
+          if (Plan.highlighted[course.goals.goal.id + currentScope]) {
             highlight = true;
           }
           tempScope = tempScope.replace(currentScope, '');
         }
         // match current goal id with Plan.highlighted object
-        if(Plan.highlighted[goal.id]){
+        if (Plan.highlighted[course.goals.goal.id]) {
           highlight = true;
         }
-      });
+      }
     // set highlight property on current course
       if(highlight){
         course.highlight = true;
@@ -311,14 +363,24 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
 
   // remove course id and goals from checklist
     delete Plan.checkList[course.id];
-    angular.forEach(course.goals.goal, function(goal) {
-      if(Plan.checkList[goal.id].length == 1){
-        delete Plan.checkList[goal.id];
+
+    if(angular.isDefined(course.goals.goal.length)) {
+      angular.forEach(course.goals.goal, function (goal) {
+        if (Plan.checkList[goal.id].length == 1) {
+          delete Plan.checkList[goal.id];
+        } else {
+          var index = Plan.checkList[goal.id].indexOf(course.id);
+          Plan.checkList[goal.id].splice(index, 1);
+        }
+      });
+    } else{
+      if (Plan.checkList[course.goals.goal.id].length == 1) {
+        delete Plan.checkList[course.goals.goal.id];
       } else {
-        var index = Plan.checkList[goal.id].indexOf(course.id);
-        Plan.checkList[goal.id].splice(index, 1);
+        var index = Plan.checkList[course.goals.goal.id].indexOf(course.id);
+        Plan.checkList[course.goals.goal.id].splice(index, 1);
       }
-    });
+    }
     setAllChecks();
     Plan.updatePlanner();
   };
@@ -333,26 +395,49 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
       //checks if topic.courses.course is array or object
       if(angular.isDefined(topic.courses.course.length)) {
         angular.forEach(topic.courses.course, function (course) {
-          angular.forEach(course.goals.goal, function(goal){
-            if (goal.id == id && goal.scope.search(scope) != -1) {
+
+          //checks if coursegoal.goal is array or object
+          if(angular.isDefined(course.goals.goal.length)) {
+            angular.forEach(course.goals.goal, function(goal){
+              if (goal.id == id && goal.scope.search(scope) != -1) {
+                var obj = {
+                  topic: topic.value,
+                  course: course.value
+                };
+                Plan.popoverGoals.push(obj);
+              }
+            });
+          } else{
+            if (course.goals.goal.id == id && course.goals.goal.scope.search(scope) != -1) {
               var obj = {
                 topic: topic.value,
                 course: course.value
               };
               Plan.popoverGoals.push(obj);
             }
-          });
+          }
         });
       } else {
-        angular.forEach(topic.courses.course.goals.goal, function(goal){
-          if (goal.id == id && goal.scope.search(scope) != -1) {
+        //checks if coursegoal.goal is array or object
+        if(angular.isDefined(course.goals.goal.length)) {
+          angular.forEach(topic.courses.course.goals.goal, function (goal) {
+            if (goal.id == id && goal.scope.search(scope) != -1) {
+              var obj = {
+                topic: topic.value,
+                course: topic.courses.course.value
+              };
+              Plan.popoverGoals.push(obj);
+            }
+          });
+        } else{
+          if (course.goals.goal.id == id && course.goals.goal.scope.search(scope) != -1) {
             var obj = {
               topic: topic.value,
               course: topic.courses.course.value
             };
             Plan.popoverGoals.push(obj);
           }
-        });
+        }
       }
     });
   };
@@ -496,12 +581,46 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
       // goal cell starts with explaining text
       var goals = "Undervisningen i forløbet skal lede frem mod, at eleverne har tilegnet sig kundskaber og færdigheder, der sætter dem i stand til at<br><br>";
       // loop through all course goals at present goal title in <b> tags and goal scopes as <ul>
-      angular.forEach(course.goals.goal, function(goal){
-        var newGoalData = Plan.getGoal(goal.id);
-        goals += "<b>"+newGoalData.value+"</b><ul>";
+
+      //checks if coursegoal.goal is array or object
+      if(angular.isDefined(course.goals.goal.length)) {
+        angular.forEach(course.goals.goal, function (goal) {
+          var newGoalData = Plan.getGoal(goal.id);
+          goals += "<b>" + newGoalData.value + "</b><ul>";
+
+          // checks for instance where goal.faser.fase is an object and not an array
+          if (angular.isUndefined(newGoalData.faser.fase.length)) {
+
+            goals += "<li>" + newGoalData.faser.fase.faerdighedsmaal + "</li>";
+            // GOAL VIDESMAAL COULD BE ADDED HERE...
+            //newGoalData.faser.fase.vidensmaal
+
+          } else {
+            // checks for scope matches before adding sub goals
+            if (goal.scope.search('1') != -1) {
+              goals += "<li>" + newGoalData.faser.fase[0].faerdighedsmaal + "</li>";
+              // GOAL VIDESMAAL COULD BE ADDED HERE...
+              //newGoalData.faser.fase[0].vidensmaal
+            }
+            if (goal.scope.search('2') != -1) {
+              goals += "<li>" + newGoalData.faser.fase[1].faerdighedsmaal + "</li>";
+              // GOAL VIDESMAAL COULD BE ADDED HERE...
+              //newGoalData.faser.fase[1].vidensmaal
+            }
+            if (goal.scope.search('3') != -1) {
+              goals += "<li>" + newGoalData.faser.fase[2].faerdighedsmaal + "</li>";
+              // GOAL VIDESMAAL COULD BE ADDED HERE...
+              //newGoalData.faser.fase[2].vidensmaal
+            }
+          }
+          goals += "</ul>";
+        });
+      } else {
+        var newGoalData = Plan.getGoal(course.goals.goal.id);
+        goals += "<b>" + newGoalData.value + "</b><ul>";
 
         // checks for instance where goal.faser.fase is an object and not an array
-        if(angular.isUndefined(newGoalData.faser.fase.length)){
+        if (angular.isUndefined(newGoalData.faser.fase.length)) {
 
           goals += "<li>" + newGoalData.faser.fase.faerdighedsmaal + "</li>";
           // GOAL VIDESMAAL COULD BE ADDED HERE...
@@ -509,24 +628,24 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
 
         } else {
           // checks for scope matches before adding sub goals
-          if (goal.scope.search('1') != -1) {
+          if (course.goals.goal.scope.search('1') != -1) {
             goals += "<li>" + newGoalData.faser.fase[0].faerdighedsmaal + "</li>";
             // GOAL VIDESMAAL COULD BE ADDED HERE...
             //newGoalData.faser.fase[0].vidensmaal
           }
-          if (goal.scope.search('2') != -1) {
+          if (course.goals.goal.scope.search('2') != -1) {
             goals += "<li>" + newGoalData.faser.fase[1].faerdighedsmaal + "</li>";
             // GOAL VIDESMAAL COULD BE ADDED HERE...
             //newGoalData.faser.fase[1].vidensmaal
           }
-          if (goal.scope.search('3') != -1) {
+          if (course.goals.goal.scope.search('3') != -1) {
             goals += "<li>" + newGoalData.faser.fase[2].faerdighedsmaal + "</li>";
             // GOAL VIDESMAAL COULD BE ADDED HERE...
             //newGoalData.faser.fase[2].vidensmaal
           }
         }
         goals += "</ul>";
-      });
+      }
 
       var data = {
         'forloeb': Plan.getTopic(course.id).value+"<br><b>"+course.value+"</b><br><i style='font-size:0.8em;'>"+course.duration+"</i>",
@@ -570,12 +689,40 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
             // when match, add course.id and all course goals id and scope to checkList. Goals as array with course.id
             if(aCourse.id == $data.id){
               Plan.checkList[$data.id] = true;
-              angular.forEach($data.goals.goal, function(goal){
+              //checks if coursegoal.goal is array or object
+              if(angular.isDefined($data.goals.goal.length)) {
+                angular.forEach($data.goals.goal, function (goal) {
 
+                  // parse and store goal scope
+                  var scopes = {};
+                  var tempScope = goal.scope;
+                  // set up regexp to find numbers in 'levels' string
+                  var regexp = "[0-9]+";
+                  var re = new RegExp(regexp, "i");
 
+                  // find and replace
+                  while (tempScope.search(re) != -1) {
+                    var currentScope = re.exec(tempScope)[0];
+                    scopes[currentScope] = true;
+                    tempScope = tempScope.replace(currentScope, '');
+                  }
+
+                  var tempobejct = {};
+                  tempobejct[$data.id] = scopes;
+
+                  // initialize new array at Plan.checkList[goal.id] if it doesn't exist already
+                  if (angular.isDefined(Plan.checkList[goal.id])) {
+
+                    Plan.checkList[goal.id].push(tempobejct);
+                  } else {
+                    Plan.checkList[goal.id] = [];
+                    Plan.checkList[goal.id].push(tempobejct);
+                  }
+                });
+              } else{
                 // parse and store goal scope
                 var scopes = {};
-                var tempScope = goal.scope;
+                var tempScope = $data.goals.goal.scope;
                 // set up regexp to find numbers in 'levels' string
                 var regexp = "[0-9]+";
                 var re = new RegExp(regexp, "i");
@@ -591,14 +738,14 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
                 tempobejct[$data.id] = scopes;
 
                 // initialize new array at Plan.checkList[goal.id] if it doesn't exist already
-                if(angular.isDefined(Plan.checkList[goal.id])){
+                if (angular.isDefined(Plan.checkList[$data.goals.goal.id])) {
 
-                  Plan.checkList[goal.id].push(tempobejct);
+                  Plan.checkList[$data.goals.goal.id].push(tempobejct);
                 } else {
-                  Plan.checkList[goal.id] = [];
-                  Plan.checkList[goal.id].push(tempobejct);
+                  Plan.checkList[$data.goals.goal.id] = [];
+                  Plan.checkList[$data.goals.goal.id].push(tempobejct);
                 }
-              });
+              }
             }
           });
           // re-sort sorted course list to update view

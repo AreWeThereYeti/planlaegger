@@ -122,9 +122,10 @@ include('php/core.php');
               <h2>{{Plan.getTopic(course.id).value}}</h2>
               <h3 class="popover-course">{{course.value}}</h3>
             </div>
-            <div class="popover-content" ng-repeat="goal in course.goals.goal">
+            <div class="popover-content" ng-repeat="goal in course.goals.goal" ng-show="course.goals.goal.length">
               <h3>{{Plan.getGoalCategory(goal.id).value}}</h3>
               <h3>{{Plan.getGoal(goal.id).value}}</h3>
+
               <ul>
                 <li ng-show="goal.scope.search('1') != -1">
                   <span class="scope">{{Plan.getGoal(goal.id).faser.fase[0].scope}}</span>
@@ -137,6 +138,26 @@ include('php/core.php');
                 <li ng-show="goal.scope.search('3') != -1">
                   <span class="scope">{{Plan.getGoal(goal.id).faser.fase[2].scope}}</span>
                   <span>{{Plan.getGoal(goal.id).faser.fase[2].faerdighedsmaal}}. {{Plan.getGoal(goal.id).faser.fase[2].vidensmaal}}</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="popover-content" ng-show="!course.goals.goal.length">
+              <h3>{{Plan.getGoalCategory(course.goals.goal.id).value}}</h3>
+              <h3>{{Plan.getGoal(course.goals.goal.id).value}}</h3>
+
+              <ul>
+                <li ng-show="course.goals.goal.scope.search('1') != -1">
+                  <span class="scope">{{Plan.getGoal(course.goals.goal.id).faser.fase[0].scope}}</span>
+                  <span>{{Plan.getGoal(course.goals.goal.id).faser.fase[0].faerdighedsmaal}}. {{Plan.getGoal(course.goals.goal.id).faser.fase[0].vidensmaal}}</span>
+                </li>
+                <li ng-show="course.goals.goal.scope.search('2') != -1">
+                  <span class="scope">{{Plan.getGoal(course.goals.goal.id).faser.fase[1].scope}}</span>
+                  <span>{{Plan.getGoal(course.goals.goal.id).faser.fase[1].faerdighedsmaal}}. {{Plan.getGoal(course.goals.goal.id).faser.fase[1].vidensmaal}}</span>
+                </li>
+                <li ng-show="course.goals.goal.scope.search('3') != -1">
+                  <span class="scope">{{Plan.getGoal(course.goals.goal.id).faser.fase[2].scope}}</span>
+                  <span>{{Plan.getGoal(course.goals.goal.id).faser.fase[2].faerdighedsmaal}}. {{Plan.getGoal(course.goals.goal.id).faser.fase[2].vidensmaal}}</span>
                 </li>
               </ul>
             </div>
