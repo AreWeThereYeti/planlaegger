@@ -16,6 +16,11 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
 
   angular.forEach($scope.plannerList, function(plannerdata){
 
+    // the following ignores planners with unfinished planner data. Remove when data sets are ready and available
+    if(plannerdata.Url == "engelsk0-2.gyldendal.dk" || plannerdata.Url == "engelsk5-7.gyldendal.dk" || plannerdata.Url == "engelsk.gyldendal.dk" || plannerdata.Url == "matematik4-6.gyldendal.dk" || plannerdata.Url == "matematik.gyldendal.dk" || plannerdata.Url == "tysk.gyldendal.dk"){
+      return
+    }
+
     // store url in laeremiddel array
     $scope.laeremidler.push(plannerdata.Url);
 
