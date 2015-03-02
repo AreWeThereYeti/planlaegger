@@ -149,8 +149,7 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
               scopes[currentScope] = true;
               tempScope = tempScope.replace(currentScope, '');
             }
-            /*          Plan.checkList[goal.id][course.id] = scopes;
-             console.log(Plan.checkList[goal.id]);*/
+
             var tempobejct = {};
             tempobejct[course.id] = scopes;
 
@@ -587,8 +586,7 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
                   scopes[currentScope] = true;
                   tempScope = tempScope.replace(currentScope, '');
                 }
-                Plan.checkList[goal.id][$data.id] = scopes;
-                console.log(Plan.checkList[goal.id]);
+
                 var tempobejct = {};
                 tempobejct[$data.id] = scopes;
 
@@ -608,7 +606,6 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
 
           // set all check values
           setAllChecks();
-          //console.log(Plan.selected)
         }
 
   };
