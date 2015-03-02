@@ -77,7 +77,7 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
   //On create report click
 	$scope.createPlanner = function(){
     //If niveau and laeremiddel are defined as well as title, contact server
-    if(angular.isDefined($scope.selectedPlannerID && $scope.valgtNiveau && $scope.valgtLaeremiddel && $scope.title)){
+    if($scope.selectedPlannerID && angular.isDefined($scope.valgtNiveau) && angular.isDefined($scope.valgtLaeremiddel) && $scope.title){
 
       //ready planner data
       var planData = {
