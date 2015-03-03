@@ -2142,7 +2142,12 @@ h1 {
   margin: 25px 0;
   float: right;
 }
-/* line 133, ../sass/directives/_datepicker.scss */
+/* line 131, ../sass/directives/_datepicker.scss */
+.datepicker .content .btn:disabled, .error .content .btn:disabled {
+  color: #FFFFFF;
+  opacity: 0.5;
+}
+/* line 137, ../sass/directives/_datepicker.scss */
 .datepicker .datepicker-overlay, .error .datepicker-overlay {
   position: fixed;
   top: 0;

@@ -47,7 +47,7 @@
         </div>
       </div>
       <div class="grid">
-        <button class="btn" ng-click="createPlanner();">Opret planlægger</button>
+        <button class="btn" ng-disabled="!valgtNiveau || !valgtLaeremiddel || !title" ng-click="createPlanner();">Opret planlægger</button>
       </div>
     </div>
   </div>
