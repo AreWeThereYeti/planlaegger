@@ -85,6 +85,15 @@ angular.module("ang-drag-drop",[])
                     element.removeClass(draggingClass);
                 }
 
+                // mousemove handler that fixes issue with IE9 text-selecting drag element instead of initiating drag
+                function handleDragMouseMove(e) {
+                    var target = e.target;
+                    if (window.event.button === 1) {
+                        target.dragDrop();
+                    }
+                }
+                element.bind('mousemove', handleDragMouseMove);
+
                 element.bind("dragend", dragendHandler);
 
 
