@@ -48,11 +48,43 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
     // Set levels: Search through plandata and set available course levels
     angular.forEach(Plan.plandata.planlaegger.topics.topic, function(topic){
 
-      Plan.topics.push(topic);
+      // check if topic has redundant id
+      var topicIndex = null;
+      for(var i = 0; i < Plan.topics.length; i++){
+        if(Plan.topics[i].id == topic.id){
+          topicIndex = i;
+        }
+      }
+
+      if(topicIndex == null){
+        if(angular.isDefined(topic.courses.length)){
+          Plan.topics.push(topic);
+        } else{
+          topic.courses = [topic.courses.course];
+          Plan.topics.push(topic);
+
+        }
+      }
 
       // parse levels and courses if planlaegger.topics.topic.courses is an array
       if(angular.isDefined(topic.courses.length)){
         angular.forEach(topic.courses, function(course){
+
+          if(topicIndex != null){
+            Plan.topics[topicIndex].courses.push(topic);
+          }
+
+          // check for duplicate courses
+          var duplicate = false;
+          angular.forEach(Plan.courses, function(existingCourse){
+            if(existingCourse.id == course.id){
+              duplicate = true;
+            }
+          });
+          if(!duplicate){
+            Plan.courses.push(course);
+          }
+
           var levels = course.levels;
 
           // set up regexp to find numbers in 'levels' string
@@ -81,6 +113,10 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
         });
       } else {
         // parse levels and courses if planlaegger.topics.topic.courses is NOT an array
+
+        if(topicIndex != null){
+          Plan.topics[topicIndex].courses.push(topic.courses.course);
+        }
 
         Plan.courses.push(topic.courses.course);
         var levels = topic.courses.course.levels;
@@ -392,9 +428,9 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
 
     // loop through topics
     angular.forEach(Plan.topics, function(topic){
-      //checks if topic.courses.course is array or object
-      if(angular.isDefined(topic.courses.course.length)) {
-        angular.forEach(topic.courses.course, function (course) {
+      //checks if topic.courses is array or object
+      if(angular.isDefined(topic.courses.length)) {
+        angular.forEach(topic.courses, function (course) {
 
           //checks if coursegoal.goal is array or object
           if(angular.isDefined(course.goals.goal.length)) {
@@ -446,9 +482,9 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
   Plan.getTopic = function(id){
     var courseTopic = '';
     angular.forEach(Plan.topics, function(topic){
-      //checks if topic.courses.course is array or object
-      if(angular.isDefined(topic.courses.course.length)) {
-        angular.forEach(topic.courses.course, function (course) {
+      //checks if topic.courses is array or object
+      if(angular.isDefined(topic.courses.length)) {
+        angular.forEach(topic.courses, function (course) {
           if (course.id == id) {
             courseTopic = topic;
           }
@@ -586,8 +622,46 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
       if(angular.isDefined(course.goals.goal.length)) {
         angular.forEach(course.goals.goal, function (goal) {
           var newGoalData = Plan.getGoal(goal.id);
-          goals += "<b>" + newGoalData.value + "</b><ul>";
 
+          // ignore following if Plan.getGoal(goal.id) is empty
+          // this could be caused by error in data feed
+          if(newGoalData) {
+            goals += "<b>" + newGoalData.value + "</b><ul>";
+            // checks for instance where goal.faser.fase is an object and not an array
+            if (angular.isUndefined(newGoalData.faser.fase.length)) {
+
+              goals += "<li>" + newGoalData.faser.fase.faerdighedsmaal + "</li>";
+              // GOAL VIDESMAAL COULD BE ADDED HERE...
+              //newGoalData.faser.fase.vidensmaal
+
+            } else {
+              // checks for scope matches before adding sub goals
+              if (goal.scope.search('1') != -1) {
+                goals += "<li>" + newGoalData.faser.fase[0].faerdighedsmaal + "</li>";
+                // GOAL VIDESMAAL COULD BE ADDED HERE...
+                //newGoalData.faser.fase[0].vidensmaal
+              }
+              if (goal.scope.search('2') != -1) {
+                goals += "<li>" + newGoalData.faser.fase[1].faerdighedsmaal + "</li>";
+                // GOAL VIDESMAAL COULD BE ADDED HERE...
+                //newGoalData.faser.fase[1].vidensmaal
+              }
+              if (goal.scope.search('3') != -1) {
+                goals += "<li>" + newGoalData.faser.fase[2].faerdighedsmaal + "</li>";
+                // GOAL VIDESMAAL COULD BE ADDED HERE...
+                //newGoalData.faser.fase[2].vidensmaal
+              }
+            }
+            goals += "</ul>";
+          }
+        });
+      } else {
+        var newGoalData = Plan.getGoal(course.goals.goal.id);
+
+        // ignore following if Plan.getGoal(goal.id) is empty
+        // this could be caused by error in data feed
+        if(newGoalData) {
+          goals += "<b>" + newGoalData.value + "</b><ul>";
           // checks for instance where goal.faser.fase is an object and not an array
           if (angular.isUndefined(newGoalData.faser.fase.length)) {
 
@@ -597,54 +671,24 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
 
           } else {
             // checks for scope matches before adding sub goals
-            if (goal.scope.search('1') != -1) {
+            if (course.goals.goal.scope.search('1') != -1) {
               goals += "<li>" + newGoalData.faser.fase[0].faerdighedsmaal + "</li>";
               // GOAL VIDESMAAL COULD BE ADDED HERE...
               //newGoalData.faser.fase[0].vidensmaal
             }
-            if (goal.scope.search('2') != -1) {
+            if (course.goals.goal.scope.search('2') != -1) {
               goals += "<li>" + newGoalData.faser.fase[1].faerdighedsmaal + "</li>";
               // GOAL VIDESMAAL COULD BE ADDED HERE...
               //newGoalData.faser.fase[1].vidensmaal
             }
-            if (goal.scope.search('3') != -1) {
+            if (course.goals.goal.scope.search('3') != -1) {
               goals += "<li>" + newGoalData.faser.fase[2].faerdighedsmaal + "</li>";
               // GOAL VIDESMAAL COULD BE ADDED HERE...
               //newGoalData.faser.fase[2].vidensmaal
             }
           }
           goals += "</ul>";
-        });
-      } else {
-        var newGoalData = Plan.getGoal(course.goals.goal.id);
-        goals += "<b>" + newGoalData.value + "</b><ul>";
-
-        // checks for instance where goal.faser.fase is an object and not an array
-        if (angular.isUndefined(newGoalData.faser.fase.length)) {
-
-          goals += "<li>" + newGoalData.faser.fase.faerdighedsmaal + "</li>";
-          // GOAL VIDESMAAL COULD BE ADDED HERE...
-          //newGoalData.faser.fase.vidensmaal
-
-        } else {
-          // checks for scope matches before adding sub goals
-          if (course.goals.goal.scope.search('1') != -1) {
-            goals += "<li>" + newGoalData.faser.fase[0].faerdighedsmaal + "</li>";
-            // GOAL VIDESMAAL COULD BE ADDED HERE...
-            //newGoalData.faser.fase[0].vidensmaal
-          }
-          if (course.goals.goal.scope.search('2') != -1) {
-            goals += "<li>" + newGoalData.faser.fase[1].faerdighedsmaal + "</li>";
-            // GOAL VIDESMAAL COULD BE ADDED HERE...
-            //newGoalData.faser.fase[1].vidensmaal
-          }
-          if (course.goals.goal.scope.search('3') != -1) {
-            goals += "<li>" + newGoalData.faser.fase[2].faerdighedsmaal + "</li>";
-            // GOAL VIDESMAAL COULD BE ADDED HERE...
-            //newGoalData.faser.fase[2].vidensmaal
-          }
         }
-        goals += "</ul>";
       }
 
       var data = {
