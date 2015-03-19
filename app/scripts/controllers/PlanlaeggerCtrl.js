@@ -264,12 +264,13 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
     }
     angular.forEach(Plan.courses, function(course){
 
-      var highlight = false;
+      //clones Plan.highlighted as temporary checklist, to be able to delete goals when they are matched
+      var highlightChecklist = JSON.parse(JSON.stringify(Plan.highlighted));
 
       // parse levels and courses if courses.goals.goal is an array
       if(angular.isDefined(course.goals.goal.length)) {
         angular.forEach(course.goals.goal, function (goal) {
-          // parse current goal's scopes and check for match in Plan.highlighted object
+          // parse current goal's scopes and check for match in temp highlightChecklist object
           var tempScope = goal.scope;
           // set up regexp to find numbers in 'scope' string
           var regexp = "[0-9]+";
@@ -277,18 +278,19 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
           // find each scope, match it and remove it from tempScope
           while (tempScope.search(re) != -1) {
             var currentScope = re.exec(tempScope)[0];
-            if (Plan.highlighted[goal.id + currentScope]) {
-              highlight = true;
+            // if goal id is present in highlightChecklist, delete it for the list
+            if (highlightChecklist[goal.id + currentScope]) {
+              delete highlightChecklist[goal.id + currentScope];
             }
             tempScope = tempScope.replace(currentScope, '');
           }
-          // match current goal id with Plan.highlighted object
-          if (Plan.highlighted[goal.id]) {
-            highlight = true;
+          // match current goal id with highlightChecklist object
+          if (highlightChecklist[goal.id]) {
+            delete highlightChecklist[goal.id];
           }
         });
       } else{
-        // parse current goal's scopes and check for match in Plan.highlighted object
+        // parse current goal's scopes and check for match in temp highlightChecklist object
         var tempScope = course.goals.goal.scope;
         // set up regexp to find numbers in 'scope' string
         var regexp = "[0-9]+";
@@ -296,21 +298,22 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
         // find each scope, match it and remove it from tempScope
         while (tempScope.search(re) != -1) {
           var currentScope = re.exec(tempScope)[0];
-          if (Plan.highlighted[course.goals.goal.id + currentScope]) {
-            highlight = true;
+          // if goal id is present in highlightChecklist, delete it for the list
+          if (highlightChecklist[course.goals.goal.id + currentScope]) {
+            delete highlightChecklist[course.goals.goal.id + currentScope]
           }
           tempScope = tempScope.replace(currentScope, '');
         }
-        // match current goal id with Plan.highlighted object
-        if (Plan.highlighted[course.goals.goal.id]) {
-          highlight = true;
+        // match current goal id with highlightChecklist object
+        if (highlightChecklist[course.goals.goal.id]) {
+          delete highlightChecklist[course.goals.goal.id];
         }
       }
-    // set highlight property on current course
-      if(highlight){
-        course.highlight = true;
-      } else {
+    // all goal id in highlightChecklist has been found (and deleted), set highlight property on current course
+      if(Object.keys(highlightChecklist).length || !Object.keys(Plan.highlighted).length){
         course.highlight = false;
+      } else {
+        course.highlight = true;
       }
     });
     //Plan.sortCourses();
