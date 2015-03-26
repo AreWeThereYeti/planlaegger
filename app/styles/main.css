@@ -1944,10 +1944,9 @@ h1 {
 /* line 10, ../sass/directives/_dialog.scss */
 .ngdialog {
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
   z-index: 10000;
 }
-/* line 14, ../sass/directives/_dialog.scss */
+/* line 13, ../sass/directives/_dialog.scss */
 .ngdialog .ngdialog-content {
   z-index: 1000;
   position: absolute;
@@ -1959,7 +1958,7 @@ h1 {
   top: 64px;
   text-align: left;
 }
-/* line 25, ../sass/directives/_dialog.scss */
+/* line 24, ../sass/directives/_dialog.scss */
 .ngdialog .ngdialog-content .create-report .arrow_box:after {
   border-top-color: transparent;
   border-bottom-color: #000000;
@@ -1967,7 +1966,7 @@ h1 {
   left: 310px;
   position: relative;
 }
-/* line 34, ../sass/directives/_dialog.scss */
+/* line 33, ../sass/directives/_dialog.scss */
 .ngdialog .ngdialog-content .export-plan .arrow_box:after {
   border-top-color: transparent;
   border-bottom-color: #000000;
@@ -1975,7 +1974,7 @@ h1 {
   left: 350px;
   position: relative;
 }
-/* line 42, ../sass/directives/_dialog.scss */
+/* line 41, ../sass/directives/_dialog.scss */
 .ngdialog .ngdialog-content.export-dialog {
   left: calc(100% - 410px);
   right: 12px \9;
@@ -1987,7 +1986,7 @@ h1 {
   top: 64px;
   text-align: left;
 }
-/* line 56, ../sass/directives/_dialog.scss */
+/* line 55, ../sass/directives/_dialog.scss */
 .ngdialog .third .arrow_box:after {
   border-top-color: transparent;
   border-bottom-color: #000;
@@ -1995,7 +1994,7 @@ h1 {
   left: 367px;
   position: relative;
 }
-/* line 65, ../sass/directives/_dialog.scss */
+/* line 64, ../sass/directives/_dialog.scss */
 .ngdialog .ngdialog-overlay {
   position: fixed;
   top: 0;
