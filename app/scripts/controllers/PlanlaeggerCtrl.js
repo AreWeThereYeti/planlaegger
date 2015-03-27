@@ -241,10 +241,39 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
 
   });
 
+  // goal list helper function: selects all child elements if parent element is seleceted
+  Plan.toggleSubelements = function(element){
+
+    if(element.Selected == false || angular.isUndefined(element.Selected)){
+      angular.forEach(element.faser.fase, function(subelement){
+        subelement.Selected = true;
+      });
+    } else {
+      angular.forEach(element.faser.fase, function(subelement){
+        subelement.Selected = false;
+      });
+    }
+  };
+  // goal list helper function: selects parent element if all sub elements are seleceted
+  Plan.toggleParentelements = function(element){
+
+    if(angular.isDefined(element.faser.fase.length)){
+      var allSelected = true;
+      for(var i = 1; i <= element.faser.fase.length; i++){
+        if(!Plan.highlighted[element.id+i]){
+          allSelected = false;
+        }
+      }
+      return allSelected;
+    }
+    return false;
+
+  };
+
 
 // function for toggling highlighted id's
 
-  Plan.highlight = function(id, parent){
+  Plan.highlight = function(id, parent, parentElem){
     if(angular.isDefined(Plan.highlighted[id]) && parent){
       delete Plan.highlighted[id];
       delete Plan.highlighted[id+"1"];
@@ -253,6 +282,11 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
 
     } else if(angular.isDefined(Plan.highlighted[id])){
       delete Plan.highlighted[id];
+      // removes parent highlight if parent is highlighted
+      if(angular.isDefined(Plan.highlighted[id.slice(0, - 1)])){
+        delete Plan.highlighted[id.slice(0, - 1)];
+        parentElem.Selected = false;
+      }
 
     } else if(parent){
       Plan.highlighted[id] = true;
@@ -261,6 +295,11 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
       Plan.highlighted[id+"3"] = true;
     } else {
       Plan.highlighted[id] = true;
+      // selects parent element if all its children are selected
+      if(Plan.toggleParentelements(parentElem)){
+        Plan.highlighted[id.slice(0, - 1)] = true;
+        parentElem.Selected = true;
+      }
     }
     angular.forEach(Plan.courses, function(course){
 
@@ -320,18 +359,6 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
 
   };
 
-  Plan.toggleSubelements = function(element){
-
-    if(element.Selected == false || angular.isUndefined(element.Selected)){
-      angular.forEach(element.faser.fase, function(subelement){
-        subelement.Selected = true;
-      });
-    } else {
-      angular.forEach(element.faser.fase, function(subelement){
-        subelement.Selected = false;
-      });
-    }
-  };
 
 
 // function for setting the Plan.sortedCourses array in the view
