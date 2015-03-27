@@ -8,8 +8,7 @@ var app = angular.module('app', [
   'gyldendal.filters',
   'angularSpinner',
   'ang-drag-drop',
-  'nsPopover',
-  'ngTouch'
+  'nsPopover'
 ])
 
 .config(['$routeProvider', '$locationProvider' ,function ($routeProvider, $locationProvider) {
@@ -43,6 +42,16 @@ var app = angular.module('app', [
 }])
 
   .run(['$rootScope','$location', function( $rootScope, $location) {
+
+    // detect touchscreen devices
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.indexOf("android") > -1 || ua.indexOf("ipad") > -1 || ua.indexOf("iphone") > -1){
+      $rootScope.touchDevice = true;
+    }else{
+      $rootScope.touchDevice = false;
+    }
+
+
     //	Look for route changes
     $rootScope.$on('$routeChangeStart', function(e, curr, prev) {
       //	Check if promise is resolves on route change. Show loader while processing

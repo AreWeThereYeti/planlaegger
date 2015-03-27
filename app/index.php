@@ -116,7 +116,7 @@ include('php/core.php');
       <script src="scripts/directives/draganddrop.js"></script>
 
       <script type="text/ng-template" id="course-popover">
-        <div class="popover-container">
+        <div class="popover-container" ng-if="!$root.touchDevice">
           <div class="popover-inner" ng-style="{'top': $root.popset+'px'}">
             <div class="popover-head">
               <h2>{{Plan.getTopic(course.id).value}}</h2>
@@ -166,7 +166,7 @@ include('php/core.php');
       </script>
 
       <script type="text/ng-template" id="goal-popover">
-        <div class="popover-container goal">
+        <div class="popover-container goal" ng-if="!$root.touchDevice">
           <div class="popover-inner goal" ng-style="{'top': $root.popset+'px'}">
             <div class="popover-head">
               <h2>{{elem.value}}</h2>

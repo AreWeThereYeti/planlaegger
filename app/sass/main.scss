@@ -91,3 +91,7 @@ a {
   }
   color: $font-color-orange;
 }
+// removes flicker on ipad
+*{
+  -webkit-tap-highlight-color:transparent;
+}

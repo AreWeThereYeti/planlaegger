@@ -2307,3 +2307,8 @@ a {
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;
 }
+
+/* line 95, ../sass/main.scss */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
