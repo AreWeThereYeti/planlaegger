@@ -669,16 +669,22 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
               if (goal.scope.search('1') != -1) {
                 goals += "<li>" + newGoalData.faser.fase[0].faerdighedsmaal + "</li>";
                 // GOAL VIDESMAAL COULD BE ADDED HERE...
+                goals += "<li>" + newGoalData.faser.fase[0].vidensmaal + "</li>";
+
                 //newGoalData.faser.fase[0].vidensmaal
               }
               if (goal.scope.search('2') != -1) {
                 goals += "<li>" + newGoalData.faser.fase[1].faerdighedsmaal + "</li>";
                 // GOAL VIDESMAAL COULD BE ADDED HERE...
+                goals += "<li>" + newGoalData.faser.fase[1].vidensmaal + "</li>";
+
                 //newGoalData.faser.fase[1].vidensmaal
               }
               if (goal.scope.search('3') != -1) {
                 goals += "<li>" + newGoalData.faser.fase[2].faerdighedsmaal + "</li>";
                 // GOAL VIDESMAAL COULD BE ADDED HERE...
+                goals += "<li>" + newGoalData.faser.fase[2].vidensmaal + "</li>";
+
                 //newGoalData.faser.fase[2].vidensmaal
               }
             }
