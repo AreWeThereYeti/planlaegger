@@ -18,7 +18,7 @@
     </div>
 
     <!--item in logs-->
-    <div class="listitem animate" ng-repeat="entry in Overview.entries | logRange:Overview.filterRange |orderBy:Overview.predicate:!reverse">
+    <div class="listitem animate" ng-hide="$root.popup" ng-repeat="entry in Overview.entries | logRange:Overview.filterRange |orderBy:Overview.predicate:!reverse">
         <span class="col-1-8">
           <span class="date" ng-class="{active : Overview.predicate == 'created'}">{{entry.created * 1000 | date:'dd-MM-yyyy'}}</span> <!--multiply with 1000 to get convert from unix time-->
         </span>

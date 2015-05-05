@@ -5,7 +5,7 @@ app.controller('OverviewCtrl', [ 'planners', '$timeout', 'entries', '$rootScope'
 	//Save reference to controller in order to avoid reference soup
 	var Overview = this;
   // intial active sort
-  Overview.predicate = 'timestamp';
+  Overview.predicate = 'created';
   Overview.reverse = false;
   Overview.planners = planners.data;
 
