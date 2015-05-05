@@ -87,6 +87,7 @@ include('php/core.php');
       <script src="scripts/controllers/PlanlaeggerCtrl.js"></script>
       <script src="scripts/controllers/PlanMenubarCtrl.js"></script>
       <script src="scripts/controllers/ToolbarCtrl.js"></script>
+      <script src="scripts/controllers/PopupCtrl.js"></script>
 
 
 

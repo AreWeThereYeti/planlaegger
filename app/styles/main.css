@@ -1931,6 +1931,98 @@ h1 {
   color: black;
 }
 
+/* line 1, ../sass/components/_popup.scss */
+.popup {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 5;
+  background-color: transparent;
+}
+/* line 11, ../sass/components/_popup.scss */
+.popup .popup-inner {
+  position: absolute;
+  left: 25px;
+  right: 25px;
+  top: 90px;
+  bottom: 50px;
+  border-top: 3px solid #383838;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+}
+/* line 20, ../sass/components/_popup.scss */
+.popup .popup-inner .popup-head {
+  height: 65px;
+  line-height: 65px;
+  font-size: 24px;
+  background-color: #ffffff;
+  padding: 0 25px;
+  border-bottom: 1px solid #e2e2e2;
+}
+/* line 29, ../sass/components/_popup.scss */
+.popup .popup-inner .popup-head span:first-of-type {
+  float: left;
+}
+/* line 32, ../sass/components/_popup.scss */
+.popup .popup-inner .popup-head span:last-of-type {
+  float: right;
+  cursor: pointer;
+}
+/* line 38, ../sass/components/_popup.scss */
+.popup .popup-inner .popup-leftcolumn {
+  width: calc(100% - 300px);
+  min-height: calc(100% - 65px);
+  float: left;
+  background-color: #f5f5f5;
+}
+/* line 43, ../sass/components/_popup.scss */
+.popup .popup-inner .popup-leftcolumn .list {
+  position: static;
+}
+/* line 47, ../sass/components/_popup.scss */
+.popup .popup-inner .popup-rightcolumn {
+  border-left: 1px solid #e2e2e2;
+  width: 300px;
+  min-height: calc(100% - 65px);
+  float: left;
+  background-color: #ffffff;
+}
+/* line 54, ../sass/components/_popup.scss */
+.popup .popup-inner .popup-rightcolumn .datepicker {
+  border: none;
+  box-shadow: none;
+}
+/* line 57, ../sass/components/_popup.scss */
+.popup .popup-inner .popup-rightcolumn .datepicker h1 {
+  padding-bottom: 0;
+}
+/* line 60, ../sass/components/_popup.scss */
+.popup .popup-inner .popup-rightcolumn .datepicker .content {
+  background-color: #ffffff;
+}
+/* line 62, ../sass/components/_popup.scss */
+.popup .popup-inner .popup-rightcolumn .datepicker .content .select {
+  width: 85%;
+}
+/* line 66, ../sass/components/_popup.scss */
+.popup .popup-inner .popup-rightcolumn .datepicker .content .select-inner .dropdown_content {
+  width: 270px;
+}
+/* line 71, ../sass/components/_popup.scss */
+.popup .popup-inner .popup-rightcolumn .datepicker .content .btn {
+  float: left;
+}
+/* line 75, ../sass/components/_popup.scss */
+.popup .popup-inner .popup-rightcolumn .datepicker .label {
+  color: #383838;
+  opacity: 0.5;
+}
+/* line 80, ../sass/components/_popup.scss */
+.popup .popup-inner .popup-rightcolumn input {
+  background-color: #f2f2f2;
+}
+
 /* line 1, ../sass/directives/_dialog.scss */
 .ngdialog,
 .ngdialog *,
@@ -2245,18 +2337,18 @@ h1 {
   padding-bottom: 15px;
 }
 
-/* line 36, ../sass/main.scss */
+/* line 37, ../sass/main.scss */
 body {
   background-color: #E9E9E9;
   font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
   overflow: hidden;
 }
-/* line 41, ../sass/main.scss */
+/* line 42, ../sass/main.scss */
 body.on-dragging {
   cursor: url("../images/hand.cur"), url("../images/hand.gif"), move !important;
 }
 
-/* line 50, ../sass/main.scss */
+/* line 51, ../sass/main.scss */
 .collapsable {
   display: inline-block;
   overflow: hidden;
@@ -2276,39 +2368,39 @@ body.on-dragging {
     }*/
 }
 
-/* line 69, ../sass/main.scss */
+/* line 70, ../sass/main.scss */
 .collapsable.showme {
   height: 75px;
   line-height: 70px;
   clear: both;
 }
-/* line 73, ../sass/main.scss */
+/* line 74, ../sass/main.scss */
 .collapsable.showme .arrow_box {
   cursor: pointer;
   opacity: 1;
 }
 
-/* line 79, ../sass/main.scss */
+/* line 80, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 83, ../sass/main.scss */
+/* line 84, ../sass/main.scss */
 a {
   color: #383838;
   text-decoration: none;
 }
 
-/* line 88, ../sass/main.scss */
+/* line 89, ../sass/main.scss */
 .active {
   color: #e04f2f;
 }
-/* line 89, ../sass/main.scss */
+/* line 90, ../sass/main.scss */
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;
 }
 
-/* line 95, ../sass/main.scss */
+/* line 96, ../sass/main.scss */
 * {
   -webkit-tap-highlight-color: transparent;
 }

@@ -3,6 +3,7 @@
 app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdataservice', '$scope','DateService' ,function ( $location,$rootScope, $route, getdataservice, $scope, DateService) {
 //	Ctrl uses scope in order to use it in directive
 
+
   $scope.plannerList = $scope.$parent.Overview.planners.Products;
   $scope.laeremidler = [];
   $scope.niveau = [];
@@ -69,10 +70,18 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
 
       //save planner
       getdataservice.addOrganizer(planData).then(function(data){
-        // close dialog
-        $rootScope.dialog = false;
-        $route.reload();
 
+        if($rootScope.popup){
+          // if planner was created from popup: go to the new planner
+          //TODO: add check to make sure that data.data == ""someValue""
+          var plannerID = data.data.slice(1,-1);
+          $location.path("/planner/"+plannerID).search({userID: $route.current.params.userID});
+          $rootScope.popup = false;
+        }else {
+          // else from dialog: close dialog and reload view
+          $rootScope.dialog = false;
+          $route.reload();
+        }
       });
 
 

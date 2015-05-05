@@ -1,0 +1,106 @@
+<div class="popup-inner">
+
+  <div class="popup-head">
+    <span>Vælg eksisterende</span>
+    <span ng-click="$root.popup=false">X</span>
+  </div>
+  <div class="popup-leftcolumn">
+    <div class="list" scroll>
+      <div class="listheader">
+        <div class="col-2-8">
+          <span  ng-class="{active : Overview.predicate == 'created', arrow_box : Overview.predicate == 'created', reverse : reverse}" ng-click="Overview.predicate = 'created'; reverse = dateReverse; dateReverse=!dateReverse; idReverse=false">Dato</span>
+        </div>
+        <div class="col-2-8">
+          <span  ng-class="{active : Overview.predicate == 'title', arrow_box : Overview.predicate == 'title', reverse : reverse}" ng-click="Overview.predicate = 'title'; reverse = idReverse; idReverse=!idReverse; dateReverse = false">Titel</span>
+        </div>
+        <div class="col-2-8" >
+          <span>Læremiddel</span>
+        </div>
+        <div class="col-2-8" >
+          <span>Niveau</span>
+        </div>
+      </div>
+
+      <!--item in logs-->
+      <div class="listitem animate" ng-repeat="entry in Overview.productEntries | logRange:Overview.filterRange |orderBy:Overview.predicate:!reverse">
+            <span class="col-2-8">
+              <span class="date" ng-class="{active : Overview.predicate == 'created'}">{{entry.created * 1000 | date:'dd-MM-yyyy'}}</span> <!--multiply with 1000 to get convert from unix time-->
+            </span>
+            <span  class="col-2-8" ng-class="{'active' : Overview.predicate == 'title'}">
+              <span class="title" ng-click="Overview.goToPlanner(entry.objectID)">{{entry.title}}</span>
+            </span>
+            <span class="col-2-8">
+              {{entry.subjects[0]}}
+            </span>
+            <span class="col-2-8">
+              {{entry.levels[0]}}
+            </span>
+
+      </div>
+      <div class="no-list-items" ng-hide="Overview.entries">
+        <ul>
+          <li>Der er ikke oprettet nogen planlæggere.</li>
+          <li>Klik på plusset i øverste højre hjørne for at tilføje en ny planlægger</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="popup-rightcolumn">
+    <div date-picker></div>
+
+    <!--<div class="datepicker grid">
+      <div class="header">
+        <h1>Opret ny planlægger</h1>
+      </div>
+      <div class="content">
+        <h2 class="label">Titel</h2>
+        <div class="inputcontainer">
+          <input type="text" ng-model="title" />
+        </div>
+        <div class="content-inner">
+          <div class="grid">
+            <h2 class="label dato">Læremiddel</h2>
+            <div class="select">
+              <div class="select-inner left">
+                <div ng-class="{active : $scope.dropDown == 'laeremiddel'}" class="dropdown_header" ng-click="$scope.dropDown = 'laeremiddel'">{{valgtLaeremiddel || "Vælg læremiddel"}}</div>
+                <div ng-if="$scope.dropDown == 'laeremiddel'" ng-class="{dropdown_content : $scope.dropDown == 'laeremiddel'}" class="animate col-1-8">
+                  <ul>
+                    <li>
+                      <div class="custom-radio" ng-repeat="laeremiddel in laeremidler" >
+                        <input id="checkfrom{{$paret.$paret.laeremiddel}}{{$index}}" type="radio" name="check" value="checkfrom{{$paret.$paret.laeremiddel}}{{$index}}" ng-checked="laeremiddel == valgtLaeremiddel">
+                        <label for="checkfrom{{$paret.$paret.laeremiddel}}{{$index}}" ng-click="$parent.$parent.valgtLaeremiddel = $parent.$parent.laeremidler[$index]; $scope.dropDown = ''">{{laeremiddel}}</label>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div ng-show="$scope.dropDown == 'laeremiddel'" ng-click="$scope.dropDown =''" class="datepicker-overlay"></div>
+              </div>
+            </div>
+          </div>
+          <div class="grid">
+            <h2 class="label dato">Niveau</h2>
+            <div class="select">
+              <div class="select-inner left">
+                <div ng-class="{active : $scope.dropDown == 'niveau'}" class="dropdown_header" ng-click="$scope.dropDown = 'niveau'">{{valgtNiveau || "Vælg niveau"}}</div>
+                <div ng-if="$scope.dropDown == 'niveau'" ng-class="{dropdown_content : $scope.dropDown == 'niveau'}" class="animate col-1-8">
+                  <ul>
+                    <li>
+                      <div class="custom-radio" ng-repeat="niv in niveau" >
+                        <input id="checkto-niv-{{$index}}" type="radio" name="check" value="checkto{{year}}{{$index}}" ng-checked="valgtNiveau == niv.Level">
+                        <label for="checkto-niv-{{$index}}" ng-click="$parent.$parent.valgtNiveau = $parent.$parent.niveau[$index].Level; $scope.dropDown = ''">{{niv.Level}}</label>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div ng-show="$scope.dropDown == 'niveau'" ng-click="$scope.dropDown =''" class="datepicker-overlay"></div>
+              </div>
+            </div>
+          </div>
+          <div class="grid">
+            <button class="btn" ng-disabled="!valgtNiveau || !valgtLaeremiddel || !title" ng-click="createPlanner();">Opret planlægger</button>
+          </div>
+        </div>
+      </div>
+    </div>-->
+  </div>
+</div>

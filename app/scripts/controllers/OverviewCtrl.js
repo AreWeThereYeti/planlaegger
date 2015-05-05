@@ -15,6 +15,21 @@ app.controller('OverviewCtrl', [ 'planners', '$timeout', 'entries', '$rootScope'
   // list data
   Overview.entries = entries.data;
 
+  // open/init popup if product param is present
+  if(angular.isDefined($route.current.params.product)){
+
+    // filter Overview.entries by product
+    Overview.productEntries = [];
+    angular.forEach(Overview.entries, function(entry){
+      if(entry.subjects[0] == $route.current.params.product){
+        Overview.productEntries.push(entry);
+      }
+    });
+
+    $rootScope.popup = true;
+  }
+
+
   // delete planner
   Overview.deletePlanner = function(objectID){
     if(confirm("Der du sikker på at du vil slette denne planlægger?")) {
