@@ -56,7 +56,8 @@
       right: 5px;
 
       &:before{
-        float: right;
+        float: left;
+        margin-right: 20px;
         font-size: 25px;
         font-family: ilog;
         content: 'B';
@@ -65,7 +66,8 @@
       &.active {
         &:before{
           color: #ffffff;
-          float: right;
+          float: left;
+          margin-right: 20px;
           font-size: 25px;
           font-family: ilog;
           content: 'C';

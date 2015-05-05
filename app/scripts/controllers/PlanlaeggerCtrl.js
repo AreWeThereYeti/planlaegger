@@ -662,7 +662,7 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
 
               goals += "<li>" + newGoalData.faser.fase.faerdighedsmaal + "</li>";
               // GOAL VIDESMAAL COULD BE ADDED HERE...
-              //newGoalData.faser.fase.vidensmaal
+              goals += "<li>" + newGoalData.faser.fase.vidensmaal + "</li>";
 
             } else {
               // checks for scope matches before adding sub goals
