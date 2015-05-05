@@ -644,18 +644,29 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
       updatedCourses.push(course.id);
     // set up and push data object for selected course
 
-      // goal cell starts with explaining text
-      var goals = "Undervisningen i forløbet skal lede frem mod, at eleverne har tilegnet sig kundskaber og færdigheder, der sætter dem i stand til at<br><br>";
+      // goal cell init
+      //var goals = "Undervisningen i forløbet skal lede frem mod, at eleverne har tilegnet sig kundskaber og færdigheder, der sætter dem i stand til at<br><br>";
+      var goals = "";
       // loop through all course goals at present goal title in <b> tags and goal scopes as <ul>
+
+      var goalCategory = '';
 
       //checks if coursegoal.goal is array or object
       if(angular.isDefined(course.goals.goal.length)) {
         angular.forEach(course.goals.goal, function (goal) {
-          var newGoalData = Plan.getGoal(goal.id);
 
+          var currentCategory = Plan.getGoalCategory(goal.id).value;
+
+          var newGoalData = Plan.getGoal(goal.id);
           // ignore following if Plan.getGoal(goal.id) is empty
           // this could be caused by error in data feed
           if(newGoalData) {
+            // check if current goal category differs from the last. if so add category as header
+            if(currentCategory != goalCategory){
+              goalCategory = currentCategory;
+              goals += "<h3>" + currentCategory + "</h3>";
+            }
+
             goals += "<b>" + newGoalData.value + "</b><ul>";
             // checks for instance where goal.faser.fase is an object and not an array
             if (angular.isUndefined(newGoalData.faser.fase.length)) {
@@ -692,35 +703,44 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
           }
         });
       } else {
+        var currentCategory = Plan.getGoalCategory(course.goals.goal.id).value;
+
         var newGoalData = Plan.getGoal(course.goals.goal.id);
 
         // ignore following if Plan.getGoal(goal.id) is empty
         // this could be caused by error in data feed
         if(newGoalData) {
+
+          // check if current goal category differs from the last. if so add category as header
+          if(currentCategory != goalCategory){
+            goalCategory = currentCategory;
+            goals += "<h3>" + currentCategory + "</h3>";
+          }
+
           goals += "<b>" + newGoalData.value + "</b><ul>";
           // checks for instance where goal.faser.fase is an object and not an array
           if (angular.isUndefined(newGoalData.faser.fase.length)) {
 
             goals += "<li>" + newGoalData.faser.fase.faerdighedsmaal + "</li>";
             // GOAL VIDESMAAL COULD BE ADDED HERE...
-            //newGoalData.faser.fase.vidensmaal
+            goals += "<li>" + newGoalData.faser.fase.vidensmaal + "</li>";
 
           } else {
             // checks for scope matches before adding sub goals
             if (course.goals.goal.scope.search('1') != -1) {
               goals += "<li>" + newGoalData.faser.fase[0].faerdighedsmaal + "</li>";
               // GOAL VIDESMAAL COULD BE ADDED HERE...
-              //newGoalData.faser.fase[0].vidensmaal
+              goals += "<li>" + newGoalData.faser.fase[0].vidensmaal + "</li>";
             }
             if (course.goals.goal.scope.search('2') != -1) {
               goals += "<li>" + newGoalData.faser.fase[1].faerdighedsmaal + "</li>";
               // GOAL VIDESMAAL COULD BE ADDED HERE...
-              //newGoalData.faser.fase[1].vidensmaal
+              goals += "<li>" + newGoalData.faser.fase[1].vidensmaal + "</li>";
             }
             if (course.goals.goal.scope.search('3') != -1) {
               goals += "<li>" + newGoalData.faser.fase[2].faerdighedsmaal + "</li>";
               // GOAL VIDESMAAL COULD BE ADDED HERE...
-              //newGoalData.faser.fase[2].vidensmaal
+              goals += "<li>" + newGoalData.faser.fase[2].vidensmaal + "</li>";
             }
           }
           goals += "</ul>";
