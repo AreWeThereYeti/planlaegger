@@ -14,7 +14,9 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
   $scope.subjectAsKeys = {};
   $scope.title = '';
 
-
+  if($rootScope.popup){
+    $scope.valgtLaeremiddel = $route.current.params.product;
+  }
   angular.forEach($scope.plannerList, function(plannerdata){
 
     // the following ignores planners with unfinished planner data. Remove when data sets are ready and available
