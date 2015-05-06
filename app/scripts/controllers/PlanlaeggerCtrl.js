@@ -241,14 +241,10 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
 
   });
 
-  // goal list helper function: selects all child elements if parent element is seleceted
+  // goal list helper function: deselects all child elements if parent element is seleceted
   Plan.toggleSubelements = function(element){
 
     if(element.Selected == false || angular.isUndefined(element.Selected)){
-      angular.forEach(element.faser.fase, function(subelement){
-        subelement.Selected = true;
-      });
-    } else {
       angular.forEach(element.faser.fase, function(subelement){
         subelement.Selected = false;
       });
@@ -282,24 +278,28 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
 
     } else if(angular.isDefined(Plan.highlighted[id])){
       delete Plan.highlighted[id];
-      // removes parent highlight if parent is highlighted
+
+    } else if(parent){
+      Plan.highlighted[id] = true;
+      // removes child highlights if parent is highlighted
+      if(angular.isDefined(Plan.highlighted[id+"1"])){
+        delete Plan.highlighted[id+"1"];
+      }
+      if(angular.isDefined(Plan.highlighted[id+"2"])){
+        delete Plan.highlighted[id+"2"];
+      }
+      if(angular.isDefined(Plan.highlighted[id+"3"])){
+        delete Plan.highlighted[id+"3"];
+      }
+
+    } else {
+      Plan.highlighted[id] = true;
+      // removes parent highlight if child is highlighted
       if(angular.isDefined(Plan.highlighted[id.slice(0, - 1)])){
         delete Plan.highlighted[id.slice(0, - 1)];
         parentElem.Selected = false;
       }
 
-    } else if(parent){
-      Plan.highlighted[id] = true;
-      Plan.highlighted[id+"1"] = true;
-      Plan.highlighted[id+"2"] = true;
-      Plan.highlighted[id+"3"] = true;
-    } else {
-      Plan.highlighted[id] = true;
-      // selects parent element if all its children are selected
-      if(Plan.toggleParentelements(parentElem)){
-        Plan.highlighted[id.slice(0, - 1)] = true;
-        parentElem.Selected = true;
-      }
     }
     angular.forEach(Plan.courses, function(course){
 
@@ -355,7 +355,6 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
         course.highlight = true;
       }
     });
-    //Plan.sortCourses();
 
   };
 

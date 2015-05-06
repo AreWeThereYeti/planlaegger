@@ -36,7 +36,7 @@
           <li  ng-repeat="subelem in elem.faerdighedsOgVidensmaalPLURALIS.faerdighedsOgvidensmaalSINGULARIS">
             <div class="custom-radio">
               <input id="{{subelem.id}}" type="checkbox" name="check" ng-model="subelem.Selected" />
-              <label for="{{subelem.id}}" ng-click="Plan.highlight(subelem.id, true, subelem); !subelem.Selected; Plan.toggleSubelements(subelem)"></label>
+              <label for="{{subelem.id}}" ng-click="Plan.highlight(subelem.id, true, subelem); !subelem.Selected; Plan.toggleSubelements(subelem)"></label> <!-- Plan.toggleSubelements(subelem) -->
             </div>
 
             <div class="sub-head" ng-class="{'active': subelem.activeSubGoal, 'checked': Plan.checkList[subelem.id]}" ng-click="subelem.activeSubGoal = !subelem.activeSubGoal">
