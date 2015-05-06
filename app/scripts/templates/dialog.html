@@ -1,8 +1,25 @@
 <div class="ngdialog ">
-  <div class="ngdialog-content" ng-class="{'export-dialog': $root.dialog == 'export plan'}">
+  <div class="ngdialog-content" ng-class="{'export-dialog': $root.dialog == 'export plan', 'edit-dialog-container': $root.dialog == 'edit plan'}">
     <div class="create-report animate" ng-if="$root.dialog == 'create plan'">
       <span class="arrow_box"></span>
       <div date-picker></div>
+    </div>
+    <div class="edit-dialog animate" ng-if="$root.dialog == 'edit plan'">
+      <span class="arrow_box"></span>
+      <div class="share">
+        <div class="header">
+          <h1>Indstillinger</h1>
+        </div>
+        <div class="content">
+          <div class="grid">
+            <span class="label">Redigér planlæggerens navn</span>
+            <div>
+              <input type="text" ng-model="Dialog.newTitle" placeholder="{{Plan.current.title}}"/>
+            </div>
+            <button class="btn" ng-click="Plan.updatePlanner(Dialog.newTitle);" ng-disabled="!Dialog.newTitle">Gem ændring</button>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="export-plan animate" ng-if="$root.dialog == 'export plan'">
       <span class="arrow_box"></span>

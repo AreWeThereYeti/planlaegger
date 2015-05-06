@@ -7,7 +7,10 @@
             </span>
           </span>
       </li>
-      <li>{{Plan.current.title}}</li>
+      <li>
+        {{Plan.current.title}}
+        <span class="icon icon-edit" ng-click="PlanMenubar.editPlan()" edit-dialog></span>
+      </li>
     </ul>
   </div>
   <div class="icons col-1-4">

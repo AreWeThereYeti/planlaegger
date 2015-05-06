@@ -1573,8 +1573,8 @@ h1 {
 }
 /* line 55, ../sass/components/_menubar.scss */
 .menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:before {
-  margin: 0 10px 0 0px;
-  font-size: 20px;
+  margin: 0 10px 0 10px;
+  font-size: 26px;
   vertical-align: middle;
 }
 /* line 61, ../sass/components/_menubar.scss */
@@ -2080,7 +2080,58 @@ h1 {
   top: 64px;
   text-align: left;
 }
+/* line 52, ../sass/directives/_dialog.scss */
+.ngdialog .ngdialog-content.edit-dialog-container {
+  display: none;
+}
 /* line 55, ../sass/directives/_dialog.scss */
+.ngdialog .ngdialog-content .edit-dialog {
+  z-index: 1000;
+  position: absolute;
+  width: 400px;
+  -webkit-backface-visibility: hidden;
+  text-align: left;
+}
+/* line 61, ../sass/directives/_dialog.scss */
+.ngdialog .ngdialog-content .edit-dialog .label {
+  margin-bottom: 10px;
+  display: inline-block;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+/* line 67, ../sass/directives/_dialog.scss */
+.ngdialog .ngdialog-content .edit-dialog .arrow_box:after {
+  border-top-color: transparent;
+  border-bottom-color: #000000;
+  margin-top: -2px;
+  left: 50px;
+  position: relative;
+}
+/* line 74, ../sass/directives/_dialog.scss */
+.ngdialog .ngdialog-content .edit-dialog textarea {
+  width: 100%;
+  height: 180px;
+  padding: 15px;
+  font-size: 14px;
+  border: none;
+  resize: none;
+  margin-bottom: 25px;
+}
+/* line 84, ../sass/directives/_dialog.scss */
+.ngdialog .ngdialog-content .edit-dialog input[type="text"] {
+  width: 100%;
+  height: 40px;
+  padding: 15px;
+  font-size: 14px;
+  border: none;
+  margin-bottom: 25px;
+}
+/* line 93, ../sass/directives/_dialog.scss */
+.ngdialog .ngdialog-content .edit-dialog .btn:disabled {
+  color: #ffffff;
+  opacity: 0.5;
+}
+/* line 101, ../sass/directives/_dialog.scss */
 .ngdialog .third .arrow_box:after {
   border-top-color: transparent;
   border-bottom-color: #000;
@@ -2088,7 +2139,7 @@ h1 {
   left: 367px;
   position: relative;
 }
-/* line 64, ../sass/directives/_dialog.scss */
+/* line 110, ../sass/directives/_dialog.scss */
 .ngdialog .ngdialog-overlay {
   position: fixed;
   top: 0;

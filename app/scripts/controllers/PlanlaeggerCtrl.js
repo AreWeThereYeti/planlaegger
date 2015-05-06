@@ -630,7 +630,7 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
   };
 
   // function for updating the user's planner with the data selected in the UI
-  Plan.updatePlanner = function(){
+  Plan.updatePlanner = function(newTitle){
     // get current planner content
     var plannerContent = angular.fromJson(Plan.current.content);
     var updatedCourses = [];
@@ -760,6 +760,12 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
     Plan.current.content = angular.toJson(plannerContent);
     $rootScope.current.content  = angular.toJson(plannerContent);
 
+    // set Plan.current to updated planner newTitle if available
+    if(newTitle) {
+      Plan.current.title = newTitle;
+      $rootScope.current.title = newTitle;
+      $rootScope.dialog = '';
+    }
     getdataservice.updateOrganizer(Plan.current, objectID).then(function(data){
     });
   };

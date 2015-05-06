@@ -115,6 +115,7 @@ include('php/core.php');
       <script src="scripts/directives/globalCss.js"></script>
       <script src="scripts/directives/angular-spinner.min.js"></script>
       <script src="scripts/directives/draganddrop.js"></script>
+      <script src="scripts/directives/editDialog.js"></script>
 
       <script type="text/ng-template" id="course-popover">
         <div class="popover-container" ng-if="!$root.touchDevice">

@@ -12,6 +12,14 @@ app.controller('PlanMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope
       $rootScope.dialog = 'export plan';
     }
   };
+  PlanMenubar.editPlan = function () {
+    if($rootScope.dialog == 'edit plan'){
+      $rootScope.dialog = '';
+    }
+    else{
+      $rootScope.dialog = 'edit plan';
+    }
+  };
 // sends user to a planner view
   PlanMenubar.goToOverview = function(){
     if(window.parent.updatePlannerUrl) {
