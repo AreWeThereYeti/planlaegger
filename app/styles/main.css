@@ -1577,7 +1577,7 @@ h1 {
   font-size: 26px;
   vertical-align: middle;
 }
-/* line 61, ../sass/components/_menubar.scss */
+/* line 62, ../sass/components/_menubar.scss */
 .menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:hover:before {
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
@@ -1586,31 +1586,31 @@ h1 {
   color: #e04f2f;
   border-color: #e04f2f;
 }
-/* line 72, ../sass/components/_menubar.scss */
+/* line 73, ../sass/components/_menubar.scss */
 .menubar .share .content {
   padding: 25px 25px;
 }
-/* line 76, ../sass/components/_menubar.scss */
+/* line 77, ../sass/components/_menubar.scss */
 .menubar .share .content .label {
   font-size: 14px;
   font-weight: bold;
   color: #a0a0a0;
   text-transform: uppercase;
 }
-/* line 82, ../sass/components/_menubar.scss */
+/* line 83, ../sass/components/_menubar.scss */
 .menubar .share .content select {
   font-size: 18px;
 }
-/* line 85, ../sass/components/_menubar.scss */
+/* line 86, ../sass/components/_menubar.scss */
 .menubar .share .content .btn {
   font-size: 18px;
   margin-top: 5px;
 }
-/* line 91, ../sass/components/_menubar.scss */
+/* line 92, ../sass/components/_menubar.scss */
 .menubar .share ul {
   padding: 0 25px;
 }
-/* line 93, ../sass/components/_menubar.scss */
+/* line 94, ../sass/components/_menubar.scss */
 .menubar .share ul li:hover {
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
@@ -1618,36 +1618,36 @@ h1 {
   -o-transition: all 0.2s;
   color: #e04f2f;
 }
-/* line 101, ../sass/components/_menubar.scss */
+/* line 102, ../sass/components/_menubar.scss */
 .menubar .share ul li {
   font-size: 18px;
 }
-/* line 105, ../sass/components/_menubar.scss */
+/* line 106, ../sass/components/_menubar.scss */
 .menubar .share ul [class^="icon-"]:before, .menubar .share ul [class*=" icon-"]:before {
   margin: 0 10px 0 20px;
   font-size: 20px;
   vertical-align: middle;
 }
-/* line 110, ../sass/components/_menubar.scss */
+/* line 111, ../sass/components/_menubar.scss */
 .menubar .share ul [class^="icon-"]:before, .menubar .share ul [class*=" icon-"]:first-of-type:before {
   margin-left: 0px;
 }
-/* line 116, ../sass/components/_menubar.scss */
+/* line 117, ../sass/components/_menubar.scss */
 .menubar .icons {
   height: 75px;
   float: right;
   display: inline-block;
   vertical-align: middle;
 }
-/* line 125, ../sass/components/_menubar.scss */
+/* line 126, ../sass/components/_menubar.scss */
 .menubar .circ:last-of-type {
   margin-right: 0px;
 }
-/* line 128, ../sass/components/_menubar.scss */
+/* line 129, ../sass/components/_menubar.scss */
 .menubar .circ.back {
   margin-right: 15px;
 }
-/* line 132, ../sass/components/_menubar.scss */
+/* line 133, ../sass/components/_menubar.scss */
 .menubar .report-overlay {
   position: fixed;
   top: 0;
@@ -1661,7 +1661,7 @@ h1 {
   -webkit-backface-visibility: hidden;
 }
 
-/* line 149, ../sass/components/_menubar.scss */
+/* line 150, ../sass/components/_menubar.scss */
 [class^="icon-"]:hover a,
 [class*=" icon-"]:hover a {
   transition: all 0.2s;

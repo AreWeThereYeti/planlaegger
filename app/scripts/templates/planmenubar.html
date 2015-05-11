@@ -9,7 +9,7 @@
       </li>
       <li>
         {{Plan.current.title}}
-        <span class="icon icon-edit" ng-click="PlanMenubar.editPlan()" edit-dialog></span>
+        <span class="icon icon-edit" ng-class="{active: $root.dialog == 'edit plan'}" ng-click="PlanMenubar.editPlan()" edit-dialog></span>
       </li>
     </ul>
   </div>

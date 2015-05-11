@@ -14,9 +14,9 @@
           <div class="grid">
             <span class="label">Redigér planlæggerens navn</span>
             <div>
-              <input type="text" ng-model="Dialog.newTitle" placeholder="{{Plan.current.title}}"/>
+              <input type="text" ng-model="Dialog.newTitle"/>
             </div>
-            <button class="btn" ng-click="Plan.updatePlanner(Dialog.newTitle);" ng-disabled="!Dialog.newTitle">Gem ændring</button>
+            <button class="btn" ng-click="Plan.updatePlanner(Dialog.newTitle);" ng-disabled="Dialog.newTitle == $root.current.title">Gem ændring</button>
           </div>
         </div>
       </div>

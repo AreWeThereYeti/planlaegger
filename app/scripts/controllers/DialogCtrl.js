@@ -14,6 +14,9 @@ app.controller('DialogCtrl', [ 'colorPickerService', '$window', '$routeParams', 
 		}
 	};
 
+  if($rootScope.current.title){
+    Dialog.newTitle = $rootScope.current.title;
+  }
 
   Dialog.exportPlanner = function(){
    var exportObject = angular.fromJson($rootScope.current.content);
