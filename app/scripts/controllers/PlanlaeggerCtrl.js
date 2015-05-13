@@ -747,7 +747,7 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
       }
 
       var data = {
-        'forloeb': Plan.getTopic(course.id).value+"<br><b>"+course.value+"</b><br><i style='font-size:0.8em;'>"+course.duration+"</i>",
+        'forloeb': Plan.getTopic(course.id).value+"<br><b>"+course.value+"</b>", // temperarily removes "lektioner" fra course data:  <br><i style='font-size:0.8em;'>"+course.duration+"</i>",
         'maal': goals
       };
       updatedData.push(data);
