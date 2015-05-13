@@ -14,7 +14,7 @@ app.controller('DialogCtrl', [ 'colorPickerService', '$window', '$routeParams', 
 		}
 	};
 
-  if($rootScope.current.title){
+  if(angular.isDefined($rootScope.current) && angular.isDefined($rootScope.current.title)){
     Dialog.newTitle = $rootScope.current.title;
   }
 

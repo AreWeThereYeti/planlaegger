@@ -8,9 +8,14 @@
   z-index: 5;
 
   .popup-inner {
-    position: absolute;
-    left: 25px;
-    right: 25px;
+    position: relative;
+//    left: 25px;
+//    right: 25px;
+    height: 500px;
+    max-width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+    margin: auto;
     top: 90px;
     bottom: 50px;
     border-top: 3px solid #383838;

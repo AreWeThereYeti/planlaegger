@@ -150,12 +150,62 @@ table {
   width: 62.5%;
 }
 
+/* line 66, ../sass/_grid.scss */
+.col-1-10 {
+  width: 10%;
+}
+
+/* line 70, ../sass/_grid.scss */
+.col-2-10 {
+  width: 20%;
+}
+
+/* line 74, ../sass/_grid.scss */
+.col-3-10 {
+  width: 30%;
+}
+
+/* line 78, ../sass/_grid.scss */
+.col-4-10 {
+  width: 40%;
+}
+
+/* line 82, ../sass/_grid.scss */
+.col-5-10 {
+  width: 50%;
+}
+
+/* line 86, ../sass/_grid.scss */
+.col-6-10 {
+  width: 60%;
+}
+
+/* line 90, ../sass/_grid.scss */
+.col-7-10 {
+  width: 70%;
+}
+
+/* line 94, ../sass/_grid.scss */
+.col-8-10 {
+  width: 80%;
+}
+
+/* line 97, ../sass/_grid.scss */
+.col-3-20 {
+  width: 15%;
+}
+
+/* line 100, ../sass/_grid.scss */
+.col-7-20 {
+  width: 35%;
+}
+
 /* Opt-in outside padding */
-/* line 67, ../sass/_grid.scss */
+/* line 105, ../sass/_grid.scss */
 .grid-pad {
   padding: 0px 0 0px 0px;
 }
-/* line 69, ../sass/_grid.scss */
+/* line 107, ../sass/_grid.scss */
 .grid-pad [class*='col-']:last-of-type {
   padding-right: 0px;
 }
@@ -1944,16 +1994,19 @@ h1 {
 }
 /* line 10, ../sass/components/_popup.scss */
 .popup .popup-inner {
-  position: absolute;
-  left: 25px;
-  right: 25px;
+  position: relative;
+  height: 500px;
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+  margin: auto;
   top: 90px;
   bottom: 50px;
   border-top: 3px solid #383838;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
   z-index: 2;
 }
-/* line 19, ../sass/components/_popup.scss */
+/* line 24, ../sass/components/_popup.scss */
 .popup .popup-inner .popup-head {
   height: 65px;
   line-height: 65px;
@@ -1962,7 +2015,7 @@ h1 {
   padding: 0 25px;
   border-bottom: 1px solid #e2e2e2;
 }
-/* line 26, ../sass/components/_popup.scss */
+/* line 31, ../sass/components/_popup.scss */
 .popup .popup-inner .popup-head .ion-close:hover {
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
@@ -1970,27 +2023,27 @@ h1 {
   -o-transition: all 0.2s;
   color: #e04f2f;
 }
-/* line 34, ../sass/components/_popup.scss */
+/* line 39, ../sass/components/_popup.scss */
 .popup .popup-inner .popup-head span:first-of-type {
   float: left;
 }
-/* line 37, ../sass/components/_popup.scss */
+/* line 42, ../sass/components/_popup.scss */
 .popup .popup-inner .popup-head span:last-of-type {
   float: right;
   cursor: pointer;
 }
-/* line 43, ../sass/components/_popup.scss */
+/* line 48, ../sass/components/_popup.scss */
 .popup .popup-inner .popup-leftcolumn {
   width: calc(100% - 300px);
   min-height: calc(100% - 65px);
   float: left;
   background-color: #f5f5f5;
 }
-/* line 48, ../sass/components/_popup.scss */
+/* line 53, ../sass/components/_popup.scss */
 .popup .popup-inner .popup-leftcolumn .list {
   position: static;
 }
-/* line 52, ../sass/components/_popup.scss */
+/* line 57, ../sass/components/_popup.scss */
 .popup .popup-inner .popup-rightcolumn {
   border-left: 1px solid #e2e2e2;
   width: 300px;
@@ -1998,45 +2051,45 @@ h1 {
   float: left;
   background-color: #ffffff;
 }
-/* line 59, ../sass/components/_popup.scss */
+/* line 64, ../sass/components/_popup.scss */
 .popup .popup-inner .popup-rightcolumn .datepicker {
   border: none;
   box-shadow: none;
 }
-/* line 62, ../sass/components/_popup.scss */
+/* line 67, ../sass/components/_popup.scss */
 .popup .popup-inner .popup-rightcolumn .datepicker h1 {
   padding-bottom: 0;
 }
-/* line 65, ../sass/components/_popup.scss */
+/* line 70, ../sass/components/_popup.scss */
 .popup .popup-inner .popup-rightcolumn .datepicker .content {
   background-color: #ffffff;
 }
-/* line 67, ../sass/components/_popup.scss */
+/* line 72, ../sass/components/_popup.scss */
 .popup .popup-inner .popup-rightcolumn .datepicker .content .select {
   width: 85%;
 }
-/* line 71, ../sass/components/_popup.scss */
+/* line 76, ../sass/components/_popup.scss */
 .popup .popup-inner .popup-rightcolumn .datepicker .content .select-inner .dropdown_content {
   width: 270px;
 }
-/* line 76, ../sass/components/_popup.scss */
+/* line 81, ../sass/components/_popup.scss */
 .popup .popup-inner .popup-rightcolumn .datepicker .content .btn {
   float: left;
 }
-/* line 80, ../sass/components/_popup.scss */
+/* line 85, ../sass/components/_popup.scss */
 .popup .popup-inner .popup-rightcolumn .datepicker .label {
   color: #383838;
   opacity: 0.5;
 }
-/* line 85, ../sass/components/_popup.scss */
+/* line 90, ../sass/components/_popup.scss */
 .popup .popup-inner .popup-rightcolumn input {
   background-color: #f2f2f2;
 }
-/* line 90, ../sass/components/_popup.scss */
+/* line 95, ../sass/components/_popup.scss */
 .popup .popup-inner .datepicker .content .select-inner .dropdown_header.active {
   line-height: 32px;
 }
-/* line 93, ../sass/components/_popup.scss */
+/* line 98, ../sass/components/_popup.scss */
 .popup .popup-inner .dropdown_header:hover:after {
   color: #e04f2f;
   transition: color 0.2s;
@@ -2045,7 +2098,7 @@ h1 {
   -o-transition: color 0.2s;
 }
 
-/* line 103, ../sass/components/_popup.scss */
+/* line 108, ../sass/components/_popup.scss */
 .popup-overlay {
   position: absolute;
   left: 0px;

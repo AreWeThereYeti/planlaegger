@@ -7,32 +7,32 @@
   <div class="popup-leftcolumn">
     <div class="list" scroll>
       <div class="listheader">
-        <div class="col-2-8">
+        <div class="col-2-10">
           <span  ng-class="{active : Overview.predicate == 'created', arrow_box : Overview.predicate == 'created', reverse : reverse}" ng-click="Overview.predicate = 'created'; reverse = dateReverse; dateReverse=!dateReverse; idReverse=false">Dato</span>
         </div>
-        <div class="col-2-8">
+        <div class="col-3-10">
           <span  ng-class="{active : Overview.predicate == 'title', arrow_box : Overview.predicate == 'title', reverse : reverse}" ng-click="Overview.predicate = 'title'; reverse = idReverse; idReverse=!idReverse; dateReverse = false">Titel</span>
         </div>
-        <div class="col-2-8" >
+        <div class="col-7-20" >
           <span>Læremiddel</span>
         </div>
-        <div class="col-2-8" >
+        <div class="col-3-20" >
           <span>Niveau</span>
         </div>
       </div>
 
       <!--item in logs-->
       <div class="listitem animate" ng-repeat="entry in Overview.productEntries | logRange:Overview.filterRange |orderBy:Overview.predicate:!reverse">
-            <span class="col-2-8">
+            <span class="col-2-10">
               <span class="date" ng-class="{active : Overview.predicate == 'created'}">{{entry.created * 1000 | date:'dd-MM-yyyy'}}</span> <!--multiply with 1000 to get convert from unix time-->
             </span>
-            <span  class="col-2-8" ng-class="{'active' : Overview.predicate == 'title'}">
+            <span  class="col-3-10" ng-class="{'active' : Overview.predicate == 'title'}">
               <span class="title" ng-click="Overview.goToPlanner(entry.objectID)">{{entry.title}}</span>
             </span>
-            <span class="col-2-8">
+            <span class="col-7-20">
               {{entry.subjects[0]}}
             </span>
-            <span class="col-2-8">
+            <span class="col-3-20">
               {{entry.levels[0]}}
             </span>
 
