@@ -32,7 +32,7 @@ app.controller('DialogCtrl', [ 'colorPickerService', '$window', '$routeParams', 
         var t =
           " .btn {line-height: 40px; width: 250px; text-align: left; padding: 0px 15px; margin: 0;  cursor: pointer; outline: 0; border: none; color: #ffffff; background-color: "+colorPickerService.getColor($rootScope.current.subjects[0])+"; font-family: arial, helvetica, sans-serif; font-size: 14px;}";
         x.styleSheet.cssText = t;
-        doc.getElementsByClassName('head')[0].appendChild(x);
+        doc.head.appendChild(x);
 
       } else {
         var t = doc.createTextNode(

@@ -32,14 +32,12 @@
     });
 
   } );
+  window.onload = function() {
 
-  if(opener.myFunc){
-    console.log('called myfunc');
-    opener.myFunc(document);
-  }else{
-    console.log('func not defined');
+    if (opener && opener.myFunc && document) {
+      opener.myFunc(document);
+    }
   }
-
 </script>
 </body>
 </html>
