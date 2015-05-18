@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope', '$location', 'getdataservice', '$scope', '$route', '$routeParams', function ( colorPickerService, planner, $rootScope, $location, getdataservice, $scope, $route, $routeParams) {
+app.controller('PlanlaeggerCtrl', ['$timeout', 'colorPickerService', 'planner', '$rootScope', '$location', 'getdataservice', '$scope', '$route', '$routeParams', function ($timeout, colorPickerService, planner, $rootScope, $location, getdataservice, $scope, $route, $routeParams) {
 
   //Save reference to controller in order to avoid reference soup
   var Plan = this;
@@ -19,7 +19,9 @@ app.controller('PlanlaeggerCtrl', ['colorPickerService', 'planner', '$rootScope'
   // get the raw planner data from the plannerId in the user-defined planner
   getdataservice.getPlanner(angular.fromJson(Plan.current.content).plannerID).then(function(data){
     // remove loading view when planner is loaded
-    $rootScope.loadingView = false;
+    $timeout(function(){
+      $rootScope.loadingView = false
+    });
 
     Plan.plandata = angular.fromJson(data.data);
 
