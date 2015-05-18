@@ -21,7 +21,7 @@ app.controller('DialogCtrl', [ 'colorPickerService', '$window', '$routeParams', 
   Dialog.exportPlanner = function(){
    var exportObject = angular.fromJson($rootScope.current.content);
     var route = $routeParams.id;
-    var exportWindow = window.open('views/exportView.html', '_blank' ,"height=600, width=600");
+    var exportWindow = window.open('views/exportView.html', '_blank' ,"scrollbars=1,resizable=1,height=600,width=600");
 
 
 // public funtion that generates the course table when called from child window.
