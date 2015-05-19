@@ -23,7 +23,7 @@ app.controller('PlanMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope
 // sends user to a planner view
   PlanMenubar.goToOverview = function(){
     if(window.parent.updatePlannerUrl) {
-      $location.path('/').replace();
+      $location.path('/').search('product', null).replace();
       window.parent.updatePlannerUrl('/');
     } else {
       $location.path('/').search('product', null);
