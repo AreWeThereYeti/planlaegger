@@ -26,7 +26,9 @@ app.controller('PlanMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope
       $location.path('/').replace();
       window.parent.updatePlannerUrl('/');
     } else {
-      $location.path('/');
+      $location.path('/').search('product', null);
+      $rootScope.popup = false;
+
     }
   };
 /*  PlanMenubar.goToOverview = function(){

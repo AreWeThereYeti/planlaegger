@@ -14,9 +14,7 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
   $scope.subjectAsKeys = {};
   $scope.title = '';
 
-  if($rootScope.popup){
-    $scope.valgtLaeremiddel = $route.current.params.product;
-  }
+
   angular.forEach($scope.plannerList, function(plannerdata){
 
     // the following ignores planners with unfinished planner data. Remove when data sets are ready and available
@@ -50,6 +48,12 @@ app.controller('DatePickerCtrl', [ '$location', '$rootScope', '$route', 'getdata
     });
   });
 
+  if($rootScope.popup){
+    $scope.valgtLaeremiddel = $route.current.params.product;
+    if($scope.subjectAsKeys[$scope.valgtLaeremiddel] && $scope.subjectAsKeys[$scope.valgtLaeremiddel].length) {
+      $scope.valgtNiveau = $scope.subjectAsKeys[$scope.valgtLaeremiddel][0].Level;
+    }
+  }
 
   //On create report click
 	$scope.createPlanner = function(){
