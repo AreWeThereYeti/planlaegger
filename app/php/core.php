@@ -20,6 +20,7 @@ define('HTTP_LOCAL_HOST', 'test.mit.gyldendal.dk');
 
 // Define API endpoint URL
 define('USERDATA_API_URL', (stripos($_SERVER['HTTP_HOST'], HTTP_LOCAL_HOST) === false) ? 'http://userdata.gyldendal.dk/api/' : 'http://api.test.userdata.gyldendal.dk/api/');
+define('PLANNERLIST_URL', (stripos($_SERVER['HTTP_HOST'], HTTP_LOCAL_HOST) === false) ? 'http://plannerservice.gyldendal.dk/api/' : 'http://test.plannerservice.gyldendal.dk/api/');
 
 // All requests must not be cached!
 header('Cache-Control: no-cache, no-store, max-age=0, must-revalidate');

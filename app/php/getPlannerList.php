@@ -4,7 +4,7 @@
 require_once 'core.php';
 
 // Specify request URL
-$url = 'http://test.plannerservice.gyldendal.dk/api/planner/getList';
+$url =  PLANNERLIST_URL . 'planner/getList';
 
 // Prepare cURL-handle
 $curl_handle = curl_init();
