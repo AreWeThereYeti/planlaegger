@@ -106,7 +106,7 @@
             ns-popover-trigger="mouseover"
             ns-popover-placement="right|center"
 
-            class="course-container" ng-class="{'highlighted': course.highlight}" ui-draggable="true" drag-channel="courses" on-drop-success="Plan.dropSuccessHandler($event,$index,course,Plan.courses)" drag="course;" ng-mouseover="Plan.setPopoverPos($event, 20)" ng-mousedown="hidePopover()" ng-repeat="course in Plan.sortedCourses">
+            class="course-container" ng-class="{'highlighted': course.highlight}" ui-draggable="true" drag-channel="courses" on-drop-success="Plan.dropSuccessHandler($event,$index,course,Plan.courses)" drag="course;" ng-mouseover="Plan.setPopoverPos($event, 20)" ng-mousedown="hidePopover()" ng-repeat="course in Plan.sortedCourses | orderBy:'value'">
       <span unselectable="on" class="course-title">{{course.value}}</span>
       <span unselectable="on" class="course-icon" ng-class="{'icon': !Plan.checkList[course.id], 'ion-grid': !Plan.checkList[course.id], 'checked': Plan.checkList[course.id]}"></span>
     </div>
