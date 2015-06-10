@@ -372,11 +372,11 @@ app.controller('PlanlaeggerCtrl', ['$timeout', 'colorPickerService', 'planner', 
     }
 
     // removes level dropdown
-/*    if(angular.isDefined(Plan.selectedCourse)){
+    if(angular.isDefined(Plan.selectedCourse)){
       Plan.sortedCourses = Plan.setLevel(Plan.setTopic(Plan.selectedCourse));
     } else {
       Plan.sortedCourses = Plan.setLevel(Plan.courses);
-    }*/
+    }
   };
 
 
