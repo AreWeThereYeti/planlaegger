@@ -75,6 +75,28 @@
 
   <div unselectable="on" class="courses">
 
+    <div class="dropdown level">
+      <div class="select">
+        <div class="select-inner">
+          <div ng-class="{active : Plan.dropDown == 'level'}" class="dropdown_header" ng-click="Plan.dropDown = 'level'">{{Plan.selectedLevelText || "Alle klassetrin"}}</div>
+          <div ng-if="Plan.dropDown == 'level'" ng-class="{dropdown_content : Plan.dropDown == 'level'}" class="animate col-1-8">
+            <ul>
+              <li>
+                <div class="custom-radio" >
+                  <input id="course-dropdown-allLevels" type="radio" name="check" value="" ng-checked="Plan.selectedLevel == 'Alle klassetrin'">
+                  <label for="course-dropdown-allLevels" ng-click="Plan.selectedLevel = 'Alle klassetrin'; Plan.selectedLevelText = 'Alle klassetrin'; Plan.sortCourses(); Plan.dropDown = ''">Alle klassetrin</label>
+                </div>
+                <div class="custom-radio" ng-repeat="option in Plan.levels" >
+                  <input id="level-dropdown{{$index}}" type="radio" name="check" value="Plan-checkfrom-{{input.id}}{{$index}}" ng-checked="Plan.selectedLevel == option">
+                  <label for="level-dropdown{{$index}}" ng-click="Plan.selectedLevel = Plan.levels[$index]; Plan.selectedLevelText = Plan.selectedLevel+'. Klasse'; Plan.sortCourses(); Plan.dropDown = ''">{{option}}. Klasse</label>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div ng-show="Plan.dropDown == 'level'" ng-click="Plan.dropDown =''" class="plan-overlay"></div>
+        </div>
+      </div>
+    </div>
 
     <div class="dropdown course">
       <div class="select">
